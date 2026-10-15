@@ -42,9 +42,17 @@ func _run() -> void:
 	game.set_physics_process(false)
 	if game.state != "ready":
 		return _fail("game did not start in the ready state")
+	var touch := InputEventScreenTouch.new()
+	touch.index = 0
+	touch.pressed = true
+	touch.position = Vector2(640.0, 360.0)
+	game._unhandled_input(touch)
+	if game.state != "playing":
+		return _fail("touch did not start the flight")
 	var click := InputEventMouseButton.new()
 	click.button_index = MOUSE_BUTTON_LEFT
 	click.pressed = true
+	game.state = "ready"
 	game._unhandled_input(click)
 	if game.state != "playing":
 		return _fail("click did not start the flight")
@@ -102,11 +110,11 @@ func _run() -> void:
 		return _fail("pipe collision did not end the run")
 	if audio != null and audio.get_play_count(&"paper_bump") < 1:
 		return _fail("collision produced no registered landing cue")
-	game.handle_primary_action()
+	game._unhandled_input(touch)
 	if game.state != "playing" or game.score != 0:
-		return _fail("click after game over did not restart the run")
+		return _fail("touch after game over did not restart the run")
 
-	print("[SMOKE_PASS] paper flyer: click, gravity, flap, scoring, SFX, timed difficulty ramp, collision and replay verified")
+	print("[SMOKE_PASS] paper flyer: touch, click, gravity, flap, scoring, SFX, timed difficulty ramp, collision and replay verified")
 	_restore_saved_record()
 	# The Dummy output clock is independent from simulated physics delta. Let the
 	# final short one-shots drain so the native test process releases MP3 streams.
