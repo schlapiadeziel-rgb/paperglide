@@ -1,0 +1,605 @@
+{
+  "version": 4,
+  "settings": [
+    {
+      "key": "move_speed",
+      "default": 330,
+      "min": 150,
+      "max": 520,
+      "step": 10,
+      "decimals": 0,
+      "id": "player.move_speed",
+      "category": "PLAYER",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.move_speed",
+      "description_key": "tuning.description.move_speed",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "move_speed"
+      ]
+    },
+    {
+      "key": "acceleration",
+      "default": 3200,
+      "min": 800,
+      "max": 6000,
+      "step": 100,
+      "decimals": 0,
+      "id": "player.acceleration",
+      "category": "PLAYER",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.acceleration",
+      "description_key": "tuning.description.acceleration",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "acceleration"
+      ]
+    },
+    {
+      "key": "friction",
+      "default": 3600,
+      "min": 800,
+      "max": 6000,
+      "step": 100,
+      "decimals": 0,
+      "id": "player.friction",
+      "category": "PLAYER",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.friction",
+      "description_key": "tuning.description.friction",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "friction"
+      ]
+    },
+    {
+      "key": "jump_power",
+      "default": 1000,
+      "min": 800,
+      "max": 1300,
+      "step": 10,
+      "decimals": 0,
+      "id": "player.jump_power",
+      "category": "PLAYER",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.jump_power",
+      "description_key": "tuning.description.jump_power",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "jump_power"
+      ]
+    },
+    {
+      "key": "jump_release_speed",
+      "default": 420,
+      "min": 150,
+      "max": 800,
+      "step": 10,
+      "decimals": 0,
+      "id": "player.jump_release_speed",
+      "category": "PLAYER",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.jump_release_speed",
+      "description_key": "tuning.description.jump_release_speed",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "jump_release_speed"
+      ]
+    },
+    {
+      "key": "gravity",
+      "default": 2400,
+      "min": 1500,
+      "max": 3600,
+      "step": 50,
+      "decimals": 0,
+      "id": "player.gravity",
+      "category": "PLAYER",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.gravity",
+      "description_key": "tuning.description.gravity",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "gravity"
+      ]
+    },
+    {
+      "key": "coyote_time",
+      "default": 0.1,
+      "min": 0,
+      "max": 0.3,
+      "step": 0.01,
+      "decimals": 2,
+      "id": "player.coyote_time",
+      "category": "PLAYER",
+      "type": "float",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.coyote_time",
+      "description_key": "tuning.description.coyote_time",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "coyote_time"
+      ]
+    },
+    {
+      "key": "jump_buffer",
+      "default": 0.12,
+      "min": 0,
+      "max": 0.3,
+      "step": 0.01,
+      "decimals": 2,
+      "id": "player.jump_buffer",
+      "category": "PLAYER",
+      "type": "float",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.jump_buffer",
+      "description_key": "tuning.description.jump_buffer",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "jump_buffer"
+      ]
+    },
+    {
+      "key": "grapple_range",
+      "default": 470,
+      "min": 260,
+      "max": 720,
+      "step": 10,
+      "decimals": 0,
+      "id": "player.grapple_range",
+      "category": "PLAYER",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.grapple_range",
+      "description_key": "tuning.description.grapple_range",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "grapple_range"
+      ]
+    },
+    {
+      "key": "grapple_speed",
+      "default": 2300,
+      "min": 1000,
+      "max": 3600,
+      "step": 50,
+      "decimals": 0,
+      "id": "player.grapple_speed",
+      "category": "PLAYER",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.grapple_speed",
+      "description_key": "tuning.description.grapple_speed",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "grapple_speed"
+      ]
+    },
+    {
+      "key": "throw_speed",
+      "default": 840,
+      "min": 400,
+      "max": 1400,
+      "step": 20,
+      "decimals": 0,
+      "id": "player.throw_speed",
+      "category": "PLAYER",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.throw_speed",
+      "description_key": "tuning.description.throw_speed",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "throw_speed"
+      ]
+    },
+    {
+      "key": "fire_rate_scale",
+      "default": 1.0,
+      "min": 0.5,
+      "max": 2.0,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "player.fire_rate_scale",
+      "category": "PLAYER",
+      "type": "float",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.fire_rate_scale",
+      "description_key": "tuning.description.fire_rate_scale",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "fire_rate_scale"
+      ]
+    },
+    {
+      "key": "player_max_hp",
+      "default": 100,
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "decimals": 0,
+      "id": "gameplay.player_max_hp",
+      "category": "GAMEPLAY",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.player_max_hp",
+      "description_key": "tuning.description.player_max_hp",
+      "unit_key": "",
+      "tags": [
+        "gameplay",
+        "player_max_hp"
+      ]
+    },
+    {
+      "key": "lives",
+      "default": 3,
+      "min": 1,
+      "max": 9,
+      "step": 1,
+      "decimals": 0,
+      "id": "gameplay.lives",
+      "category": "GAMEPLAY",
+      "type": "integer",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.lives",
+      "description_key": "tuning.description.lives",
+      "unit_key": "",
+      "tags": [
+        "gameplay",
+        "lives"
+      ]
+    },
+    {
+      "key": "enemy_damage_scale",
+      "default": 1.0,
+      "min": 0.25,
+      "max": 2.0,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "enemies.enemy_damage_scale",
+      "category": "ENEMIES",
+      "type": "float",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.enemy_damage_scale",
+      "description_key": "tuning.description.enemy_damage_scale",
+      "unit_key": "",
+      "tags": [
+        "enemies",
+        "enemy_damage_scale"
+      ]
+    },
+    {
+      "key": "enemy_fire_rate",
+      "default": 1.0,
+      "min": 0.5,
+      "max": 2.0,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "enemies.enemy_fire_rate",
+      "category": "ENEMIES",
+      "type": "float",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.enemy_fire_rate",
+      "description_key": "tuning.description.enemy_fire_rate",
+      "unit_key": "",
+      "tags": [
+        "enemies",
+        "enemy_fire_rate"
+      ]
+    },
+    {
+      "key": "enemy_health_scale",
+      "default": 1.0,
+      "min": 0.5,
+      "max": 2.5,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "enemies.enemy_health_scale",
+      "category": "ENEMIES",
+      "type": "float",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.enemy_health_scale",
+      "description_key": "tuning.description.enemy_health_scale",
+      "unit_key": "",
+      "tags": [
+        "enemies",
+        "enemy_health_scale"
+      ]
+    },
+    {
+      "key": "fury_duration",
+      "default": 8,
+      "min": 4,
+      "max": 14,
+      "step": 0.5,
+      "decimals": 1,
+      "id": "player.fury_duration",
+      "category": "PLAYER",
+      "type": "float",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.fury_duration",
+      "description_key": "tuning.description.fury_duration",
+      "unit_key": "",
+      "tags": [
+        "player",
+        "fury_duration"
+      ]
+    },
+    {
+      "key": "style_decay",
+      "default": 1.0,
+      "min": 0.3,
+      "max": 2.0,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "gameplay.style_decay",
+      "category": "GAMEPLAY",
+      "type": "float",
+      "apply_mode": "NEXT_RUN",
+      "integrity": "GAMEPLAY",
+      "label_key": "tuning.setting.style_decay",
+      "description_key": "tuning.description.style_decay",
+      "unit_key": "",
+      "tags": [
+        "gameplay",
+        "style_decay"
+      ]
+    },
+    {
+      "key": "hitstop_scale",
+      "default": 1.0,
+      "min": 0,
+      "max": 2.0,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "environment.hitstop_scale",
+      "category": "ENVIRONMENT",
+      "type": "float",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.hitstop_scale",
+      "description_key": "tuning.description.hitstop_scale",
+      "unit_key": "",
+      "tags": [
+        "environment",
+        "hitstop_scale"
+      ]
+    },
+    {
+      "key": "post_fx",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 1,
+      "decimals": 0,
+      "id": "environment.post_fx",
+      "category": "ENVIRONMENT",
+      "type": "boolean",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.post_fx",
+      "description_key": "tuning.description.post_fx",
+      "unit_key": "",
+      "tags": [
+        "environment",
+        "post_fx"
+      ]
+    },
+    {
+      "key": "particles_density",
+      "default": 1.0,
+      "min": 0.2,
+      "max": 1.0,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "environment.particles_density",
+      "category": "ENVIRONMENT",
+      "type": "float",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.particles_density",
+      "description_key": "tuning.description.particles_density",
+      "unit_key": "",
+      "tags": [
+        "environment",
+        "particles_density"
+      ]
+    },
+    {
+      "key": "camera_smoothing",
+      "default": 8,
+      "min": 2,
+      "max": 16,
+      "step": 0.5,
+      "decimals": 1,
+      "id": "environment.camera_smoothing",
+      "category": "ENVIRONMENT",
+      "type": "float",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.camera_smoothing",
+      "description_key": "tuning.description.camera_smoothing",
+      "unit_key": "",
+      "tags": [
+        "environment",
+        "camera_smoothing"
+      ]
+    },
+    {
+      "key": "screen_shake",
+      "default": 1,
+      "min": 0,
+      "max": 1.5,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "environment.screen_shake",
+      "category": "ENVIRONMENT",
+      "type": "float",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.screen_shake",
+      "description_key": "tuning.description.screen_shake",
+      "unit_key": "",
+      "tags": [
+        "environment",
+        "screen_shake"
+      ]
+    },
+    {
+      "key": "hud_opacity",
+      "default": 1,
+      "min": 0.5,
+      "max": 1,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "ui.hud_opacity",
+      "category": "UI",
+      "type": "float",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.hud_opacity",
+      "description_key": "tuning.description.hud_opacity",
+      "unit_key": "",
+      "tags": [
+        "ui",
+        "hud_opacity"
+      ]
+    },
+    {
+      "key": "reduced_motion",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "step": 1,
+      "decimals": 0,
+      "id": "ui.reduced_motion",
+      "category": "UI",
+      "type": "boolean",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.reduced_motion",
+      "description_key": "tuning.description.reduced_motion",
+      "unit_key": "",
+      "tags": [
+        "ui",
+        "reduced_motion"
+      ]
+    },
+    {
+      "key": "audio_master",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "audio.audio_master",
+      "category": "AUDIO",
+      "type": "float",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.audio_master",
+      "description_key": "tuning.description.audio_master",
+      "unit_key": "",
+      "tags": [
+        "audio",
+        "audio_master"
+      ]
+    },
+    {
+      "key": "audio_music",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "audio.audio_music",
+      "category": "AUDIO",
+      "type": "float",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.audio_music",
+      "description_key": "tuning.description.audio_music",
+      "unit_key": "",
+      "tags": [
+        "audio",
+        "audio_music"
+      ]
+    },
+    {
+      "key": "audio_sfx",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "audio.audio_sfx",
+      "category": "AUDIO",
+      "type": "float",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.audio_sfx",
+      "description_key": "tuning.description.audio_sfx",
+      "unit_key": "",
+      "tags": [
+        "audio",
+        "audio_sfx"
+      ]
+    },
+    {
+      "key": "audio_ui",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 0.05,
+      "decimals": 2,
+      "id": "audio.audio_ui",
+      "category": "AUDIO",
+      "type": "float",
+      "apply_mode": "LIVE",
+      "integrity": "COSMETIC",
+      "label_key": "tuning.setting.audio_ui",
+      "description_key": "tuning.description.audio_ui",
+      "unit_key": "",
+      "tags": [
+        "audio",
+        "audio_ui"
+      ]
+    }
+  ]
+}

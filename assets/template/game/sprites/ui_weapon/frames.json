@@ -1,0 +1,60 @@
+{
+ "scale": 0.34810126582278483,
+ "frames": {
+  "pistol": {
+   "file": "pistol.webp",
+   "size": [
+    120,
+    87
+   ],
+   "pivot": [
+    47.6,
+    34.0
+   ]
+  },
+  "hmg": {
+   "file": "hmg.webp",
+   "size": [
+    198,
+    103
+   ],
+   "pivot": [
+    86.2,
+    41.3
+   ]
+  },
+  "spread": {
+   "file": "spread.webp",
+   "size": [
+    179,
+    78
+   ],
+   "pivot": [
+    82.2,
+    34.0
+   ]
+  },
+  "rocket": {
+   "file": "rocket.webp",
+   "size": [
+    211,
+    81
+   ],
+   "pivot": [
+    94.5,
+    31.3
+   ]
+  },
+  "mg": {
+   "file": "mg.webp",
+   "size": [
+    168,
+    110
+   ],
+   "pivot": [
+    74.6,
+    50.3
+   ]
+  }
+ }
+}

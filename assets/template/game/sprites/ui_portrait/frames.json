@@ -1,0 +1,38 @@
+{
+ "scale": 0.27137042062415195,
+ "frames": {
+  "normal": {
+   "file": "normal.webp",
+   "size": [
+    170,
+    168
+   ],
+   "pivot": [
+    84.5,
+    83.2
+   ]
+  },
+  "hurt": {
+   "file": "hurt.webp",
+   "size": [
+    171,
+    168
+   ],
+   "pivot": [
+    85.0,
+    83.3
+   ]
+  },
+  "fury": {
+   "file": "fury.webp",
+   "size": [
+    194,
+    200
+   ],
+   "pivot": [
+    95.2,
+    99.2
+   ]
+  }
+ }
+}

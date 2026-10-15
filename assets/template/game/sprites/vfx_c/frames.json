@@ -1,0 +1,93 @@
+{
+ "scale": 0.39215686274509803,
+ "frames": {
+  "dust": {
+   "file": "dust.webp",
+   "size": [
+    213,
+    144
+   ],
+   "pivot": [
+    108.4,
+    79.2
+   ]
+  },
+  "scorch": {
+   "file": "scorch.webp",
+   "size": [
+    230,
+    92
+   ],
+   "pivot": [
+    113.5,
+    43.2
+   ]
+  },
+  "rocks": {
+   "file": "rocks.webp",
+   "size": [
+    158,
+    151
+   ],
+   "pivot": [
+    75.9,
+    79.0
+   ]
+  },
+  "splinters": {
+   "file": "splinters.webp",
+   "size": [
+    188,
+    148
+   ],
+   "pivot": [
+    91.2,
+    83.5
+   ]
+  },
+  "shards": {
+   "file": "shards.webp",
+   "size": [
+    189,
+    180
+   ],
+   "pivot": [
+    91.1,
+    95.7
+   ]
+  },
+  "smoke_grey": {
+   "file": "smoke_grey.webp",
+   "size": [
+    215,
+    159
+   ],
+   "pivot": [
+    106.4,
+    83.2
+   ]
+  },
+  "smoke_black": {
+   "file": "smoke_black.webp",
+   "size": [
+    212,
+    172
+   ],
+   "pivot": [
+    104.4,
+    90.9
+   ]
+  },
+  "casing": {
+   "file": "casing.webp",
+   "size": [
+    204,
+    89
+   ],
+   "pivot": [
+    100.2,
+    41.9
+   ]
+  }
+ }
+}

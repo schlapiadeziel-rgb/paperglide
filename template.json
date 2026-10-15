@@ -1,0 +1,11 @@
+{
+  "id": "game-scroller",
+  "kind": "game",
+  "game_genre": "scroller",
+  "status": "ready",
+  "name": "Side Scroller",
+  "description": "Operation: Dust Fang, a three-stage arcade run-and-gun with a grappling claw, enemy shields, thrown props, STYLE ranks, FURY, stage streaming and a Rhino Crawler boss.",
+  "capabilities": [
+    "static"
+  ]
+}

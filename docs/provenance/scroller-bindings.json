@@ -1,0 +1,2313 @@
+{
+  "bindings": {
+    "assets/template/game/audio/alarm.ogg": {
+      "sha256": "sha256:6596a6e949b745004e0cb777148c92479f7001632e0b2aeae5270b026183ccec",
+      "size": 31126,
+      "source": "/home/ubuntu/art_raw/audio/sfx_alarm.mp3",
+      "eventId": "180754387",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/alarm.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/banner_slam.ogg": {
+      "sha256": "sha256:63671fe99dcb27781e181122867b95e433d2eee4850ee4c151df0a3c406c5cc8",
+      "size": 10915,
+      "source": "/home/ubuntu/art_raw/v2/audio/banner_slam.mp3",
+      "eventId": "180851620",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/banner_slam.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/bgm_boss.ogg": {
+      "sha256": "sha256:0934eec9eccd43a34ca37305e3e8e59f25701f5291383a1a53fe698b3f0358d4",
+      "size": 1716944,
+      "source": "/home/ubuntu/art_raw/audio/bgm_boss.mp3",
+      "eventId": "180754364",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/bgm_boss.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/bgm_stage.ogg": {
+      "sha256": "sha256:a74a7e30a2903a2902fe81f18ad464e22f3a4726881434843bec95620d1c44d6",
+      "size": 2317547,
+      "source": "/home/ubuntu/art_raw/audio/bgm_stage.mp3",
+      "eventId": "180754331",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/bgm_stage.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/bgm_stage1.ogg": {
+      "sha256": "sha256:479a252e1bcd0385c1e19524c3d791e136ad553736408dda1002b9076d6cd0dd",
+      "size": 1607388,
+      "source": "/home/ubuntu/art_raw/v2/audio/bgm_stage1.mp3",
+      "eventId": "180851408",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/bgm_stage1.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/bgm_title.ogg": {
+      "sha256": "sha256:782db98c52ae590647dc1e5194254d032fc84c8dedf9f058c484527da5ca9b16",
+      "size": 881349,
+      "source": "/home/ubuntu/art_raw/v2/audio/bgm_title.mp3",
+      "eventId": "180851343",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/bgm_title.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/chain_boom.ogg": {
+      "sha256": "sha256:4d7a8ce58f6e20babdbb717c02a416ba316fc59560e52cd60c1a9d226d27c3cb",
+      "size": 26610,
+      "source": "/home/ubuntu/art_raw/v2/audio/chain_boom.mp3",
+      "eventId": "180851450",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/chain_boom.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/enemy_die.ogg": {
+      "sha256": "sha256:e141aea909cde12de6f4df28b332c2424fac6b1dc25380c3ddff92478b8d1c2d",
+      "size": 13703,
+      "source": "/home/ubuntu/art_raw/audio/sfx_enemy_die.mp3",
+      "eventId": "180754368",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/enemy_die.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/explosion.ogg": {
+      "sha256": "sha256:8b456d58d79cbce695eddb02c9df27b8f2e4e19acbb746af29d2033653b45c32",
+      "size": 17890,
+      "source": "/home/ubuntu/art_raw/audio/sfx_explosion.mp3",
+      "eventId": "180753562",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/explosion.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/fury_off.ogg": {
+      "sha256": "sha256:e754160d94e502abba443e5446c8e511c1d800e8833315d741febdbe4d92e33f",
+      "size": 10059,
+      "source": "/home/ubuntu/art_raw/v2/audio/fury_off.mp3",
+      "eventId": "180851622",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/fury_off.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/fury_on.ogg": {
+      "sha256": "sha256:008d56c3635a458518db1e88ce2b56cbcc557c218ecbd9f2a3d1cec079b79ed1",
+      "size": 19703,
+      "source": "/home/ubuntu/art_raw/v2/audio/fury_on.mp3",
+      "eventId": "180851447",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/fury_on.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/game_over.ogg": {
+      "sha256": "sha256:279157b74d6230a15001abfbd7893cdc5f1145af8955132b3895b726c207793c",
+      "size": 13465,
+      "source": "/home/ubuntu/art_raw/audio/announcer.wav",
+      "eventId": "180755793",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/game_over.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/gameover.ogg": {
+      "sha256": "sha256:ba401c5b64bbdb798364755cb420fea7dcf04602f7d4d5e36e1427bf77724dc1",
+      "size": 21269,
+      "source": "/home/ubuntu/art_raw/v2/audio/gameover.mp3",
+      "eventId": "180851626",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/gameover.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/grab.ogg": {
+      "sha256": "sha256:9a92de3b0ffd46a5acd83f56ab6546de7ed3df29049a021ae4aeee726bd277a1",
+      "size": 8569,
+      "source": "/home/ubuntu/art_raw/audio/sfx_grab.mp3",
+      "eventId": "180754367",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/grab.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/grapple_fire.ogg": {
+      "sha256": "sha256:0050323a12712aa5a9e9ecca2760fbf37a5fbe0ad922c7bde8d6b402bad7c483",
+      "size": 9671,
+      "source": "/home/ubuntu/art_raw/audio/sfx_grapple_fire.mp3",
+      "eventId": "180753556",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/grapple_fire.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/grapple_hit.ogg": {
+      "sha256": "sha256:f42460099177c2c15eb649cdddc7df9fdbcd51ecf017cb27722510cfe43e929f",
+      "size": 9269,
+      "source": "/home/ubuntu/art_raw/audio/sfx_grapple_hit.mp3",
+      "eventId": "180753561",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/grapple_hit.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/heartbeat.ogg": {
+      "sha256": "sha256:363215c218fdcb061fa577bdce055dcb8cc658a9abc5862f66da889a4eec32c2",
+      "size": 8979,
+      "source": "/home/ubuntu/art_raw/v2/audio/heartbeat.mp3",
+      "eventId": "180851624",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/heartbeat.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/hit.ogg": {
+      "sha256": "sha256:51c37ac64b64cd4cddaa3bb1c3cc27a64b50d374bd768da2311937d53fe1cb2c",
+      "size": 7225,
+      "source": "/home/ubuntu/art_raw/audio/sfx_hit.mp3",
+      "eventId": "180754396",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/hit.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/hmg.ogg": {
+      "sha256": "sha256:13b48f965dca538cf02c1151c1f33c84a0eba0ed99b0dc29bd51fc29af9a226f",
+      "size": 6403,
+      "source": "/home/ubuntu/art_raw/audio/sfx_hmg.mp3",
+      "eventId": "180753532",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/hmg.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/jump.ogg": {
+      "sha256": "sha256:eba36b7d2e35b2116d5aec0d9c10e3483197737015465767879da5c185ae3b5c",
+      "size": 6018,
+      "source": "/home/ubuntu/art_raw/audio/sfx_jump.mp3",
+      "eventId": "180754334",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/jump.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/laser_charge.ogg": {
+      "sha256": "sha256:e3222ebdd77248a523241c56d976b47fc48d9474dfd76709b4af70950f501109",
+      "size": 15997,
+      "source": "/home/ubuntu/art_raw/v2/audio/laser_charge.mp3",
+      "eventId": "180851443",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/laser_charge.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/laser_fire.ogg": {
+      "sha256": "sha256:3b7ce6b9a3f0c23b257b1cf27a5297ad6352f3667641cdfdb70d195be6f5569b",
+      "size": 18104,
+      "source": "/home/ubuntu/art_raw/v2/audio/laser_fire.mp3",
+      "eventId": "180851439",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/laser_fire.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/mg_nest.ogg": {
+      "sha256": "sha256:68d6619dd27c4adb07ba63896ac0a910e73a84843469ae0934ed3f149bdcfb1c",
+      "size": 5209,
+      "source": "/home/ubuntu/art_raw/v2/audio/mg_nest.mp3",
+      "eventId": "180851437",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/mg_nest.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/missile.ogg": {
+      "sha256": "sha256:b76b3976591d7b79ed818cfae3329ceccd993e1cc8e3f8abae46e65559c50d57",
+      "size": 14475,
+      "source": "/home/ubuntu/art_raw/v2/audio/missile.mp3",
+      "eventId": "180851607",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/missile.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/mission_complete.ogg": {
+      "sha256": "sha256:083d95b021966c83328b32d6bc18792cefbde78b98fc116225698506b13aeac4",
+      "size": 17918,
+      "source": "/home/ubuntu/art_raw/audio/announcer.wav",
+      "eventId": "180755793",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/mission_complete.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/mission_start.ogg": {
+      "sha256": "sha256:d6ce56e93e2f79aa904558a3d672482f5602f0c02251c1dcbe0e22ae69fdbcb5",
+      "size": 19454,
+      "source": "/home/ubuntu/art_raw/audio/announcer.wav",
+      "eventId": "180755793",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/mission_start.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/overheat.ogg": {
+      "sha256": "sha256:24952ef2b8a2584b1b8379a35f11b1e8e799e7d90d2bbb1c1b4e046884125562",
+      "size": 12523,
+      "source": "/home/ubuntu/art_raw/v2/audio/overheat.mp3",
+      "eventId": "180851614",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/overheat.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/panic.ogg": {
+      "sha256": "sha256:b718263bfe2ce1e6ed458d775c503e55cef3e5fe094748b106ca16a74d6f0b58",
+      "size": 10977,
+      "source": "/home/ubuntu/art_raw/v2/audio/panic.mp3",
+      "eventId": "180851616",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/panic.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/pickup.ogg": {
+      "sha256": "sha256:60912d5197c05fad84c9e6f547b7bbfbccf6e99454e1c9a219a92df7a12146a0",
+      "size": 10137,
+      "source": "/home/ubuntu/art_raw/audio/sfx_pickup.mp3",
+      "eventId": "180754362",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/pickup.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/pistol.ogg": {
+      "sha256": "sha256:61ae5e49fa26db82fbbdc85bd90b7f96ef6105c5f988b2557138f16128341bd9",
+      "size": 6360,
+      "source": "/home/ubuntu/art_raw/audio/sfx_pistol.mp3",
+      "eventId": "180753563",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/pistol.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/player_hurt.ogg": {
+      "sha256": "sha256:7bd3e1603c1697530263e3f40dbb9da1681d707228eea3758f8618d387e7f996",
+      "size": 8625,
+      "source": "/home/ubuntu/art_raw/audio/sfx_player_hurt.mp3",
+      "eventId": "180754378",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/player_hurt.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/powerup.ogg": {
+      "sha256": "sha256:cdb1abf5605c171880ac22825940549fbf8f19f7995573594212d09823bf581a",
+      "size": 16027,
+      "source": "/home/ubuntu/art_raw/audio/sfx_powerup.mp3",
+      "eventId": "180754375",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/powerup.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/rank_down.ogg": {
+      "sha256": "sha256:2f9ea600151b678a1f84d3c101599036a4e9193a1f3b5bd378f252ab1893fb68",
+      "size": 7608,
+      "source": "/home/ubuntu/art_raw/v2/audio/rank_down.mp3",
+      "eventId": "180851435",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/rank_down.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/rank_up.ogg": {
+      "sha256": "sha256:f40ef2a1fab03c2cda279eaadf5733927da3561a1194052d0e0e285b59c29e8e",
+      "size": 13014,
+      "source": "/home/ubuntu/art_raw/v2/audio/rank_up.mp3",
+      "eventId": "180851445",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/rank_up.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/reel_zip.ogg": {
+      "sha256": "sha256:f128274b7d732cacf87e6f2c894f04666d20cd9702b38d8b723c06d19ffdb3de",
+      "size": 10892,
+      "source": "/home/ubuntu/art_raw/v2/audio/reel_zip.mp3",
+      "eventId": "180851618",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/reel_zip.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/ricochet.ogg": {
+      "sha256": "sha256:40ccde4fa8cd6700463b816c0a14919dd858ab86e70177b25883e276031a78a7",
+      "size": 8404,
+      "source": "/home/ubuntu/art_raw/audio/sfx_ricochet.mp3",
+      "eventId": "180754360",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/ricochet.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/rocket.ogg": {
+      "sha256": "sha256:c4b7ab82b1e69aa3c0b6a1e193600846c23e38aceb6fd59bcb37a9751efca19b",
+      "size": 13697,
+      "source": "/home/ubuntu/art_raw/audio/sfx_rocket.mp3",
+      "eventId": "180753586",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/rocket.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/slash.ogg": {
+      "sha256": "sha256:04995860ff7d8d65f9fdf12832dbe1bc0e287aaafe313a0c8c0f7b9685976dfe",
+      "size": 8609,
+      "source": "/home/ubuntu/art_raw/audio/sfx_slash.mp3",
+      "eventId": "180754370",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/slash.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/spread.ogg": {
+      "sha256": "sha256:bc6e96d2bc6b1e42e7987ecdb70f1df26303adbceab32af74af9d97691487d1f",
+      "size": 9787,
+      "source": "/home/ubuntu/art_raw/audio/sfx_spread.mp3",
+      "eventId": "180753536",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/spread.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/stage_clear.ogg": {
+      "sha256": "sha256:4c636a3dfb0cdf08109afffab83b530a74ad1f1bef0344c6693311b60412c35b",
+      "size": 91381,
+      "source": "/home/ubuntu/art_raw/v2/audio/bgm_victory.mp3",
+      "eventId": "180851329",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/stage_clear.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/tally_tick.ogg": {
+      "sha256": "sha256:2525c3b7b903b550911f3cddc00593be4f637e770ca22081232a5120cdf8e629",
+      "size": 7787,
+      "source": "/home/ubuntu/art_raw/v2/audio/tally_tick.mp3",
+      "eventId": "180851609",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/tally_tick.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/throw.ogg": {
+      "sha256": "sha256:b385843ae5a6197c506ab1061d90d3ad41d5a54a99b05aa2383ede1ab2a60b37",
+      "size": 6426,
+      "source": "/home/ubuntu/art_raw/audio/sfx_throw.mp3",
+      "eventId": "180753569",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/throw.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/ui_confirm.ogg": {
+      "sha256": "sha256:109b4427f847dd3cd204ff0659d3f29354fdea30dcfd186c007b0b4b0be8c8ec",
+      "size": 5742,
+      "source": "/home/ubuntu/art_raw/v2/audio/ui_confirm.mp3",
+      "eventId": "180851433",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/ui_confirm.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/ui_hover.ogg": {
+      "sha256": "sha256:5db0df13594dac0e8e48731062e498a2c567339f8e9b47280bcd5b80dfb63294",
+      "size": 8154,
+      "source": "/home/ubuntu/art_raw/v2/audio/ui_hover.mp3",
+      "eventId": "180851431",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/ui_hover.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/ui_pause.ogg": {
+      "sha256": "sha256:b0e4e2023161700c17474203af07c28308a86a99b93a98362c8d0b9dbf94e044",
+      "size": 5775,
+      "source": "/home/ubuntu/art_raw/v2/audio/ui_pause.mp3",
+      "eventId": "180851441",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/ui_pause.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_chain.ogg": {
+      "sha256": "sha256:961fd90a8befd800820b233cb8060126b1b137c371dfcf0ac4718c4ddd15de44",
+      "size": 18595,
+      "source": "/home/ubuntu/art_raw/v2/audio/vo_v2.wav",
+      "eventId": "180855236",
+      "recipe": "session-transform:180855775",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_chain.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_fury.ogg": {
+      "sha256": "sha256:aa06916de473e716c5d6192a705a2000cb946061d01e2c3bd83bc795a5dd1312",
+      "size": 16495,
+      "source": "/home/ubuntu/art_raw/v2/audio/vo_v2.wav",
+      "eventId": "180855236",
+      "recipe": "session-transform:180855775",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_fury.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_go.ogg": {
+      "sha256": "sha256:446d9d08391729d11c080b53c8140296e5b5aeec1de182f10444ef5be67118a1",
+      "size": 16342,
+      "source": "/home/ubuntu/art_raw/v2/audio/vo_v2.wav",
+      "eventId": "180855236",
+      "recipe": "session-transform:180855775",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_go.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_hmg.ogg": {
+      "sha256": "sha256:6bf411f76f1e50e460fa6ae877004240fd37539704498237c30de208131399d0",
+      "size": 20194,
+      "source": "/home/ubuntu/art_raw/audio/announcer.wav",
+      "eventId": "180755793",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_hmg.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_mission_start.ogg": {
+      "sha256": "sha256:d99afda66f0d46e374fbf10cd45e525f07686e038a6a98c8014be9110db246a9",
+      "size": 15417,
+      "source": "/home/ubuntu/art_raw/v2/audio/vo_v2.wav",
+      "eventId": "180855236",
+      "recipe": "session-transform:180855775",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_mission_start.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_rocket.ogg": {
+      "sha256": "sha256:e6000c6d194aa287aaaeecb01cb1b4ddba91269afcc790a134d2329047e0d463",
+      "size": 16379,
+      "source": "/home/ubuntu/art_raw/audio/announcer.wav",
+      "eventId": "180755793",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_rocket.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_spread.ogg": {
+      "sha256": "sha256:500de9c92aa692d19608ad0b543f25818923265f59f0a2ee0593e089bf5578bc",
+      "size": 16990,
+      "source": "/home/ubuntu/art_raw/audio/announcer.wav",
+      "eventId": "180755793",
+      "recipe": "session-transform:180759401",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_spread.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_stage_clear.ogg": {
+      "sha256": "sha256:7dca79aadeceb4b64bbe0a42d717958423093abe3d1b8d462b6eb688888895ca",
+      "size": 18850,
+      "source": "/home/ubuntu/art_raw/v2/audio/vo_v2.wav",
+      "eventId": "180855236",
+      "recipe": "session-transform:180855775",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_stage_clear.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_stylish.ogg": {
+      "sha256": "sha256:d60f90541d2853f0ae8c2e40b1373618b90d10c636e1c28fb1648a053a75dcb3",
+      "size": 14610,
+      "source": "/home/ubuntu/art_raw/v2/audio/vo_v2.wav",
+      "eventId": "180855236",
+      "recipe": "session-transform:180855775",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_stylish.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/audio/vo_warning.ogg": {
+      "sha256": "sha256:65e922c6f53bf68f2e9d90f88080b3a0f05446a9e9d4ce213fbf5546b260b6e3",
+      "size": 23394,
+      "source": "/home/ubuntu/art_raw/v2/audio/vo_v2.wav",
+      "eventId": "180855236",
+      "recipe": "session-transform:180855775",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/audio/vo_warning.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/env/bg_far.webp": {
+      "sha256": "sha256:114cf169db0aba5cac1d572cc39bc1e19c83cc22cf7ed4f8062ef831a4d13eb8",
+      "size": 88342,
+      "source": "/home/ubuntu/art_raw/bg_far.png",
+      "eventId": "180748495",
+      "recipe": "tools/art/process_backgrounds.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/env/bg_far.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/env/bg_mid.webp": {
+      "sha256": "sha256:5992cbebfadf10d65c0a32a23879e1be94db23ec7bffb02875f63d291ef681c0",
+      "size": 374368,
+      "source": "/home/ubuntu/art_raw/bg_mid.png",
+      "eventId": "180748495",
+      "recipe": "tools/art/process_backgrounds.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/env/bg_mid.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/env/ground.webp": {
+      "sha256": "sha256:a2c5877112491b48e6d887b82bfeaf4d434d450513230522f3cb7ecf598e6abd",
+      "size": 66486,
+      "source": "/home/ubuntu/art_raw/ground_tile.png",
+      "eventId": "180748495",
+      "recipe": "tools/art/process_backgrounds.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/env/ground.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/env/platform.webp": {
+      "sha256": "sha256:be5d4758e0a9a355363708d3ea1547af0d402328ff55008f5a184a8bb270e94c",
+      "size": 89472,
+      "source": "/home/ubuntu/art_raw/platform_strip.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_backgrounds.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/env/platform.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/env/title_art.webp": {
+      "sha256": "sha256:63d4aaed5a01af46feeff581ddbe2fdbc851598cedcdf79ceee36bb6e926b2bb",
+      "size": 332212,
+      "source": "/home/ubuntu/art_raw/title_art.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_backgrounds.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/env/title_art.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/boss/hull.webp": {
+      "sha256": "sha256:4e697947e15df7aa71496803f818056f6263e8e4df8417f1ef599b5c2eec5c22",
+      "size": 308846,
+      "source": "/home/ubuntu/art_raw/boss_hull.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/boss/hull.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/boss_turret/turret.webp": {
+      "sha256": "sha256:130fa94fb6c60643291132b2fee7fd0735707ed6f012bef47cd1fbdc4a90045a",
+      "size": 60272,
+      "source": "/home/ubuntu/art_raw/boss_turret.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/boss_turret/turret.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/brute/dead.webp": {
+      "sha256": "sha256:f039cf02a618a1551b8f0de6b355f3b75038d0bff90b3852761f7664f8f78dd4",
+      "size": 54360,
+      "source": "/home/ubuntu/art_raw/brute_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/brute/dead.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/brute/punch.webp": {
+      "sha256": "sha256:8ed932482390317205fd4af398435c2f8d3d550054b991eb468dd69e190c689a",
+      "size": 67010,
+      "source": "/home/ubuntu/art_raw/brute_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/brute/punch.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/brute/stunned.webp": {
+      "sha256": "sha256:ddb06a6ddcf66fa2362c6d01db91de62b55246796e95506dc16205d4c1727e20",
+      "size": 64876,
+      "source": "/home/ubuntu/art_raw/brute_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/brute/stunned.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/brute/walk0.webp": {
+      "sha256": "sha256:177b88a48573ef7fd63f470daa1a9b8b528d70f1c05379a65088711b324737e7",
+      "size": 68224,
+      "source": "/home/ubuntu/art_raw/brute_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/brute/walk0.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/brute/walk1.webp": {
+      "sha256": "sha256:67ca532e75077be8da89408284bd0c29b110ec26b381a09b9fa6148bd97cde65",
+      "size": 69984,
+      "source": "/home/ubuntu/art_raw/brute_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/brute/walk1.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/brute/walk2.webp": {
+      "sha256": "sha256:bcaf64af392147efdc8ea58d268bae238a2cc154ea69f3a7899bb58ba02761c7",
+      "size": 68948,
+      "source": "/home/ubuntu/art_raw/brute_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/brute/walk2.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/brute/walk3.webp": {
+      "sha256": "sha256:fe26790e4e12c2947e383592f495c6a20aa9d323de5961cd4ca9e28b5abfae36",
+      "size": 66216,
+      "source": "/home/ubuntu/art_raw/brute_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/brute/walk3.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/brute/windup.webp": {
+      "sha256": "sha256:1f788397d3e94e55eed6d1888e6d9c6faa1961b8e37462121f4b88797e678e44",
+      "size": 80728,
+      "source": "/home/ubuntu/art_raw/brute_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/brute/windup.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor/agave.webp": {
+      "sha256": "sha256:9457631f0f85769d1be1ef34e2e8cf1975b85191884903e76b81c06fbb28cd67",
+      "size": 120462,
+      "source": "/home/ubuntu/art_raw/decor_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor/agave.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor/jeep.webp": {
+      "sha256": "sha256:9cb47f2f07c429c12c0844630aa596a5dfafc9b06f0a4793d7abc0bcfccc077e",
+      "size": 151172,
+      "source": "/home/ubuntu/art_raw/decor_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor/jeep.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor/palm.webp": {
+      "sha256": "sha256:a68c686a22b0a9390c146573aa74e93c7d5f4a1cc2dcd70c99563d8929f6316f",
+      "size": 157258,
+      "source": "/home/ubuntu/art_raw/decor_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor/palm.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor/rubble.webp": {
+      "sha256": "sha256:d051d413207ed7b00229f9d68afe4d2b6cd9e61ba4576deb4248645566aae928",
+      "size": 156892,
+      "source": "/home/ubuntu/art_raw/decor_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor/rubble.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor/tent.webp": {
+      "sha256": "sha256:1e78fb6e4876338a65be7b1fa33ea897c4b7d0ade021a82e1c6a7cd61ebaaef4",
+      "size": 163550,
+      "source": "/home/ubuntu/art_raw/decor_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor/tent.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor/tower.webp": {
+      "sha256": "sha256:a57cdd236d4e36381df7dfd8d8c0e996b65ad184d0e87a64a50723e2ea527ed7",
+      "size": 178666,
+      "source": "/home/ubuntu/art_raw/decor_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor/tower.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor/wall.webp": {
+      "sha256": "sha256:1ecc1986f5c0500cc98fcc5fdc74fe85a1d6b12fa2a83a10d3f9bf72bff4e9df",
+      "size": 199368,
+      "source": "/home/ubuntu/art_raw/decor_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor/wall.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor/wire.webp": {
+      "sha256": "sha256:f384222655fa5b372839a948726fa1edfaa980104a0e76ca7d52251097845f09",
+      "size": 147138,
+      "source": "/home/ubuntu/art_raw/decor_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor/wire.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_canyon/boulders.webp": {
+      "sha256": "sha256:acf49f0aaa83c4d3c076522cab7dc282c1ebc7f8c4cbb560a7172ba5878cd087",
+      "size": 210670,
+      "source": "/home/ubuntu/art_raw/v2/decor_canyon.png",
+      "eventId": "180851745",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_canyon/boulders.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_canyon/boxcar.webp": {
+      "sha256": "sha256:7f04bf2d57e3cc18ce4c49ca7e6356f0ca051da0cbeb67f5bc9278cc9bdbce04",
+      "size": 307464,
+      "source": "/home/ubuntu/art_raw/v2/decor_canyon.png",
+      "eventId": "180851745",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_canyon/boxcar.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_canyon/cactus.webp": {
+      "sha256": "sha256:0d541afbc1b5a52365cedcab42bee7b3cbe3d678f02b88d61be8cfda4c51b4bd",
+      "size": 145730,
+      "source": "/home/ubuntu/art_raw/v2/decor_canyon.png",
+      "eventId": "180851745",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_canyon/cactus.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_canyon/hoodoo.webp": {
+      "sha256": "sha256:96b3083d62fb8c5a8ab3bb6ebb153618ecbfc9bb8903201a2df225096f90608e",
+      "size": 185606,
+      "source": "/home/ubuntu/art_raw/v2/decor_canyon.png",
+      "eventId": "180851745",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_canyon/hoodoo.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_canyon/minecart.webp": {
+      "sha256": "sha256:b3cfc4ece5bdc2226dc638ede6ae61accff41c0a3a43f74bec3a919da9b26a40",
+      "size": 167772,
+      "source": "/home/ubuntu/art_raw/v2/decor_canyon.png",
+      "eventId": "180851745",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_canyon/minecart.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_canyon/pier.webp": {
+      "sha256": "sha256:e4a105fc7470e8b8989bd6bdfc104c8496ed441872fcc64707d9583680ce0204",
+      "size": 195090,
+      "source": "/home/ubuntu/art_raw/v2/decor_canyon.png",
+      "eventId": "180851745",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_canyon/pier.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_canyon/skull.webp": {
+      "sha256": "sha256:8b186f9c876abc864ba52076cb4ee1538ad9b8ce42de67be21d693d88de0e2f8",
+      "size": 140060,
+      "source": "/home/ubuntu/art_raw/v2/decor_canyon.png",
+      "eventId": "180851745",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_canyon/skull.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_canyon/water_tower.webp": {
+      "sha256": "sha256:24058ab271ba56dc854405d7854ff74fe3665bd56555fb03d28023dbdb9c2a70",
+      "size": 157282,
+      "source": "/home/ubuntu/art_raw/v2/decor_canyon.png",
+      "eventId": "180851745",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_canyon/water_tower.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_fortress/banner.webp": {
+      "sha256": "sha256:ca432b580f69aa14483115a64c7465ae6678149655cc19a1208ebc9634c1a471",
+      "size": 117822,
+      "source": "/home/ubuntu/art_raw/v2/decor_fortress.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_fortress/banner.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_fortress/crates.webp": {
+      "sha256": "sha256:c1dcc1be95203daf23dac4b0af0396b8e62903fffdbae513394e3908131558c7",
+      "size": 172216,
+      "source": "/home/ubuntu/art_raw/v2/decor_fortress.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_fortress/crates.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_fortress/hedgehog.webp": {
+      "sha256": "sha256:174172431530f1036fd1c11b097a599bf70dc5c748b5417e53efcd7e3552c348",
+      "size": 151082,
+      "source": "/home/ubuntu/art_raw/v2/decor_fortress.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_fortress/hedgehog.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_fortress/jeep.webp": {
+      "sha256": "sha256:d6a502a2249ed0885d820713a555869d15f54b63519d0a7645c1f37851fcf75d",
+      "size": 201154,
+      "source": "/home/ubuntu/art_raw/v2/decor_fortress.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_fortress/jeep.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_fortress/pipes.webp": {
+      "sha256": "sha256:299c28e7d90789bd781adb1a803148832fc0ca16705b02f1793b52e894685b40",
+      "size": 191304,
+      "source": "/home/ubuntu/art_raw/v2/decor_fortress.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_fortress/pipes.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_fortress/radar.webp": {
+      "sha256": "sha256:bdefb29c92c8941b74536b47505fd6b9464d076bbf6b20b7aea3a7e73efd17ab",
+      "size": 235160,
+      "source": "/home/ubuntu/art_raw/v2/decor_fortress.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_fortress/radar.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_fortress/silo.webp": {
+      "sha256": "sha256:c4f9b329dbfae629169d490e36d83790b61e4d62b930ecba67f5922f7edfbdf8",
+      "size": 267542,
+      "source": "/home/ubuntu/art_raw/v2/decor_fortress.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_fortress/silo.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/decor_fortress/watchtower.webp": {
+      "sha256": "sha256:ef570122b774a0bfaa8933cd8bbee7ae7b9ba3c8497bbbb25f7d53074f7c04d7",
+      "size": 222260,
+      "source": "/home/ubuntu/art_raw/v2/decor_fortress.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/decor_fortress/watchtower.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/drone/drop.webp": {
+      "sha256": "sha256:ddd6f7c51ec2f1332b5426caa59b63c8473630d01990f821a6c18728d917c634",
+      "size": 28660,
+      "source": "/home/ubuntu/art_raw/drone_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/drone/drop.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/drone/hover0.webp": {
+      "sha256": "sha256:7ac713acba8e82c94b442777a8eb043f4c0266b2a775d72c1e9d141d1f3cb480",
+      "size": 27866,
+      "source": "/home/ubuntu/art_raw/drone_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/drone/hover0.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/drone/hover1.webp": {
+      "sha256": "sha256:90812457e74c55a797739324411db169fb3600e869f9468c0734f7c27d675089",
+      "size": 23048,
+      "source": "/home/ubuntu/art_raw/drone_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/drone/hover1.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/drone/wreck.webp": {
+      "sha256": "sha256:b53239bff6eb3c9b3396d2c18ad0c1639322597d89fe57048e375136a321140a",
+      "size": 33692,
+      "source": "/home/ubuntu/art_raw/drone_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/drone/wreck.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/explosion/ex0.webp": {
+      "sha256": "sha256:9e98970620effa48319dadb9dec1e90a7a179fa7afdc0993553e15b9f60719de",
+      "size": 20762,
+      "source": "/home/ubuntu/art_raw/explosion_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/explosion/ex0.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/explosion/ex1.webp": {
+      "sha256": "sha256:10c609cf54f57066eafb940bd5af92ef599af07277a64dfeab038cb4f458089b",
+      "size": 48762,
+      "source": "/home/ubuntu/art_raw/explosion_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/explosion/ex1.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/explosion/ex2.webp": {
+      "sha256": "sha256:2cb74f276eaad7b8812b55cc51585628289b7e6476ccc60c266f6a8c897b8c38",
+      "size": 61342,
+      "source": "/home/ubuntu/art_raw/explosion_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/explosion/ex2.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/explosion/ex3.webp": {
+      "sha256": "sha256:17e7eefc2f488b3ac5d00cb9c2ff228e6b6987c13e2f731aa5c5d1cd9bf3cf65",
+      "size": 61060,
+      "source": "/home/ubuntu/art_raw/explosion_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/explosion/ex3.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/explosion/ex4.webp": {
+      "sha256": "sha256:f2f3f59c3910fe4d3a49d05d87ab1d23e21e1dc62809e96d6e5e0a61cf674dd7",
+      "size": 57194,
+      "source": "/home/ubuntu/art_raw/explosion_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/explosion/ex4.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/explosion/ex5.webp": {
+      "sha256": "sha256:1dc12c7581122a691c9c8ce5fa3a15592e5592e2113ee1ae7fb3bc3735b28fd6",
+      "size": 45674,
+      "source": "/home/ubuntu/art_raw/explosion_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/explosion/ex5.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/explosion/ex6.webp": {
+      "sha256": "sha256:09f02e1750cc741d5bc88a6c16bf2b9b8b21f3758bf80ecf6d75bf05ee6af651",
+      "size": 26064,
+      "source": "/home/ubuntu/art_raw/explosion_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/explosion/ex6.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/explosion/ex7.webp": {
+      "sha256": "sha256:dc81a91e82bd7cc7cc3c481ee63135ac9064a5ac0120f0d7468ce7ce21a98ad4",
+      "size": 13738,
+      "source": "/home/ubuntu/art_raw/explosion_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/explosion/ex7.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/grunt/dead.webp": {
+      "sha256": "sha256:a390c17049b4ac7cb32e4f1a77a055159e2eb26acc5c59a8fbb81a1e55eb03a1",
+      "size": 16206,
+      "source": "/home/ubuntu/art_raw/grunt_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/grunt/dead.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/grunt/fire.webp": {
+      "sha256": "sha256:54170eedfeb753316a1ef18048c75cd5ac4dc59da8be3ead221c7d402c748c0c",
+      "size": 26072,
+      "source": "/home/ubuntu/art_raw/grunt_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/grunt/fire.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/grunt/grabbed.webp": {
+      "sha256": "sha256:3f65be59edb2da8364fd7a19e3367db69b27971ae95720f2003295766b14cbf1",
+      "size": 24382,
+      "source": "/home/ubuntu/art_raw/grunt_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/grunt/grabbed.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/grunt/hurt.webp": {
+      "sha256": "sha256:c8f57d24825ddda825f9b68d5362389b69f714c673853f684eba854a7e72aae3",
+      "size": 24108,
+      "source": "/home/ubuntu/art_raw/grunt_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/grunt/hurt.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/grunt/walk0.webp": {
+      "sha256": "sha256:ebeb0748f45505eed0a49b50048fe384880371a4156e5d9c7dac078b3cf0fda0",
+      "size": 24794,
+      "source": "/home/ubuntu/art_raw/grunt_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/grunt/walk0.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/grunt/walk1.webp": {
+      "sha256": "sha256:5741741083f94e03e611dddeaacab46071d43200d9c5576421205c67af7aaf8d",
+      "size": 24228,
+      "source": "/home/ubuntu/art_raw/grunt_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/grunt/walk1.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/grunt/walk2.webp": {
+      "sha256": "sha256:f6566d06cf5c790c933f6c793194fcc73bae5fa16249111527701c6ff6d38566",
+      "size": 23932,
+      "source": "/home/ubuntu/art_raw/grunt_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/grunt/walk2.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/grunt/walk3.webp": {
+      "sha256": "sha256:ba7e1db9218c9f5f9cf77e36ffdf15a90c6d66922bcf41be272fd810bd438707",
+      "size": 23692,
+      "source": "/home/ubuntu/art_raw/grunt_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/grunt/walk3.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/aim_down.webp": {
+      "sha256": "sha256:d2498d99c74335a4fc9ac82d73624e8a1d68b57088dbb05df86f2ea91e3d6aba",
+      "size": 32034,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/aim_down.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/aim_up.webp": {
+      "sha256": "sha256:003e0f8d592167669cbbb1f5ef102294fb041f9a8da6e91c952dcbd426aa6093",
+      "size": 37098,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/aim_up.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/carry.webp": {
+      "sha256": "sha256:d8a16276c61a1c0284d6b921c0d06e4a60a89baa9d5275148f03ea7270627355",
+      "size": 35192,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/carry.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/crouch.webp": {
+      "sha256": "sha256:e4aaeccf2a9fed63e0bf87cb70709c4e3f67926993a0368cb1899a355e984688",
+      "size": 35986,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/crouch.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/dead.webp": {
+      "sha256": "sha256:77f75a53a6cf7ef4ff75516c64aeea9b323162a50abe32f183532263a923ad3d",
+      "size": 25118,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/dead.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/grapple.webp": {
+      "sha256": "sha256:88821f713b802d74d77b9596c971aaa0b313d2cd1ffb9231d3134f5fe2df243f",
+      "size": 41016,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/grapple.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/hurt.webp": {
+      "sha256": "sha256:f7eef8ae7c540d882107548366709c1858574e9c3e4b142c7ef19881a4339aa0",
+      "size": 34472,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/hurt.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/idle.webp": {
+      "sha256": "sha256:a5c30deea173c5bf193b8d5cb901aab61c49ab21bb344caddc339c5fb9a9cb9e",
+      "size": 41110,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/idle.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/idle2.webp": {
+      "sha256": "sha256:dd41533f74ba51f98ac7a17ae4072402376989e0cf629eace9adf234575feae5",
+      "size": 39842,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/idle2.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/jump.webp": {
+      "sha256": "sha256:c05cc9f86690a1583a1d223a3db019fc1cebe995d394daed991444190271b320",
+      "size": 30846,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/jump.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/slash.webp": {
+      "sha256": "sha256:289803e32ec48f7492c3446c87d73b41b7f4746e247ae384c95ab4c3179c4e87",
+      "size": 40502,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/slash.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero/throw.webp": {
+      "sha256": "sha256:881f3c5725ed73b4b485e04847bae25e3fd6183b5bc7d95c11943656af78f3f7",
+      "size": 37564,
+      "source": "/home/ubuntu/art_raw/hero_poses.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero/throw.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero_run/run0.webp": {
+      "sha256": "sha256:95d9952714ccabeefba4473399d376b770ac85550a29208a7e0b06a1ad763151",
+      "size": 38468,
+      "source": "/home/ubuntu/art_raw/hero_run.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero_run/run0.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero_run/run1.webp": {
+      "sha256": "sha256:b9605ccfa37a88587efe3b07839e78d2e1269754598c82edf5be17a000315442",
+      "size": 35322,
+      "source": "/home/ubuntu/art_raw/hero_run.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero_run/run1.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero_run/run2.webp": {
+      "sha256": "sha256:b1f0bb2dc7ba7def9a684ecfa0d2d46f57ba74246e161e7fa8c03247d9b28b27",
+      "size": 34642,
+      "source": "/home/ubuntu/art_raw/hero_run.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero_run/run2.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero_run/run3.webp": {
+      "sha256": "sha256:b4216d4400561ca7782cb79062e1666c0949a5913aaebb75702e76c7151592ef",
+      "size": 36856,
+      "source": "/home/ubuntu/art_raw/hero_run.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero_run/run3.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero_run/run4.webp": {
+      "sha256": "sha256:bf15bfd897ad0b7866004f37ffd1f647d6b786745f957ffa6370cd7aced5d1e0",
+      "size": 36994,
+      "source": "/home/ubuntu/art_raw/hero_run.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero_run/run4.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero_run/run5.webp": {
+      "sha256": "sha256:3d17dc8a7f089817a686bfe15006904cdafef29e0b378eabf81d61360bd4076f",
+      "size": 34776,
+      "source": "/home/ubuntu/art_raw/hero_run.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero_run/run5.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero_run/run6.webp": {
+      "sha256": "sha256:939f6afb635183680a4aacc9568c7eacf161f7d0efb3443274664158e906ee2b",
+      "size": 35190,
+      "source": "/home/ubuntu/art_raw/hero_run.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero_run/run6.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/hero_run/run7.webp": {
+      "sha256": "sha256:afe607f30fa5a3f856c869ea1ba4a915f6c179df84f698ecdd84cfbe9f4f330d",
+      "size": 36068,
+      "source": "/home/ubuntu/art_raw/hero_run.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/hero_run/run7.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/items/gold.webp": {
+      "sha256": "sha256:63e2550627647555e07f71b9d871b1652f425d4e294ddf71c4d66b41f8fdfbf1",
+      "size": 12636,
+      "source": "/home/ubuntu/art_raw/items_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/items/gold.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/items/grenades.webp": {
+      "sha256": "sha256:7450c14ba908930bc994df2f50c54995d75432b475f3cd4e6810236882d6ca94",
+      "size": 15410,
+      "source": "/home/ubuntu/art_raw/items_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/items/grenades.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/items/hmg.webp": {
+      "sha256": "sha256:6262cc14fccb2a52f4ffac639e0252d0eadc3ea424ef5c2a69990b530c4572f1",
+      "size": 16852,
+      "source": "/home/ubuntu/art_raw/items_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/items/hmg.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/items/medal.webp": {
+      "sha256": "sha256:3214b7f72e31c0bfc55030a254ec29aaa49600a288375d29bfde0bd1c59f21eb",
+      "size": 13192,
+      "source": "/home/ubuntu/art_raw/items_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/items/medal.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/items/medkit.webp": {
+      "sha256": "sha256:4300516c533862a7ea69b13db6318b177da6ea8c67e7ae86135e692465c3c9fc",
+      "size": 14556,
+      "source": "/home/ubuntu/art_raw/items_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/items/medkit.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/items/rocket.webp": {
+      "sha256": "sha256:8e530035692b46267ea6d54393a3d0c44a9c1a6c0fc06432bebabcc961efb24f",
+      "size": 11072,
+      "source": "/home/ubuntu/art_raw/items_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/items/rocket.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/items/shield.webp": {
+      "sha256": "sha256:b610946e594d233971ec92dd9efa18a2a503d3a902707f3e73c7077b194e02d4",
+      "size": 17524,
+      "source": "/home/ubuntu/art_raw/items_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/items/shield.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/items/spread.webp": {
+      "sha256": "sha256:c191d45bfe4f8c0d1fece141eec1acc182691339f8cdfccce83ccf6864ae41b5",
+      "size": 11642,
+      "source": "/home/ubuntu/art_raw/items_sheet.png",
+      "eventId": "180752321",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/items/spread.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/mortar/bunker.webp": {
+      "sha256": "sha256:a210045d358e106d7d5fcdcd4e5b60a76170f8fe7aff0a0211e77b95bff7117e",
+      "size": 63018,
+      "source": "/home/ubuntu/art_raw/mortar.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/mortar/bunker.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props/ammo_crate.webp": {
+      "sha256": "sha256:a783a30a92a5fa4eb5bd36304f0b478b9b0acf84fcc341c722764f5270b3019e",
+      "size": 22636,
+      "source": "/home/ubuntu/art_raw/props_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props/ammo_crate.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props/anchor.webp": {
+      "sha256": "sha256:a81dca73664335626ec982427359ba6949ec78bb99d4ec44922cf060dcc4b0ca",
+      "size": 19288,
+      "source": "/home/ubuntu/art_raw/props_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props/anchor.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props/barrel.webp": {
+      "sha256": "sha256:128bcc1e2d61bd53833b1ba11f45d700609fb896166620d91133611eced185ca",
+      "size": 24670,
+      "source": "/home/ubuntu/art_raw/props_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props/barrel.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props/crate.webp": {
+      "sha256": "sha256:55037d83a49e44380455ffd7f1ebc154bad66406cd1a1d3061162e2e76cfccf3",
+      "size": 26924,
+      "source": "/home/ubuntu/art_raw/props_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props/crate.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props/flag.webp": {
+      "sha256": "sha256:0fc83d9caacbf467bea00282059d3b39168867d4ce8790b55b369cc3c7233c67",
+      "size": 22602,
+      "source": "/home/ubuntu/art_raw/props_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props/flag.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props/pow_free.webp": {
+      "sha256": "sha256:05e93e0c2ab58ce0187a1fa44174c5cedd52b1f2b695e5e686c8ec5c206c6dca",
+      "size": 26734,
+      "source": "/home/ubuntu/art_raw/props_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props/pow_free.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props/pow_tied.webp": {
+      "sha256": "sha256:8fb9f02cd42b84cd5002a080d2176194d55a336bfb89f37370a1e87602c564e1",
+      "size": 24872,
+      "source": "/home/ubuntu/art_raw/props_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props/pow_tied.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props/sandbags.webp": {
+      "sha256": "sha256:0e8580166306574216bfde50185878c505fc49a73deb4916f35d12fcf9ba6b7f",
+      "size": 22898,
+      "source": "/home/ubuntu/art_raw/props_sheet.png",
+      "eventId": "180750041",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props/sandbags.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props2/ammo_box.webp": {
+      "sha256": "sha256:56477dca20daf9737d1c7e235ab743c5c357990249d1f1fbacf6b474d133a631",
+      "size": 23930,
+      "source": "/home/ubuntu/art_raw/v2/props2.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props2/ammo_box.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props2/barriers.webp": {
+      "sha256": "sha256:5b23ce78e1e67f05d4e5e39f224dff2592c8f3c8224ed65a057e432b610864b6",
+      "size": 38820,
+      "source": "/home/ubuntu/art_raw/v2/props2.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props2/barriers.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props2/burning_drum.webp": {
+      "sha256": "sha256:186bc256927e86f7f85314602019bc66c107fe10a25f2f1d6fd777f097724d11",
+      "size": 22612,
+      "source": "/home/ubuntu/art_raw/v2/props2.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props2/burning_drum.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props2/fuel_tank.webp": {
+      "sha256": "sha256:7bfdb3ea555ecd01f0c75b16587da7ec36c259a78888493c07cdfe36b648af0e",
+      "size": 28588,
+      "source": "/home/ubuntu/art_raw/v2/props2.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props2/fuel_tank.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props2/medal.webp": {
+      "sha256": "sha256:c58ddcc04484567d8c04aa1c641175d5ffc7dd6fb07fd6e0b26f85ce47918e84",
+      "size": 16426,
+      "source": "/home/ubuntu/art_raw/v2/props2.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props2/medal.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props2/mg_gun.webp": {
+      "sha256": "sha256:7111c5f50034914f20d51456fe5dfdc2952b7e76b52dd8756d502cc1f8c3db14",
+      "size": 21036,
+      "source": "/home/ubuntu/art_raw/v2/props2.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props2/mg_gun.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props2/nest_base.webp": {
+      "sha256": "sha256:ef112d671e2dae0f2ff87eb619fdc336ae35745b126f7a36546916512de6e94f",
+      "size": 27476,
+      "source": "/home/ubuntu/art_raw/v2/props2.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props2/nest_base.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/props2/sign.webp": {
+      "sha256": "sha256:e8d951612d06f5d4e57ed28114d306e69f13d1a7cb612cc12c1c994c0fa2fa10",
+      "size": 17736,
+      "source": "/home/ubuntu/art_raw/v2/props2.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/props2/sign.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/shield/dead.webp": {
+      "sha256": "sha256:75c879307077b9fc00cbf49371a4744415d20b01c08cb859c18008d417821d44",
+      "size": 17884,
+      "source": "/home/ubuntu/art_raw/shield_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/shield/dead.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/shield/fire.webp": {
+      "sha256": "sha256:5eba8979ccdd7ae1ee4ab86e12a6a9e67ff7fd54efa3186bee664c0d4d044b98",
+      "size": 30892,
+      "source": "/home/ubuntu/art_raw/shield_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/shield/fire.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/shield/grabbed.webp": {
+      "sha256": "sha256:8cb4f5f145e5c30a6074a67eb366f0eded29e59dee8bb8e12ae22807b91b7b03",
+      "size": 27272,
+      "source": "/home/ubuntu/art_raw/shield_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/shield/grabbed.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/shield/stagger.webp": {
+      "sha256": "sha256:d11ea9b752419b1fd9112677e17c1135c2654c9bf276460086a90c3f839e38d3",
+      "size": 24032,
+      "source": "/home/ubuntu/art_raw/shield_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/shield/stagger.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/shield/walk0.webp": {
+      "sha256": "sha256:b7da6e48af6da3763cf030fba456466fd93035bc84b1dde06a511e98004fca47",
+      "size": 31240,
+      "source": "/home/ubuntu/art_raw/shield_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/shield/walk0.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/shield/walk1.webp": {
+      "sha256": "sha256:55a928ad47337cdc1bf8eeac1bf84963bad4f68b3ea11dbd225a83e7cc884f01",
+      "size": 31182,
+      "source": "/home/ubuntu/art_raw/shield_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/shield/walk1.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/shield/walk2.webp": {
+      "sha256": "sha256:e5fd96b261be85f8773b52650c78469281ecc94bfec72a6c2e5ed967c6298afa",
+      "size": 31704,
+      "source": "/home/ubuntu/art_raw/shield_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/shield/walk2.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/shield/walk3.webp": {
+      "sha256": "sha256:cceb010a1bd6165ca6b2769775fe554a09ebf3a1c458b0bc7b734235444473f2",
+      "size": 30886,
+      "source": "/home/ubuntu/art_raw/shield_sheet.png",
+      "eventId": "180749526",
+      "recipe": "tools/art/process_all.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/shield/walk3.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_banner/lose.webp": {
+      "sha256": "sha256:c97fcf0b1372c159209dbab446bd2d94fe5129d7d39a531de5cb3709cc623bd3",
+      "size": 182522,
+      "source": "/home/ubuntu/art_raw/v2/banners.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_banner/lose.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_banner/neutral.webp": {
+      "sha256": "sha256:a53b8a29f90aabc9c9737287ce0cd52ec5690a95d98db1bfd92df5878bbfee22",
+      "size": 134798,
+      "source": "/home/ubuntu/art_raw/v2/banners.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_banner/neutral.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_banner/win.webp": {
+      "sha256": "sha256:ff66832678680660d4aa0cfd19a7061ae9681fb50502b3d0e8714e4d79ce6932",
+      "size": 168720,
+      "source": "/home/ubuntu/art_raw/v2/banners.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_banner/win.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_bar/boss.webp": {
+      "sha256": "sha256:b5eb50034861515d54962e82ed131b8697eedb068ef119aef60ae512a725008a",
+      "size": 72774,
+      "source": "/home/ubuntu/art_raw/v2/hud_bars.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_bar/boss.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_bar/fury.webp": {
+      "sha256": "sha256:45a17b6150a21e72a0161fed19365ac9bb011608ca8e1f8a92b4f880a6b8228b",
+      "size": 45986,
+      "source": "/home/ubuntu/art_raw/v2/hud_bars.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_bar/fury.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_bar/health.webp": {
+      "sha256": "sha256:6d3c9755440f488a1bc049656b2dceba7b0c0157c1b5a9ea24dbce329cccae0c",
+      "size": 32680,
+      "source": "/home/ubuntu/art_raw/v2/hud_bars.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_bar/health.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_plate/button.webp": {
+      "sha256": "sha256:e412491a4131ca9a9f47d91023d45031510af949ac2c401a8a71ac6f333335b7",
+      "size": 38816,
+      "source": "/home/ubuntu/art_raw/v2/hud_plates.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_plate/button.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_plate/button_hi.webp": {
+      "sha256": "sha256:045085195811e5c412b70e03c9ab22d0d43d92df75264a8540acb5a68179dddf",
+      "size": 57964,
+      "source": "/home/ubuntu/art_raw/v2/hud_plates.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_plate/button_hi.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_plate/score.webp": {
+      "sha256": "sha256:71c9d35acbb489b27846044ce2b68996b3b1ded22eb3efe2589c4473faf9188e",
+      "size": 31366,
+      "source": "/home/ubuntu/art_raw/v2/hud_plates.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_plate/score.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_plate/slot.webp": {
+      "sha256": "sha256:bebb2dbd06f86b432d236441c4eefe83c635bf725346c4fe754dfe42fbe848a7",
+      "size": 25064,
+      "source": "/home/ubuntu/art_raw/v2/hud_plates.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_plate/slot.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_plate/slot_hi.webp": {
+      "sha256": "sha256:ba439fe9550dcb7b54e743b65c91b97248fdf00ba75879b66aabba2f26bd74a1",
+      "size": 38522,
+      "source": "/home/ubuntu/art_raw/v2/hud_plates.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_plate/slot_hi.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_plate/weapon.webp": {
+      "sha256": "sha256:52a7471405985964e8a55cca684bfeaccc333866ed701596afb1a183b557ca31",
+      "size": 34088,
+      "source": "/home/ubuntu/art_raw/v2/hud_plates.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_plate/weapon.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_portrait/fury.webp": {
+      "sha256": "sha256:b8af9a2298550cfde0f05e887b0cf027e9991e1270ef6238e149891ea1fbc718",
+      "size": 74034,
+      "source": "/home/ubuntu/art_raw/v2/hud_portraits.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_portrait/fury.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_portrait/hurt.webp": {
+      "sha256": "sha256:2cafc4b99e7e669476e5847f19934dcd2f1cf7ef033f5f5e3e25ecfab5d77392",
+      "size": 50410,
+      "source": "/home/ubuntu/art_raw/v2/hud_portraits.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_portrait/hurt.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_portrait/normal.webp": {
+      "sha256": "sha256:02ad9cf16630dba56f73b51023f70c45f878fee62ce7ce87a3bb9ebda605fde6",
+      "size": 48738,
+      "source": "/home/ubuntu/art_raw/v2/hud_portraits.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_portrait/normal.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_rank/A.webp": {
+      "sha256": "sha256:9828e5654f3f15e5c1b6b0c02c5a51dea8a77a5cfa45a8e7cf5a524009044b90",
+      "size": 70374,
+      "source": "/home/ubuntu/art_raw/v2/hud_ranks.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_rank/A.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_rank/B.webp": {
+      "sha256": "sha256:f5e2d3cd019a628c6df1f15237f6a1005bc5f738b00d6394b67765a3d3913d48",
+      "size": 47142,
+      "source": "/home/ubuntu/art_raw/v2/hud_ranks.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_rank/B.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_rank/C.webp": {
+      "sha256": "sha256:43cd0c0cbf9c3b464fc12992524603150be74c060063b0c2ef3e9eed6a9b5a53",
+      "size": 44700,
+      "source": "/home/ubuntu/art_raw/v2/hud_ranks.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_rank/C.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_rank/D.webp": {
+      "sha256": "sha256:66e12a4c462ce0b16e3cd55e97b6b71e2169c58e240187d8633f447709a098f3",
+      "size": 35940,
+      "source": "/home/ubuntu/art_raw/v2/hud_ranks.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_rank/D.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_rank/S.webp": {
+      "sha256": "sha256:3bf992407b8fe468a42940bcefe7b0f774b6212068b57e7d66c17cab886ea5fc",
+      "size": 73208,
+      "source": "/home/ubuntu/art_raw/v2/hud_ranks.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_rank/S.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_weapon/hmg.webp": {
+      "sha256": "sha256:335a7d0d2972354eb5504fe28d8812c70ffd11c3077c64bbdb14d87529a433a8",
+      "size": 23324,
+      "source": "/home/ubuntu/art_raw/v2/hud_weapons.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_weapon/hmg.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_weapon/mg.webp": {
+      "sha256": "sha256:928217afc6bf43525c8699d16adee65c9e88bfd642d0ec667cc0853b6b2c1b29",
+      "size": 21084,
+      "source": "/home/ubuntu/art_raw/v2/hud_weapons.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_weapon/mg.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_weapon/pistol.webp": {
+      "sha256": "sha256:c42169b438c11eed749933d9a67e8b6da5e7d1aebc92a3b10f589b4ba7869101",
+      "size": 11832,
+      "source": "/home/ubuntu/art_raw/v2/hud_weapons.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_weapon/pistol.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_weapon/rocket.webp": {
+      "sha256": "sha256:9e9b3e65eb5da61f08346f5dfeb14013076e3f904c8a36deb74156556030a4ad",
+      "size": 16778,
+      "source": "/home/ubuntu/art_raw/v2/hud_weapons.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_weapon/rocket.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/ui_weapon/spread.webp": {
+      "sha256": "sha256:0fbc59f09e4112391977c48f7a00106bdcfe05984dc005e98ef9b97cc0bf90e0",
+      "size": 16078,
+      "source": "/home/ubuntu/art_raw/v2/hud_weapons.png",
+      "eventId": "180851058",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/ui_weapon/spread.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_a/flash_hmg.webp": {
+      "sha256": "sha256:9a0c3eb4371ce8d469ceefbf4e3c104dd39a0ff2bf12764a7df7ece96ee487a8",
+      "size": 32778,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_a.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_a/flash_hmg.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_a/flash_pistol.webp": {
+      "sha256": "sha256:1f247360adfe8a143d29f7008bd1b9006c5d3e6816de44cb0e4b2a4d339fecdf",
+      "size": 16396,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_a.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_a/flash_pistol.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_a/flash_spread.webp": {
+      "sha256": "sha256:ec4eb451b97a1f380f2aa696424e5a931468d9a386e70b96fa561ade80d5f5f2",
+      "size": 43192,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_a.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_a/flash_spread.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_a/glint.webp": {
+      "sha256": "sha256:86603c507783e6bea79fbdc7dabb99a0b98f1c8ce3de8f90988ea6eb2d5306ed",
+      "size": 29052,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_a.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_a/glint.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_a/hit_x.webp": {
+      "sha256": "sha256:a1b71b37e455eaf63e112e81e6bca9aef8da7a3964328d900e1aa7b885990cba",
+      "size": 29926,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_a.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_a/hit_x.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_a/latch.webp": {
+      "sha256": "sha256:eae325ffe5485f34fa3ea08c0c1a23b4a2236f203448ba15e43bed2983b78b12",
+      "size": 42706,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_a.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_a/latch.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_a/spark_burst.webp": {
+      "sha256": "sha256:9fdec40c7a6dc39942256cd26adb23180bc48db6d0715664a4bd340c825aab9b",
+      "size": 41528,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_a.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_a/spark_burst.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_a/sparkle.webp": {
+      "sha256": "sha256:0efc068254dba5d76d02d933846cdec4398f4bb4da0e61c3f343d8d0a17d6e3f",
+      "size": 21966,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_a.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_a/sparkle.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_b/burst.webp": {
+      "sha256": "sha256:40f8c7da411065ecb761cc2a041e80f711ee31a798a0be7115ac826f715e7721",
+      "size": 49578,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_b.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_b/burst.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_b/fireball.webp": {
+      "sha256": "sha256:c767127ba50be5d49c32c170a3b8c9a5a3d4fb2c39491fef46d6dde8a6c88250",
+      "size": 43034,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_b.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_b/fireball.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_b/flame.webp": {
+      "sha256": "sha256:0b9097768692e4100a11b9e1c1c31ed55ca4d871583a4af620692e57b319bb82",
+      "size": 32010,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_b.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_b/flame.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_b/heal.webp": {
+      "sha256": "sha256:4039c6a6bc02202b07b683dc5425f6cede5d6be55b56cee0e5bf398e407676c6",
+      "size": 28828,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_b.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_b/heal.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_b/laser.webp": {
+      "sha256": "sha256:8330a4b8fad8044e05c62834215f211f6e17c020e4c77efc1c62ef6365b9b4ea",
+      "size": 15876,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_b.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_b/laser.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_b/orb.webp": {
+      "sha256": "sha256:cd9ac5e6ebe49620304cea01e95031a03d84967c3a80cb954fa3c4fb7b3ec4bf",
+      "size": 43668,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_b.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_b/orb.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_b/ring.webp": {
+      "sha256": "sha256:0b8434f8cd3aef82bbf8e19133e6faa4ca88f09be0092631d39b66892a81f8a5",
+      "size": 38584,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_b.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_b/ring.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_b/tracer.webp": {
+      "sha256": "sha256:0b0a121b9d3c66ed3141ac294004c1e82c08c3ea87819dabf18f25d7e7bb98f0",
+      "size": 9588,
+      "source": "/home/ubuntu/art_raw/v2/vfx_add_b.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_b/tracer.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_c/casing.webp": {
+      "sha256": "sha256:1f75621ecebd312a09835745d35794cd1f7be81aee3cd1686c4af1f8cad3018e",
+      "size": 25730,
+      "source": "/home/ubuntu/art_raw/v2/vfx_alpha.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_c/casing.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_c/dust.webp": {
+      "sha256": "sha256:ec47ba517eb0a66537e814f8e50823d95d1dd4e23863afea5fdd64f274ce44aa",
+      "size": 33662,
+      "source": "/home/ubuntu/art_raw/v2/vfx_alpha.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_c/dust.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_c/rocks.webp": {
+      "sha256": "sha256:4b021abb2d38996ec3ead1b900c1592a9fb907acf25731e47b98d3fd72e4e139",
+      "size": 24528,
+      "source": "/home/ubuntu/art_raw/v2/vfx_alpha.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_c/rocks.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_c/scorch.webp": {
+      "sha256": "sha256:0b3792f4d9180cd7a9a9e9da90cbcace49e1f70c47f1f0327f6d28e2d52e8ebb",
+      "size": 29696,
+      "source": "/home/ubuntu/art_raw/v2/vfx_alpha.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_c/scorch.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_c/shards.webp": {
+      "sha256": "sha256:8e9741a0bb8ec18103c5da916fc693e320a7184ce946b4320952ad0834d7c81b",
+      "size": 38826,
+      "source": "/home/ubuntu/art_raw/v2/vfx_alpha.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_c/shards.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_c/smoke_black.webp": {
+      "sha256": "sha256:905f82cc481bbb8d937aefd9c613644c961714b921d92d590f8319a7f15d5c7e",
+      "size": 39412,
+      "source": "/home/ubuntu/art_raw/v2/vfx_alpha.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_c/smoke_black.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_c/smoke_grey.webp": {
+      "sha256": "sha256:f30def3c3a616cfa485de9b8d51e6808fc4e388dcf762dcc020ddeb3bc809cb5",
+      "size": 35598,
+      "source": "/home/ubuntu/art_raw/v2/vfx_alpha.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_c/smoke_grey.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/sprites/vfx_c/splinters.webp": {
+      "sha256": "sha256:7fbe96894db4cf42c9bb92f7486cee891d72952533412ca5a18c10a697393c9c",
+      "size": 28786,
+      "source": "/home/ubuntu/art_raw/v2/vfx_alpha.png",
+      "eventId": "180851066",
+      "recipe": "tools/art/process_v2.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/sprites/vfx_c/splinters.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage2/bg_far.webp": {
+      "sha256": "sha256:d1f214c937c86f14253b9fdff6647bb0ea9e2c5f3390834ad63619f37a4d0d71",
+      "size": 151574,
+      "source": "/home/ubuntu/art_raw/v2/canyon_far.png",
+      "eventId": "180851124",
+      "recipe": "tools/art/process_v2_env.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage2/bg_far.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage2/bg_mid.webp": {
+      "sha256": "sha256:3969fc5e5bfc48428b311423597700210313d9148905852f2b476ad29ea47080",
+      "size": 450730,
+      "source": "/home/ubuntu/art_raw/v2/canyon_mid.png",
+      "eventId": "180851124",
+      "recipe": "tools/art/process_v2_env.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage2/bg_mid.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage2/bgm_stage2.ogg": {
+      "sha256": "sha256:c8bc9a26a73bb1cf7bf8c0e68c60555ae532370fed823de1adc3cb46f45a18c6",
+      "size": 1669695,
+      "source": "/home/ubuntu/art_raw/v2/audio/bgm_stage2.mp3",
+      "eventId": "180851497",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage2/bgm_stage2.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage2/ground.webp": {
+      "sha256": "sha256:a6a878bb901f242014e6dbb78005b9890a69b38108196148f4a6e2c2c7de0ceb",
+      "size": 71240,
+      "source": "/home/ubuntu/art_raw/v2/ground_canyon.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2_env.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage2/ground.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage3/bg_far.webp": {
+      "sha256": "sha256:bb5a079d993cd9bcee5b347ce0e9b501b813e41388d11e5c211224f9cc8eaece",
+      "size": 136784,
+      "source": "/home/ubuntu/art_raw/v2/fortress_far.png",
+      "eventId": "180851124",
+      "recipe": "tools/art/process_v2_env.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage3/bg_far.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage3/bg_mid.webp": {
+      "sha256": "sha256:01292debf417553c080e73a928b8585e19669ae9d1b77690b243e836e4aef59d",
+      "size": 431656,
+      "source": "/home/ubuntu/art_raw/v2/fortress_mid.png",
+      "eventId": "180851124",
+      "recipe": "tools/art/process_v2_env.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage3/bg_mid.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage3/bgm_boss.ogg": {
+      "sha256": "sha256:76c228373a8885298b6aba79e9cf0fe05250752033c9982c605c3c846695869c",
+      "size": 1639834,
+      "source": "/home/ubuntu/art_raw/v2/audio/bgm_boss2.mp3",
+      "eventId": "180851333",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage3/bgm_boss.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage3/bgm_stage3.ogg": {
+      "sha256": "sha256:81d74aaaf805185efd85cfec19cfef177977624d8ba67a52eb957a69f09e3ea0",
+      "size": 1638635,
+      "source": "/home/ubuntu/art_raw/v2/audio/bgm_stage3.mp3",
+      "eventId": "180851355",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage3/bgm_stage3.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage3/bgm_victory.ogg": {
+      "sha256": "sha256:5be6827e9f6899248184a258d7ab313b1d32ce4b36d79c879dcecba170bb6b9f",
+      "size": 802098,
+      "source": "/home/ubuntu/art_raw/v2/audio/bgm_victory.mp3",
+      "eventId": "180851329",
+      "recipe": "tools/art/process_v2_audio.sh",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage3/bgm_victory.ogg",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/stage3/ground.webp": {
+      "sha256": "sha256:5a6e791b1ed5d42c0bb67cd4c1332dc1a4eee7436d135d8d94411b8da7165501",
+      "size": 60064,
+      "source": "/home/ubuntu/art_raw/v2/ground_fortress.png",
+      "eventId": "180851149",
+      "recipe": "tools/art/process_v2_env.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/game/stage3/ground.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/game/ui/logo.webp": {
+      "sha256": "sha256:d5a8538c34b06bc48cf8655f6c406e985a0d2c77364a30cf4c27760a03bdca31",
+      "size": 205120,
+      "source": "/home/ubuntu/art_raw/v2/logo_new.png",
+      "eventId": "180981135",
+      "recipe": "tools/art/process_v2_env.py",
+      "renameTransformEventIds": [
+        "180981578"
+      ],
+      "checkpointSourcePath": "assets/game/ui/logo.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/share/favicon.png": {
+      "sha256": "sha256:1b5b8728f5f836907ddb598e84929566af4261ad31be921eb956a74adf8e1ce1",
+      "size": 540120,
+      "source": "/home/ubuntu/art_raw/v2/favicon_new.png",
+      "eventId": "180981475",
+      "recipe": "tools/art/process_share.py",
+      "renameTransformEventIds": [
+        "180983645"
+      ],
+      "checkpointSourcePath": "assets/share/favicon.png",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/share/loading_bg.webp": {
+      "sha256": "sha256:40339d09290e59909efd2052d97d74f6121e9f321d8bdce8f3c6105cd06cdb9e",
+      "size": 281376,
+      "source": "/home/ubuntu/art_raw/v2/loading_bg.png",
+      "eventId": "180851124",
+      "recipe": "tools/art/process_share.py",
+      "renameTransformEventIds": [],
+      "checkpointSourcePath": "assets/share/loading_bg.webp",
+      "checkpointHashAndSizeVerified": true
+    },
+    "assets/template/share/og.png": {
+      "sha256": "sha256:4d3ac7f979edb26add67df072891facb760ae03030ad0f14692b5129a4412a7a",
+      "size": 1415786,
+      "source": "/home/ubuntu/art_raw/v2/og_card_new.png",
+      "eventId": "180981241",
+      "recipe": "tools/art/process_share.py",
+      "renameTransformEventIds": [
+        "180981578"
+      ],
+      "checkpointSourcePath": "assets/share/og.png",
+      "checkpointHashAndSizeVerified": true
+    }
+  },
+  "remainingUnknownArtAudio": [],
+  "checkpointLockSha256": "sha256:f317326b66aef9544f621bdb6eb7b05ad0815e6dbe35707d571eeac39d30dd74",
+  "note": "Proposed metadata only. New medkit replacement must receive a separate generation record and final published hash."
+}

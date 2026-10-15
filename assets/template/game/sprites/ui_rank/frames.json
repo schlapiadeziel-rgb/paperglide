@@ -1,0 +1,39 @@
+{
+ "frames": {
+  "D": {
+   "file": "D.webp",
+   "pivot": [
+    80,
+    92
+   ]
+  },
+  "C": {
+   "file": "C.webp",
+   "pivot": [
+    78,
+    92
+   ]
+  },
+  "B": {
+   "file": "B.webp",
+   "pivot": [
+    80,
+    92
+   ]
+  },
+  "A": {
+   "file": "A.webp",
+   "pivot": [
+    89,
+    105
+   ]
+  },
+  "S": {
+   "file": "S.webp",
+   "pivot": [
+    89,
+    110
+   ]
+  }
+ }
+}

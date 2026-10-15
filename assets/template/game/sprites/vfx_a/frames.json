@@ -1,0 +1,93 @@
+{
+ "scale": 0.41237113402061853,
+ "frames": {
+  "flash_pistol": {
+   "file": "flash_pistol.webp",
+   "size": [
+    144,
+    108
+   ],
+   "pivot": [
+    61.0,
+    53.7
+   ]
+  },
+  "flash_hmg": {
+   "file": "flash_hmg.webp",
+   "size": [
+    261,
+    163
+   ],
+   "pivot": [
+    129.4,
+    80.5
+   ]
+  },
+  "flash_spread": {
+   "file": "flash_spread.webp",
+   "size": [
+    216,
+    164
+   ],
+   "pivot": [
+    120.4,
+    82.7
+   ]
+  },
+  "spark_burst": {
+   "file": "spark_burst.webp",
+   "size": [
+    205,
+    182
+   ],
+   "pivot": [
+    110.6,
+    88.5
+   ]
+  },
+  "hit_x": {
+   "file": "hit_x.webp",
+   "size": [
+    177,
+    161
+   ],
+   "pivot": [
+    85.9,
+    79.1
+   ]
+  },
+  "sparkle": {
+   "file": "sparkle.webp",
+   "size": [
+    175,
+    166
+   ],
+   "pivot": [
+    86.4,
+    82.4
+   ]
+  },
+  "latch": {
+   "file": "latch.webp",
+   "size": [
+    192,
+    163
+   ],
+   "pivot": [
+    101.2,
+    82.5
+   ]
+  },
+  "glint": {
+   "file": "glint.webp",
+   "size": [
+    210,
+    200
+   ],
+   "pivot": [
+    104.0,
+    98.2
+   ]
+  }
+ }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "medkit",
+  "file": "medkit.webp",
+  "sha256": "fee637c9589e355dd20932a81ea9954e2c0f7e5cc4143a73f6e45111a11ea43f",
+  "bytes": 12316,
+  "method": "built-in imagegen; actual model identifier not returned",
+  "prompt": "prompts.json#medkit",
+  "inputImageSha256": null,
+  "postprocessing": "lossless WebP encoding at128x128; gameplay pivot changed to64x64",
+  "path": "assets/template/game/sprites/items/medkit.webp",
+  "date": "2026-09-30",
+  "publication": {
+    "url": "https://d1oupeiobkpcny.cloudfront.net/assets/dashboard/materials/2026/09/30/fee637c9589e355dd20932a81ea9954e2c0f7e5cc4143a73f6e45111a11ea43f.bin",
+    "sha256": "sha256:fee637c9589e355dd20932a81ea9954e2c0f7e5cc4143a73f6e45111a11ea43f",
+    "size": 12316
+  },
+  "scope": "Creation and byte evidence; no independent guarantee of third-party clearance.",
+  "promptText": "Create one original game sprite: a compact rectangular field supply case for a side-scrolling action game, seen in three-quarter front view, pale cream metal body, dark olive reinforced corner fittings and a carrying handle on top. Put a simple green heart symbol on the broad front panel. Render in detailed pixel-art style with a restrained palette, dark outlines and crisp pixel clusters, readable at 96 by 96 pixels. Center the entire case with modest transparent padding. Transparent background, no floor or shadow plane, no text or letters, no logo, no cross or crescent symbols, no references to existing games. This is a standalone replacement sprite; do not include multiple objects or a sprite sheet.",
+  "generatedMaster": {
+    "file": "medkit-heart-source.png",
+    "sha256": "sha256:0f7a3b38edba8dffb85507c67386de16b96556fc73eb11201e8f265c166e0c89",
+    "size": 774732,
+    "scope": "Retained review master; no backend model identifier returned."
+  }
+}

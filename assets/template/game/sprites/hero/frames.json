@@ -1,0 +1,137 @@
+{
+ "scale": 0.46764091858037576,
+ "frames": {
+  "idle": {
+   "file": "idle.webp",
+   "size": [
+    184,
+    224
+   ],
+   "pivot": [
+    76.8,
+    224.0
+   ]
+  },
+  "idle2": {
+   "file": "idle2.webp",
+   "size": [
+    180,
+    216
+   ],
+   "pivot": [
+    77.7,
+    216.0
+   ]
+  },
+  "aim_up": {
+   "file": "aim_up.webp",
+   "size": [
+    132,
+    250
+   ],
+   "pivot": [
+    67.1,
+    250.0
+   ]
+  },
+  "crouch": {
+   "file": "crouch.webp",
+   "size": [
+    196,
+    158
+   ],
+   "pivot": [
+    97.7,
+    158.0
+   ]
+  },
+  "jump": {
+   "file": "jump.webp",
+   "size": [
+    163,
+    176
+   ],
+   "pivot": [
+    73.1,
+    176.0
+   ]
+  },
+  "aim_down": {
+   "file": "aim_down.webp",
+   "size": [
+    111,
+    224
+   ],
+   "pivot": [
+    55.8,
+    224.0
+   ]
+  },
+  "throw": {
+   "file": "throw.webp",
+   "size": [
+    216,
+    202
+   ],
+   "pivot": [
+    106.3,
+    202.0
+   ]
+  },
+  "carry": {
+   "file": "carry.webp",
+   "size": [
+    124,
+    244
+   ],
+   "pivot": [
+    57.3,
+    244.0
+   ]
+  },
+  "grapple": {
+   "file": "grapple.webp",
+   "size": [
+    210,
+    204
+   ],
+   "pivot": [
+    96.4,
+    204.0
+   ]
+  },
+  "slash": {
+   "file": "slash.webp",
+   "size": [
+    231,
+    192
+   ],
+   "pivot": [
+    116.2,
+    192.0
+   ]
+  },
+  "hurt": {
+   "file": "hurt.webp",
+   "size": [
+    179,
+    197
+   ],
+   "pivot": [
+    60.7,
+    197.0
+   ]
+  },
+  "dead": {
+   "file": "dead.webp",
+   "size": [
+    235,
+    74
+   ],
+   "pivot": [
+    125.3,
+    74.0
+   ]
+  }
+ }
+}

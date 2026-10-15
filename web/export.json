@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "assets": {
+    "notebook-loader.png": "assets/world/notebook_background.png",
+    "game-favicon.png": "assets/share/favicon.png"
+  },
+  "shell": {
+    "builder": "web/build-shell.mjs",
+    "output": "web/loading.html"
+  }
+}

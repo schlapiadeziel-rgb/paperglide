@@ -1,0 +1,93 @@
+{
+ "scale": 0.24963289280469897,
+ "frames": {
+  "fuel_tank": {
+   "file": "fuel_tank.webp",
+   "size": [
+    103,
+    170
+   ],
+   "pivot": [
+    51.5,
+    170.0
+   ]
+  },
+  "nest_base": {
+   "file": "nest_base.webp",
+   "size": [
+    165,
+    100
+   ],
+   "pivot": [
+    82.5,
+    100.0
+   ]
+  },
+  "mg_gun": {
+   "file": "mg_gun.webp",
+   "size": [
+    186,
+    124
+   ],
+   "pivot": [
+    93.0,
+    124.0
+   ]
+  },
+  "sign": {
+   "file": "sign.webp",
+   "size": [
+    82,
+    157
+   ],
+   "pivot": [
+    41.0,
+    157.0
+   ]
+  },
+  "ammo_box": {
+   "file": "ammo_box.webp",
+   "size": [
+    135,
+    100
+   ],
+   "pivot": [
+    67.5,
+    100.0
+   ]
+  },
+  "burning_drum": {
+   "file": "burning_drum.webp",
+   "size": [
+    79,
+    161
+   ],
+   "pivot": [
+    39.5,
+    161.0
+   ]
+  },
+  "barriers": {
+   "file": "barriers.webp",
+   "size": [
+    175,
+    143
+   ],
+   "pivot": [
+    87.5,
+    143.0
+   ]
+  },
+  "medal": {
+   "file": "medal.webp",
+   "size": [
+    71,
+    132
+   ],
+   "pivot": [
+    35.5,
+    132.0
+   ]
+  }
+ }
+}

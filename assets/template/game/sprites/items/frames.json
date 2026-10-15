@@ -1,0 +1,93 @@
+{
+ "scale": 0.19834710743801653,
+ "frames": {
+  "medkit": {
+   "file": "medkit.webp",
+   "size": [
+    128,
+    128
+   ],
+   "pivot": [
+    64.0,
+    64.0
+   ]
+  },
+  "grenades": {
+   "file": "grenades.webp",
+   "size": [
+    93,
+    98
+   ],
+   "pivot": [
+    46.0,
+    50.9
+   ]
+  },
+  "hmg": {
+   "file": "hmg.webp",
+   "size": [
+    129,
+    104
+   ],
+   "pivot": [
+    55.3,
+    48.3
+   ]
+  },
+  "spread": {
+   "file": "spread.webp",
+   "size": [
+    101,
+    84
+   ],
+   "pivot": [
+    47.9,
+    37.5
+   ]
+  },
+  "rocket": {
+   "file": "rocket.webp",
+   "size": [
+    117,
+    89
+   ],
+   "pivot": [
+    55.5,
+    40.8
+   ]
+  },
+  "shield": {
+   "file": "shield.webp",
+   "size": [
+    92,
+    106
+   ],
+   "pivot": [
+    45.5,
+    53.4
+   ]
+  },
+  "medal": {
+   "file": "medal.webp",
+   "size": [
+    62,
+    111
+   ],
+   "pivot": [
+    30.4,
+    53.1
+   ]
+  },
+  "gold": {
+   "file": "gold.webp",
+   "size": [
+    108,
+    86
+   ],
+   "pivot": [
+    54.9,
+    44.1
+   ]
+  }
+ }
+}

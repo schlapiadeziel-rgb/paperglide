@@ -1,0 +1,93 @@
+{
+ "scale": 0.27705627705627706,
+ "frames": {
+  "crate": {
+   "file": "crate.webp",
+   "size": [
+    134,
+    128
+   ],
+   "pivot": [
+    67.0,
+    128.0
+   ]
+  },
+  "barrel": {
+   "file": "barrel.webp",
+   "size": [
+    99,
+    150
+   ],
+   "pivot": [
+    49.5,
+    150.0
+   ]
+  },
+  "anchor": {
+   "file": "anchor.webp",
+   "size": [
+    98,
+    145
+   ],
+   "pivot": [
+    49.0,
+    145.0
+   ]
+  },
+  "flag": {
+   "file": "flag.webp",
+   "size": [
+    123,
+    190
+   ],
+   "pivot": [
+    61.5,
+    190.0
+   ]
+  },
+  "pow_tied": {
+   "file": "pow_tied.webp",
+   "size": [
+    76,
+    202
+   ],
+   "pivot": [
+    38.0,
+    202.0
+   ]
+  },
+  "pow_free": {
+   "file": "pow_free.webp",
+   "size": [
+    99,
+    204
+   ],
+   "pivot": [
+    49.5,
+    204.0
+   ]
+  },
+  "sandbags": {
+   "file": "sandbags.webp",
+   "size": [
+    170,
+    88
+   ],
+   "pivot": [
+    85.0,
+    88.0
+   ]
+  },
+  "ammo_crate": {
+   "file": "ammo_crate.webp",
+   "size": [
+    134,
+    111
+   ],
+   "pivot": [
+    67.0,
+    111.0
+   ]
+  }
+ }
+}

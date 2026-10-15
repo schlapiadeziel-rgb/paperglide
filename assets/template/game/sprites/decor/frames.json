@@ -1,0 +1,93 @@
+{
+ "scale": 0.8069164265129684,
+ "frames": {
+  "palm": {
+   "file": "palm.webp",
+   "size": [
+    340,
+    560
+   ],
+   "pivot": [
+    170.0,
+    560.0
+   ]
+  },
+  "jeep": {
+   "file": "jeep.webp",
+   "size": [
+    465,
+    254
+   ],
+   "pivot": [
+    232.5,
+    254.0
+   ]
+  },
+  "wire": {
+   "file": "wire.webp",
+   "size": [
+    456,
+    293
+   ],
+   "pivot": [
+    228.0,
+    293.0
+   ]
+  },
+  "wall": {
+   "file": "wall.webp",
+   "size": [
+    387,
+    443
+   ],
+   "pivot": [
+    193.5,
+    443.0
+   ]
+  },
+  "tower": {
+   "file": "tower.webp",
+   "size": [
+    277,
+    558
+   ],
+   "pivot": [
+    138.5,
+    558.0
+   ]
+  },
+  "rubble": {
+   "file": "rubble.webp",
+   "size": [
+    475,
+    291
+   ],
+   "pivot": [
+    237.5,
+    291.0
+   ]
+  },
+  "tent": {
+   "file": "tent.webp",
+   "size": [
+    558,
+    314
+   ],
+   "pivot": [
+    279.0,
+    314.0
+   ]
+  },
+  "agave": {
+   "file": "agave.webp",
+   "size": [
+    335,
+    326
+   ],
+   "pivot": [
+    167.5,
+    326.0
+   ]
+  }
+ }
+}

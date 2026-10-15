@@ -1,0 +1,49 @@
+{
+ "scale": 0.22735346358792186,
+ "frames": {
+  "hover0": {
+   "file": "hover0.webp",
+   "size": [
+    223,
+    128
+   ],
+   "pivot": [
+    114.6,
+    65.3
+   ]
+  },
+  "hover1": {
+   "file": "hover1.webp",
+   "size": [
+    194,
+    128
+   ],
+   "pivot": [
+    88.7,
+    62.2
+   ]
+  },
+  "drop": {
+   "file": "drop.webp",
+   "size": [
+    218,
+    184
+   ],
+   "pivot": [
+    110.2,
+    73.2
+   ]
+  },
+  "wreck": {
+   "file": "wreck.webp",
+   "size": [
+    209,
+    189
+   ],
+   "pivot": [
+    99.8,
+    94.1
+   ]
+  }
+ }
+}

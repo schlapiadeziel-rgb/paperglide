@@ -1,0 +1,38 @@
+{
+  "reviewedDate": "2026-09-30",
+  "correctionsApplied": [
+    "Replace unsupported origin generated with derivative for230 processed files.",
+    "Replace unsupported source/generator fields with supported url/commit/sourcePath/requestId; retain rich data in evidence sidecars.",
+    "Use transformations with operation/tool/description and hash-pinned receipt references.",
+    "Independently compare all230 rows with exact source checkpoint lock, not only current lock self-equality.",
+    "Record logo/OG master copy event180981578 and favicon master copy event180983645.",
+    "Do not manufacture generated-master input hashes; leave inputs empty and keep historical paths/events in sidecars.",
+    "Resolve2RTS and3Scroller font origins with exact official binary and adjacent OFL notice equality."
+  ],
+  "validation": {
+    "mappedScrollerOrigins": 230,
+    "mappedImages": 171,
+    "mappedAudio": 59,
+    "successfulGenerationOutputPaths": 99,
+    "spritePathsConfirmedAgainstNamedRecipeOutputs": 156,
+    "checkpointHashAndSizeMatches": 230,
+    "nativeProvenanceCheckEvents": {
+      "RTS61": 163,
+      "Scroller62": 233
+    },
+    "nativeProvenanceCheckWrites": false,
+    "sanitizedReceiptCredentialPatternMatches": 0
+  },
+  "remainingCounts": {
+    "RTS61UnknownOriginRows": 0,
+    "Scroller62UnknownOriginRows": 0,
+    "ScrollerInheritedAudioSourceGaps": 4,
+    "TDUnknownRows": 106,
+    "TDDormantUnknownRows": 102,
+    "TDShippedUnusedHarrierUnknownRows": 4,
+    "EmberpanMissingOriginalEvidenceRows": 101,
+    "PuzzleBaselineMissingOriginalReceiptRows": 38,
+    "TotalPreviouslyEnumeratedNonfontUnresolvedRows": 245
+  },
+  "qualification": "Origins recovered are supported by successful generation events, recorded transforms and exact final checkpoint bytes. Master-to-runtime generation was not replayed. Service-level Manus ownership/commercial-use rights do not independently establish input rights or assignment from the creating user. Four inherited Scroller audio rows were not relabeled generated."
+}

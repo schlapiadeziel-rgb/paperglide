@@ -1,0 +1,57 @@
+{
+  "sourceKind": "manus-game-checkpoint",
+  "sourceSessionId": "lzpuq5Nt8AigwSsaX04tlO",
+  "sourceCheckpoint": "92fa1b6ffc139bd6c78839eee97a639d3137f094",
+  "sourceArchiveSha256": "d5adced8b4ff5cd7268902a4b6eac9198eb99188fc79bcfe43a92dfad4a60990",
+  "maintenanceRepository": "manus-ai/manus-addon-webdev",
+  "engineVersion": "4.7.2",
+  "adaptations": [
+    "Replace the prior robot side-scroller with the repaired Side Scroller checkpoint: three stages, grappling/carry combat, STYLE/FURY and the Rhino Crawler boss.",
+    "Relocate game and sharing media under assets/template, update source/resource/tool references and preserve retained media bytes and import settings.",
+    "Retain all new-game media plus the four inherited runtime SFX and Nunito/Noto font composites; remove 36 proven unused Calico media entries and their obsolete stage data, documents and tests.",
+    "Remove installed session markers, runtime command wrappers, generated site output and the unreferenced Calico SaveStore autoload.",
+    "Keep gameplay source behavior, the existing game best-score save, and canonical Addon browser BGM/font/procedural-audio/license helpers.",
+    "Keep English owner-tuning labels and remove unused Calico UI translations; preserve the existing preview tuning adapter and managed release projection boundary.",
+    "Provide portable finite native smoke/progression/bot/capture commands using GODOT_BIN; preserve original game test scenarios and avoid deleting capture directories.",
+    "Rebuild streamed asset manifests with their original flat URLs; stage 38 gameplay files and same-origin loading artwork through the managed Web export manifest.",
+    "Generate the loading shell from editable template and font CSS, preserve its game-specific layout and embed the approved Noto Sans SC loader font with its license and coverage metadata.",
+    "Retain reusable asset origin/license facts while removing session-bound discovery, blueprint, export and usage claims from asset provenance.",
+    "Generate current README guidance from the Addon scroller recipe; retain source art-processing tools with explicit original-master inputs.",
+    "Connected the existing Credits screen to the canonical Open Source Licenses helper; verified the exported notice page in Chrome.",
+    "Released smoke/progression fixture resources before exit so strict native checks pass without hiding engine errors."
+  ],
+  "retainedMedia": {
+    "count": 274,
+    "bytes": 34066580,
+    "integrity": "All retained media matched the checkpoint lock SHA-256 and byte size after relocation."
+  },
+  "typographyMaintenance": {
+    "primaryFamilies": [
+      "Black Ops One",
+      "Chakra Petch",
+      "Nunito"
+    ],
+    "languageFallback": "Pinned Noto Sans SC subset with adjacent OFL notice",
+    "bodyComposites": "assets/template/fonts/ui_{regular,medium,bold}.tres"
+  },
+  "browserBgmMaintenance": {
+    "helperSources": [
+      "runtime-src/game-dev/godot/browser_bgm_backend.gd",
+      "runtime-src/game-dev/godot/browser_bgm_player.gd"
+    ],
+    "soundtrack": "Retained byte-for-byte from the source checkpoint",
+    "nativeFallback": "Godot AudioStreamPlayer",
+    "browserRenderer": "Web Audio with cached decoded buffers"
+  },
+  "starterId": "game-scroller-v63",
+  "parentStarterId": "game-scroller-v62",
+  "parentFileManifest": "gameStarterFiles.game-scroller-v61.json",
+  "parentFileManifestSha256": "d0892a62bbb45b883acceb74537953d45b03ec4ccde32d47e7bce451ed6085c8",
+  "localMaintenance": [
+    {
+      "date": "2026-09-30",
+      "reason": "Approved template IP remediation: neutral branding, medical emblem replacement, reviewed full CC0 fonts and recovered provenance as applicable. See docs/audits/2026-09-30-game-template-ip-remediation in the maintenance repository for scope and remaining evidence gaps.",
+      "parentStarterId": "game-scroller-v62"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "note": "Exact current binaries match current official Google Fonts originals. Adjacent OFL notices match upstream after normalizing line endings and trailing whitespace. No subsetting or modified-font-name waiver is needed for these five unmodified files.",
+  "fonts": [
+    {
+      "template": "game-rts-v61",
+      "path": "assets/template/game/fonts/Bangers-Regular.ttf",
+      "sha256": "sha256:4160a7311de9342674cce9160cde9fcbb30f48190397d86ff1b70b455af65824",
+      "size": 93148,
+      "upstreamFontUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/bangers/Bangers-Regular.ttf",
+      "upstreamFontBytesMatch": true,
+      "noticePath": "assets/template/game/fonts/Bangers-OFL.txt",
+      "noticeSha256": "sha256:01f0dea3bc499f7fcc471577fe3a8d7df6e74e6b456d2228b767a239740811ae",
+      "upstreamNoticeUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/bangers/OFL.txt",
+      "upstreamNoticeMatchesIgnoringLineEndingsAndTrailingWhitespace": true,
+      "modifiedVersion": false,
+      "verifiedDate": "2026-09-30"
+    },
+    {
+      "template": "game-rts-v61",
+      "path": "assets/template/game/fonts/Nunito-VF.ttf",
+      "sha256": "sha256:bb55a5ca5c2042335b3991af27c4d0705d0ef41cac6164ac737fd8f2a1e85207",
+      "size": 276932,
+      "upstreamFontUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunito/Nunito%5Bwght%5D.ttf",
+      "upstreamFontBytesMatch": true,
+      "noticePath": "assets/template/game/fonts/Nunito-OFL.txt",
+      "noticeSha256": "sha256:ee9491ad3ea5d390878695bd6cce49beb3cacd5c4312f8ab574b541e9f7afa21",
+      "upstreamNoticeUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/nunito/OFL.txt",
+      "upstreamNoticeMatchesIgnoringLineEndingsAndTrailingWhitespace": true,
+      "modifiedVersion": false,
+      "verifiedDate": "2026-09-30"
+    },
+    {
+      "template": "game-scroller-v62",
+      "path": "assets/template/game/fonts/BlackOpsOne-Regular.ttf",
+      "sha256": "sha256:282a825b5f294377387e3969f765408157dbea8da0f5d0aae68c6bc704b145b3",
+      "size": 166532,
+      "upstreamFontUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/blackopsone/BlackOpsOne-Regular.ttf",
+      "upstreamFontBytesMatch": true,
+      "noticePath": "assets/template/game/fonts/BlackOpsOne-OFL.txt",
+      "noticeSha256": "sha256:f67ca4a200424868ee8fcd5464d7b35ac1cbf7723f6bfdbd19a8524689fab9a8",
+      "upstreamNoticeUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/blackopsone/OFL.txt",
+      "upstreamNoticeMatchesIgnoringLineEndingsAndTrailingWhitespace": true,
+      "modifiedVersion": false,
+      "verifiedDate": "2026-09-30"
+    },
+    {
+      "template": "game-scroller-v62",
+      "path": "assets/template/game/fonts/ChakraPetch-Bold.ttf",
+      "sha256": "sha256:65fbf76d95651697275e19db4d717c0e95a789ddd3476478b05292104db278a0",
+      "size": 78384,
+      "upstreamFontUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/chakrapetch/ChakraPetch-Bold.ttf",
+      "upstreamFontBytesMatch": true,
+      "noticePath": "assets/template/game/fonts/ChakraPetch-OFL.txt",
+      "noticeSha256": "sha256:13831d02389d917d22fcfa6c79f98f8acbf61d230add0e73a4d4dc5f3bfb9e56",
+      "upstreamNoticeUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/chakrapetch/OFL.txt",
+      "upstreamNoticeMatchesIgnoringLineEndingsAndTrailingWhitespace": true,
+      "modifiedVersion": false,
+      "verifiedDate": "2026-09-30"
+    },
+    {
+      "template": "game-scroller-v62",
+      "path": "assets/template/game/fonts/ChakraPetch-SemiBold.ttf",
+      "sha256": "sha256:45264de3204ddbd5fb3e14a2402acd5c630d16650ae5fc221d2c52da46a6734b",
+      "size": 78604,
+      "upstreamFontUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/chakrapetch/ChakraPetch-SemiBold.ttf",
+      "upstreamFontBytesMatch": true,
+      "noticePath": "assets/template/game/fonts/ChakraPetch-OFL.txt",
+      "noticeSha256": "sha256:13831d02389d917d22fcfa6c79f98f8acbf61d230add0e73a4d4dc5f3bfb9e56",
+      "upstreamNoticeUrl": "https://raw.githubusercontent.com/google/fonts/main/ofl/chakrapetch/OFL.txt",
+      "upstreamNoticeMatchesIgnoringLineEndingsAndTrailingWhitespace": true,
+      "modifiedVersion": false,
+      "verifiedDate": "2026-09-30"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+ "scale": 0.7569141193595342,
+ "frames": {
+  "hoodoo": {
+   "file": "hoodoo.webp",
+   "size": [
+    357,
+    520
+   ],
+   "pivot": [
+    178.5,
+    520.0
+   ]
+  },
+  "cactus": {
+   "file": "cactus.webp",
+   "size": [
+    269,
+    516
+   ],
+   "pivot": [
+    134.5,
+    516.0
+   ]
+  },
+  "boxcar": {
+   "file": "boxcar.webp",
+   "size": [
+    562,
+    333
+   ],
+   "pivot": [
+    281.0,
+    333.0
+   ]
+  },
+  "pier": {
+   "file": "pier.webp",
+   "size": [
+    349,
+    484
+   ],
+   "pivot": [
+    174.5,
+    484.0
+   ]
+  },
+  "minecart": {
+   "file": "minecart.webp",
+   "size": [
+    416,
+    300
+   ],
+   "pivot": [
+    208.0,
+    300.0
+   ]
+  },
+  "water_tower": {
+   "file": "water_tower.webp",
+   "size": [
+    254,
+    471
+   ],
+   "pivot": [
+    127.0,
+    471.0
+   ]
+  },
+  "boulders": {
+   "file": "boulders.webp",
+   "size": [
+    525,
+    297
+   ],
+   "pivot": [
+    262.5,
+    297.0
+   ]
+  },
+  "skull": {
+   "file": "skull.webp",
+   "size": [
+    416,
+    250
+   ],
+   "pivot": [
+    208.0,
+    250.0
+   ]
+  }
+ }
+}

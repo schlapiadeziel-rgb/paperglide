@@ -1,0 +1,71 @@
+{
+ "scale": 0.34120734908136485,
+ "frames": {
+  "weapon": {
+   "file": "weapon.webp",
+   "size": [
+    260,
+    100
+   ],
+   "pivot": [
+    124.8,
+    48.1
+   ]
+  },
+  "score": {
+   "file": "score.webp",
+   "size": [
+    278,
+    86
+   ],
+   "pivot": [
+    137.7,
+    42.0
+   ]
+  },
+  "slot": {
+   "file": "slot.webp",
+   "size": [
+    135,
+    130
+   ],
+   "pivot": [
+    67.1,
+    64.1
+   ]
+  },
+  "slot_hi": {
+   "file": "slot_hi.webp",
+   "size": [
+    153,
+    153
+   ],
+   "pivot": [
+    76.3,
+    75.2
+   ]
+  },
+  "button": {
+   "file": "button.webp",
+   "size": [
+    291,
+    96
+   ],
+   "pivot": [
+    146.7,
+    48.0
+   ]
+  },
+  "button_hi": {
+   "file": "button_hi.webp",
+   "size": [
+    280,
+    137
+   ],
+   "pivot": [
+    138.1,
+    71.3
+   ]
+  }
+ }
+}

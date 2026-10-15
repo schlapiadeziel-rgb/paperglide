@@ -1,0 +1,93 @@
+{
+ "scale": 0.712468193384224,
+ "frames": {
+  "watchtower": {
+   "file": "watchtower.webp",
+   "size": [
+    356,
+    560
+   ],
+   "pivot": [
+    178.0,
+    560.0
+   ]
+  },
+  "silo": {
+   "file": "silo.webp",
+   "size": [
+    413,
+    513
+   ],
+   "pivot": [
+    206.5,
+    513.0
+   ]
+  },
+  "banner": {
+   "file": "banner.webp",
+   "size": [
+    235,
+    549
+   ],
+   "pivot": [
+    117.5,
+    549.0
+   ]
+  },
+  "radar": {
+   "file": "radar.webp",
+   "size": [
+    370,
+    532
+   ],
+   "pivot": [
+    185.0,
+    532.0
+   ]
+  },
+  "pipes": {
+   "file": "pipes.webp",
+   "size": [
+    413,
+    393
+   ],
+   "pivot": [
+    206.5,
+    393.0
+   ]
+  },
+  "crates": {
+   "file": "crates.webp",
+   "size": [
+    426,
+    287
+   ],
+   "pivot": [
+    213.0,
+    287.0
+   ]
+  },
+  "jeep": {
+   "file": "jeep.webp",
+   "size": [
+    465,
+    328
+   ],
+   "pivot": [
+    232.5,
+    328.0
+   ]
+  },
+  "hedgehog": {
+   "file": "hedgehog.webp",
+   "size": [
+    386,
+    301
+   ],
+   "pivot": [
+    193.0,
+    301.0
+   ]
+  }
+ }
+}

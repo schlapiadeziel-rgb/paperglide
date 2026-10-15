@@ -1,0 +1,38 @@
+{
+ "scale": 0.4859335038363171,
+ "frames": {
+  "win": {
+   "file": "win.webp",
+   "size": [
+    1001,
+    146
+   ],
+   "pivot": [
+    500.0,
+    69.5
+   ]
+  },
+  "lose": {
+   "file": "lose.webp",
+   "size": [
+    970,
+    190
+   ],
+   "pivot": [
+    461.2,
+    101.3
+   ]
+  },
+  "neutral": {
+   "file": "neutral.webp",
+   "size": [
+    995,
+    135
+   ],
+   "pivot": [
+    496.8,
+    66.9
+   ]
+  }
+ }
+}

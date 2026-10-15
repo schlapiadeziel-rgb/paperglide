@@ -1,0 +1,292 @@
+# Generated runtime/export/test outputs
+node_modules/
+.godot/
+dist/
+site/
+test-output/
+game-captures/
+.manus-logs/
+.manus-game-tools/
+*.log
+*.tmp
+.DS_Store
+.manus-artifacts.json
+
+# Manifest-hydrated media; editable resource definitions stay tracked.
+/assets/template/audio/checkpoint.ogg
+/assets/template/audio/death.ogg
+/assets/template/audio/land.ogg
+/assets/template/audio/success.ogg
+/assets/template/fonts/NotoSansSC-VF.subset.woff2
+/assets/template/fonts/Nunito-VF.subset.woff2
+/assets/template/game/audio/alarm.ogg
+/assets/template/game/audio/banner_slam.ogg
+/assets/template/game/audio/bgm_boss.ogg
+/assets/template/game/audio/bgm_stage.ogg
+/assets/template/game/audio/bgm_stage1.ogg
+/assets/template/game/audio/bgm_title.ogg
+/assets/template/game/audio/chain_boom.ogg
+/assets/template/game/audio/enemy_die.ogg
+/assets/template/game/audio/explosion.ogg
+/assets/template/game/audio/fury_off.ogg
+/assets/template/game/audio/fury_on.ogg
+/assets/template/game/audio/game_over.ogg
+/assets/template/game/audio/gameover.ogg
+/assets/template/game/audio/grab.ogg
+/assets/template/game/audio/grapple_fire.ogg
+/assets/template/game/audio/grapple_hit.ogg
+/assets/template/game/audio/heartbeat.ogg
+/assets/template/game/audio/hit.ogg
+/assets/template/game/audio/hmg.ogg
+/assets/template/game/audio/jump.ogg
+/assets/template/game/audio/laser_charge.ogg
+/assets/template/game/audio/laser_fire.ogg
+/assets/template/game/audio/mg_nest.ogg
+/assets/template/game/audio/missile.ogg
+/assets/template/game/audio/mission_complete.ogg
+/assets/template/game/audio/mission_start.ogg
+/assets/template/game/audio/overheat.ogg
+/assets/template/game/audio/panic.ogg
+/assets/template/game/audio/pickup.ogg
+/assets/template/game/audio/pistol.ogg
+/assets/template/game/audio/player_hurt.ogg
+/assets/template/game/audio/powerup.ogg
+/assets/template/game/audio/rank_down.ogg
+/assets/template/game/audio/rank_up.ogg
+/assets/template/game/audio/reel_zip.ogg
+/assets/template/game/audio/ricochet.ogg
+/assets/template/game/audio/rocket.ogg
+/assets/template/game/audio/slash.ogg
+/assets/template/game/audio/spread.ogg
+/assets/template/game/audio/stage_clear.ogg
+/assets/template/game/audio/tally_tick.ogg
+/assets/template/game/audio/throw.ogg
+/assets/template/game/audio/ui_confirm.ogg
+/assets/template/game/audio/ui_hover.ogg
+/assets/template/game/audio/ui_pause.ogg
+/assets/template/game/audio/vo_chain.ogg
+/assets/template/game/audio/vo_fury.ogg
+/assets/template/game/audio/vo_go.ogg
+/assets/template/game/audio/vo_hmg.ogg
+/assets/template/game/audio/vo_mission_start.ogg
+/assets/template/game/audio/vo_rocket.ogg
+/assets/template/game/audio/vo_spread.ogg
+/assets/template/game/audio/vo_stage_clear.ogg
+/assets/template/game/audio/vo_stylish.ogg
+/assets/template/game/audio/vo_warning.ogg
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/circle_05.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/dirt_02.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/fire_01.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/flare_01.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/light_02.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/magic_03.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/muzzle_02.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/scorch_01.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/slash_03.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/smoke_04.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/spark_05.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/spark_06.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/star_06.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/trace_04.png
+/assets/template/game/catalog/kenney_particles/PNG (Transparent)/twirl_02.png
+/assets/template/game/catalog/kenney_smoke/PNG/Black smoke/blackSmoke00.png
+/assets/template/game/catalog/kenney_smoke/PNG/Black smoke/blackSmoke04.png
+/assets/template/game/catalog/kenney_smoke/PNG/Black smoke/blackSmoke08.png
+/assets/template/game/catalog/kenney_smoke/PNG/Black smoke/blackSmoke12.png
+/assets/template/game/catalog/kenney_smoke/PNG/White puff/whitePuff00.png
+/assets/template/game/catalog/kenney_smoke/PNG/White puff/whitePuff03.png
+/assets/template/game/catalog/kenney_smoke/PNG/White puff/whitePuff06.png
+/assets/template/game/catalog/kenney_smoke/PNG/White puff/whitePuff09.png
+/assets/template/game/catalog/kenney_smoke/PNG/White puff/whitePuff12.png
+/assets/template/game/catalog/kenney_smoke/PNG/White puff/whitePuff15.png
+/assets/template/game/catalog/sfx_crash/impact-crash-01.wav
+/assets/template/game/catalog/sfx_crash/impact-crash-02.wav
+/assets/template/game/catalog/sfx_metal-hit/impact-metal-hit-01.wav
+/assets/template/game/catalog/sfx_metal-hit/impact-metal-hit-04.wav
+/assets/template/game/catalog/sfx_metal-hit/impact-metal-hit-07.wav
+/assets/template/game/catalog/sfx_punch/impact-punch-01.wav
+/assets/template/game/catalog/sfx_punch/impact-punch-03.wav
+/assets/template/game/catalog/sfx_punch/impact-punch-05.wav
+/assets/template/game/catalog/sfx_thud/impact-thud-01.wav
+/assets/template/game/catalog/sfx_thud/impact-thud-03.wav
+/assets/template/game/env/bg_far.webp
+/assets/template/game/env/bg_mid.webp
+/assets/template/game/env/ground.webp
+/assets/template/game/env/platform.webp
+/assets/template/game/env/title_art.webp
+/assets/template/game/fonts/BlackOpsOne-Regular.ttf
+/assets/template/game/fonts/ChakraPetch-Bold.ttf
+/assets/template/game/fonts/ChakraPetch-SemiBold.ttf
+/assets/template/game/sprites/boss/hull.webp
+/assets/template/game/sprites/boss_turret/turret.webp
+/assets/template/game/sprites/brute/dead.webp
+/assets/template/game/sprites/brute/punch.webp
+/assets/template/game/sprites/brute/stunned.webp
+/assets/template/game/sprites/brute/walk0.webp
+/assets/template/game/sprites/brute/walk1.webp
+/assets/template/game/sprites/brute/walk2.webp
+/assets/template/game/sprites/brute/walk3.webp
+/assets/template/game/sprites/brute/windup.webp
+/assets/template/game/sprites/decor/agave.webp
+/assets/template/game/sprites/decor/jeep.webp
+/assets/template/game/sprites/decor/palm.webp
+/assets/template/game/sprites/decor/rubble.webp
+/assets/template/game/sprites/decor/tent.webp
+/assets/template/game/sprites/decor/tower.webp
+/assets/template/game/sprites/decor/wall.webp
+/assets/template/game/sprites/decor/wire.webp
+/assets/template/game/sprites/decor_canyon/boulders.webp
+/assets/template/game/sprites/decor_canyon/boxcar.webp
+/assets/template/game/sprites/decor_canyon/cactus.webp
+/assets/template/game/sprites/decor_canyon/hoodoo.webp
+/assets/template/game/sprites/decor_canyon/minecart.webp
+/assets/template/game/sprites/decor_canyon/pier.webp
+/assets/template/game/sprites/decor_canyon/skull.webp
+/assets/template/game/sprites/decor_canyon/water_tower.webp
+/assets/template/game/sprites/decor_fortress/banner.webp
+/assets/template/game/sprites/decor_fortress/crates.webp
+/assets/template/game/sprites/decor_fortress/hedgehog.webp
+/assets/template/game/sprites/decor_fortress/jeep.webp
+/assets/template/game/sprites/decor_fortress/pipes.webp
+/assets/template/game/sprites/decor_fortress/radar.webp
+/assets/template/game/sprites/decor_fortress/silo.webp
+/assets/template/game/sprites/decor_fortress/watchtower.webp
+/assets/template/game/sprites/drone/drop.webp
+/assets/template/game/sprites/drone/hover0.webp
+/assets/template/game/sprites/drone/hover1.webp
+/assets/template/game/sprites/drone/wreck.webp
+/assets/template/game/sprites/explosion/ex0.webp
+/assets/template/game/sprites/explosion/ex1.webp
+/assets/template/game/sprites/explosion/ex2.webp
+/assets/template/game/sprites/explosion/ex3.webp
+/assets/template/game/sprites/explosion/ex4.webp
+/assets/template/game/sprites/explosion/ex5.webp
+/assets/template/game/sprites/explosion/ex6.webp
+/assets/template/game/sprites/explosion/ex7.webp
+/assets/template/game/sprites/grunt/dead.webp
+/assets/template/game/sprites/grunt/fire.webp
+/assets/template/game/sprites/grunt/grabbed.webp
+/assets/template/game/sprites/grunt/hurt.webp
+/assets/template/game/sprites/grunt/walk0.webp
+/assets/template/game/sprites/grunt/walk1.webp
+/assets/template/game/sprites/grunt/walk2.webp
+/assets/template/game/sprites/grunt/walk3.webp
+/assets/template/game/sprites/hero/aim_down.webp
+/assets/template/game/sprites/hero/aim_up.webp
+/assets/template/game/sprites/hero/carry.webp
+/assets/template/game/sprites/hero/crouch.webp
+/assets/template/game/sprites/hero/dead.webp
+/assets/template/game/sprites/hero/grapple.webp
+/assets/template/game/sprites/hero/hurt.webp
+/assets/template/game/sprites/hero/idle.webp
+/assets/template/game/sprites/hero/idle2.webp
+/assets/template/game/sprites/hero/jump.webp
+/assets/template/game/sprites/hero/slash.webp
+/assets/template/game/sprites/hero/throw.webp
+/assets/template/game/sprites/hero_run/run0.webp
+/assets/template/game/sprites/hero_run/run1.webp
+/assets/template/game/sprites/hero_run/run2.webp
+/assets/template/game/sprites/hero_run/run3.webp
+/assets/template/game/sprites/hero_run/run4.webp
+/assets/template/game/sprites/hero_run/run5.webp
+/assets/template/game/sprites/hero_run/run6.webp
+/assets/template/game/sprites/hero_run/run7.webp
+/assets/template/game/sprites/items/gold.webp
+/assets/template/game/sprites/items/grenades.webp
+/assets/template/game/sprites/items/hmg.webp
+/assets/template/game/sprites/items/medal.webp
+/assets/template/game/sprites/items/medkit.webp
+/assets/template/game/sprites/items/rocket.webp
+/assets/template/game/sprites/items/shield.webp
+/assets/template/game/sprites/items/spread.webp
+/assets/template/game/sprites/mortar/bunker.webp
+/assets/template/game/sprites/props/ammo_crate.webp
+/assets/template/game/sprites/props/anchor.webp
+/assets/template/game/sprites/props/barrel.webp
+/assets/template/game/sprites/props/crate.webp
+/assets/template/game/sprites/props/flag.webp
+/assets/template/game/sprites/props/pow_free.webp
+/assets/template/game/sprites/props/pow_tied.webp
+/assets/template/game/sprites/props/sandbags.webp
+/assets/template/game/sprites/props2/ammo_box.webp
+/assets/template/game/sprites/props2/barriers.webp
+/assets/template/game/sprites/props2/burning_drum.webp
+/assets/template/game/sprites/props2/fuel_tank.webp
+/assets/template/game/sprites/props2/medal.webp
+/assets/template/game/sprites/props2/mg_gun.webp
+/assets/template/game/sprites/props2/nest_base.webp
+/assets/template/game/sprites/props2/sign.webp
+/assets/template/game/sprites/shield/dead.webp
+/assets/template/game/sprites/shield/fire.webp
+/assets/template/game/sprites/shield/grabbed.webp
+/assets/template/game/sprites/shield/stagger.webp
+/assets/template/game/sprites/shield/walk0.webp
+/assets/template/game/sprites/shield/walk1.webp
+/assets/template/game/sprites/shield/walk2.webp
+/assets/template/game/sprites/shield/walk3.webp
+/assets/template/game/sprites/ui_banner/lose.webp
+/assets/template/game/sprites/ui_banner/neutral.webp
+/assets/template/game/sprites/ui_banner/win.webp
+/assets/template/game/sprites/ui_bar/boss.webp
+/assets/template/game/sprites/ui_bar/fury.webp
+/assets/template/game/sprites/ui_bar/health.webp
+/assets/template/game/sprites/ui_plate/button.webp
+/assets/template/game/sprites/ui_plate/button_hi.webp
+/assets/template/game/sprites/ui_plate/score.webp
+/assets/template/game/sprites/ui_plate/slot.webp
+/assets/template/game/sprites/ui_plate/slot_hi.webp
+/assets/template/game/sprites/ui_plate/weapon.webp
+/assets/template/game/sprites/ui_portrait/fury.webp
+/assets/template/game/sprites/ui_portrait/hurt.webp
+/assets/template/game/sprites/ui_portrait/normal.webp
+/assets/template/game/sprites/ui_rank/A.webp
+/assets/template/game/sprites/ui_rank/B.webp
+/assets/template/game/sprites/ui_rank/C.webp
+/assets/template/game/sprites/ui_rank/D.webp
+/assets/template/game/sprites/ui_rank/S.webp
+/assets/template/game/sprites/ui_weapon/hmg.webp
+/assets/template/game/sprites/ui_weapon/mg.webp
+/assets/template/game/sprites/ui_weapon/pistol.webp
+/assets/template/game/sprites/ui_weapon/rocket.webp
+/assets/template/game/sprites/ui_weapon/spread.webp
+/assets/template/game/sprites/vfx_a/flash_hmg.webp
+/assets/template/game/sprites/vfx_a/flash_pistol.webp
+/assets/template/game/sprites/vfx_a/flash_spread.webp
+/assets/template/game/sprites/vfx_a/glint.webp
+/assets/template/game/sprites/vfx_a/hit_x.webp
+/assets/template/game/sprites/vfx_a/latch.webp
+/assets/template/game/sprites/vfx_a/spark_burst.webp
+/assets/template/game/sprites/vfx_a/sparkle.webp
+/assets/template/game/sprites/vfx_b/burst.webp
+/assets/template/game/sprites/vfx_b/fireball.webp
+/assets/template/game/sprites/vfx_b/flame.webp
+/assets/template/game/sprites/vfx_b/heal.webp
+/assets/template/game/sprites/vfx_b/laser.webp
+/assets/template/game/sprites/vfx_b/orb.webp
+/assets/template/game/sprites/vfx_b/ring.webp
+/assets/template/game/sprites/vfx_b/tracer.webp
+/assets/template/game/sprites/vfx_c/casing.webp
+/assets/template/game/sprites/vfx_c/dust.webp
+/assets/template/game/sprites/vfx_c/rocks.webp
+/assets/template/game/sprites/vfx_c/scorch.webp
+/assets/template/game/sprites/vfx_c/shards.webp
+/assets/template/game/sprites/vfx_c/smoke_black.webp
+/assets/template/game/sprites/vfx_c/smoke_grey.webp
+/assets/template/game/sprites/vfx_c/splinters.webp
+/assets/template/game/stage2/bg_far.webp
+/assets/template/game/stage2/bg_mid.webp
+/assets/template/game/stage2/bgm_stage2.ogg
+/assets/template/game/stage2/ground.webp
+/assets/template/game/stage3/bg_far.webp
+/assets/template/game/stage3/bg_mid.webp
+/assets/template/game/stage3/bgm_boss.ogg
+/assets/template/game/stage3/bgm_stage3.ogg
+/assets/template/game/stage3/bgm_victory.ogg
+/assets/template/game/stage3/ground.webp
+/assets/template/game/ui/logo.webp
+/assets/template/share/favicon.png
+/assets/template/share/loading_bg.webp
+/assets/template/share/og.png
+
+# Built only in an export snapshot.
+/web/loading.html

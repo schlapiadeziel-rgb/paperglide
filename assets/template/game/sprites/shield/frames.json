@@ -1,0 +1,93 @@
+{
+ "scale": 0.32538569424964936,
+ "frames": {
+  "walk0": {
+   "file": "walk0.webp",
+   "size": [
+    149,
+    232
+   ],
+   "pivot": [
+    86.8,
+    232.0
+   ]
+  },
+  "walk1": {
+   "file": "walk1.webp",
+   "size": [
+    146,
+    232
+   ],
+   "pivot": [
+    83.8,
+    232.0
+   ]
+  },
+  "walk2": {
+   "file": "walk2.webp",
+   "size": [
+    152,
+    231
+   ],
+   "pivot": [
+    89.4,
+    231.0
+   ]
+  },
+  "walk3": {
+   "file": "walk3.webp",
+   "size": [
+    150,
+    232
+   ],
+   "pivot": [
+    88.4,
+    232.0
+   ]
+  },
+  "fire": {
+   "file": "fire.webp",
+   "size": [
+    187,
+    195
+   ],
+   "pivot": [
+    91.8,
+    195.0
+   ]
+  },
+  "stagger": {
+   "file": "stagger.webp",
+   "size": [
+    186,
+    187
+   ],
+   "pivot": [
+    106.3,
+    187.0
+   ]
+  },
+  "grabbed": {
+   "file": "grabbed.webp",
+   "size": [
+    151,
+    213
+   ],
+   "pivot": [
+    57.6,
+    213.0
+   ]
+  },
+  "dead": {
+   "file": "dead.webp",
+   "size": [
+    232,
+    74
+   ],
+   "pivot": [
+    125.6,
+    74.0
+   ]
+  }
+ }
+}
