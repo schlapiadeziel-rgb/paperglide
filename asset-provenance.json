@@ -124,7 +124,7 @@
       "used": true,
       "usedBy": []
     },
-    "assets/share/favicon.png": {
+    "assets/share/favicon-512.png": {
       "declaredUseEvidence": [],
       "generator": {},
       "inputs": [],
@@ -135,9 +135,9 @@
         "project.godot"
       ],
       "regions": [],
-      "sha256": "sha256:ded31af5471fe390f92242b916857afa65792dc70539c02bc1f6d81a448f956a",
+      "sha256": "sha256:9f0cc21e81bf74046342376a5055b8120567a440f816aa6be813776c5ff14812",
       "shipped": true,
-      "size": 5016542,
+      "size": 336352,
       "source": {},
       "status": "present",
       "transformations": [],
@@ -146,6 +146,24 @@
         "project.godot"
       ],
       "used": true,
+      "usedBy": []
+    },
+    "assets/share/favicon.png": {
+      "declaredUseEvidence": [],
+      "generator": {},
+      "inputs": [],
+      "license": {},
+      "origin": "unknown",
+      "referenceEvidence": [],
+      "regions": [],
+      "sha256": "sha256:ded31af5471fe390f92242b916857afa65792dc70539c02bc1f6d81a448f956a",
+      "shipped": false,
+      "size": 5016542,
+      "source": {},
+      "status": "present",
+      "transformations": [],
+      "useEvidence": [],
+      "used": false,
       "usedBy": []
     },
     "assets/share/og.png": {
@@ -11452,7 +11470,7 @@
       "referenceEvidence": [],
       "regions": [],
       "sha256": "sha256:1b5b8728f5f836907ddb598e84929566af4261ad31be921eb956a74adf8e1ce1",
-      "shipped": true,
+      "shipped": false,
       "size": 540120,
       "source": {
         "commit": "92fa1b6ffc139bd6c78839eee97a639d3137f094",
@@ -11591,24 +11609,24 @@
       {
         "contentMatches": [],
         "path": "game-favicon.png",
-        "sha256": "sha256:ded31af5471fe390f92242b916857afa65792dc70539c02bc1f6d81a448f956a",
-        "size": 5016542,
+        "sha256": "sha256:9f0cc21e81bf74046342376a5055b8120567a440f816aa6be813776c5ff14812",
+        "size": 336352,
         "sourcePaths": [
-          "assets/share/favicon.png"
+          "assets/share/favicon-512.png"
         ]
       },
       {
         "contentMatches": [],
         "path": "index.apple-touch-icon.png",
-        "sha256": "sha256:73b4daa8f4241d766f42b6f7148d6114bb8eb93f8330ff472b5ed23d70c30af6",
-        "size": 52075,
+        "sha256": "sha256:0c209df8530d3c2c7a80dfbfe04fcf666e502615ae460392576472f0ce17b9b8",
+        "size": 46461,
         "sourcePaths": []
       },
       {
         "contentMatches": [],
         "path": "index.icon.png",
-        "sha256": "sha256:5a4538a208602033eeffde5bada0f2bca5f857871b4d2281af913b8fe319f76f",
-        "size": 4466971,
+        "sha256": "sha256:e797c730d910c128f0e2cce06f16b0dbedbe9fb9b944b687822d3da134405526",
+        "size": 343158,
         "sourcePaths": []
       },
       {
@@ -11629,11 +11647,11 @@
       },
       {
         "contentMatches": [],
-        "path": "share/ded31af5471fe390f92242b916857afa65792dc70539c02bc1f6d81a448f956a.png",
-        "sha256": "sha256:ded31af5471fe390f92242b916857afa65792dc70539c02bc1f6d81a448f956a",
-        "size": 5016542,
+        "path": "share/9f0cc21e81bf74046342376a5055b8120567a440f816aa6be813776c5ff14812.png",
+        "sha256": "sha256:9f0cc21e81bf74046342376a5055b8120567a440f816aa6be813776c5ff14812",
+        "size": 336352,
         "sourcePaths": [
-          "assets/share/favicon.png"
+          "assets/share/favicon-512.png"
         ]
       },
       {
@@ -11646,9 +11664,9 @@
         ]
       }
     ],
-    "pckSha256": "sha256:e24cd4a4a822750c3173fffa8bc5fb9c66ee9b95779568e914e5df1dd032e479",
+    "pckSha256": "sha256:20dcc6b8f086e8f7a71b554668bd9d21e215d2afdadd49770b7bf5874dc6c1ef",
     "profile": "release",
-    "sourceFingerprint": "sha256:9c903a46220ad36ef9fff18a1cf3fba7b9c7b296bf5bed724d44e35fe7ea5a3e"
+    "sourceFingerprint": "sha256:a02a2978cf96d63f3d2d224da0ec50f4924e080ea8652424e519668a5b6d7143"
   },
   "procedures": {},
   "summary": {
@@ -11671,7 +11689,7 @@
     },
     "derivatives": {
       "retained": 230,
-      "shipped": 190,
+      "shipped": 189,
       "used": 39
     },
     "exportedHostMedia": {
@@ -11681,8 +11699,8 @@
     },
     "files": {
       "downloaded": 35,
-      "retained": 282,
-      "shipped": 242,
+      "retained": 283,
+      "shipped": 241,
       "used": 49
     },
     "origins": {
@@ -11698,7 +11716,7 @@
       },
       "derivative": {
         "retained": 230,
-        "shipped": 190,
+        "shipped": 189,
         "used": 39
       },
       "external": {
@@ -11717,7 +11735,7 @@
         "used": 2
       },
       "unknown": {
-        "retained": 8,
+        "retained": 9,
         "shipped": 8,
         "used": 8
       }

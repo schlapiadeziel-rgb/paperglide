@@ -68,13 +68,21 @@
       "groupId": "paper-plane",
       "used": true
     },
+    "assets/share/favicon-512.png": {
+      "path": "/manus-storage/game/sha256/9f0cc21e81bf74046342376a5055b8120567a440f816aa6be813776c5ff14812.png",
+      "sha256": "sha256:9f0cc21e81bf74046342376a5055b8120567a440f816aa6be813776c5ff14812",
+      "size": 336352,
+      "assetType": "image",
+      "groupId": "game-branding",
+      "used": true
+    },
     "assets/share/favicon.png": {
       "path": "/manus-storage/game/sha256/ded31af5471fe390f92242b916857afa65792dc70539c02bc1f6d81a448f956a.png",
       "sha256": "sha256:ded31af5471fe390f92242b916857afa65792dc70539c02bc1f6d81a448f956a",
       "size": 5016542,
       "assetType": "image",
       "groupId": "game-branding",
-      "used": true
+      "used": false
     },
     "assets/share/og.png": {
       "path": "/manus-storage/game/sha256/ec63c5ad09a5e896422293286bebecdfe1c5cedecaa68ca81087b121679c094e.png",
