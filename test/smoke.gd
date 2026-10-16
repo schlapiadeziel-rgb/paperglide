@@ -28,6 +28,20 @@ func _run() -> void:
 	var game_scene := load("res://scenes/game.tscn") as PackedScene
 	if title_scene == null or game_scene == null:
 		return _fail("title or game scene failed to load")
+	var checker_script := load("res://scripts/update_checker.gd") as Script
+	if checker_script == null:
+		return _fail("Android update checker script failed to load")
+	var checker = checker_script.new()
+	var mock_releases: Array = [
+		{"tag_name": "v1.0.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.0.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
+		{"tag_name": "v1.1.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.1.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
+	]
+	var update: Dictionary = checker.find_newer_release(mock_releases, "1.0.0")
+	if String(update.get("version", "")) != "1.1.0":
+		return _fail("update checker did not find the newer APK release")
+	if not checker.find_newer_release(mock_releases, "1.1.0").is_empty():
+		return _fail("update checker offered an equal or older release")
+	checker.free()
 	var title := title_scene.instantiate()
 	root.add_child(title)
 	await _frames(2)
@@ -84,6 +98,14 @@ func _run() -> void:
 	var base_speed: float = game.scroll_speed
 	var base_interval: float = game.spawn_interval
 	game._spawn_obstacle(game.PLAYER_X + 250.0, 360.0)
+	var first_gate := game._obstacles.back()["node"] as Node2D
+	var first_art := first_gate.get_child(0) as Sprite2D
+	var first_tint: Color = first_art.modulate
+	game._spawn_obstacle(game.PLAYER_X + 1600.0, 360.0)
+	var second_gate := game._obstacles.back()["node"] as Node2D
+	var second_art := second_gate.get_child(0) as Sprite2D
+	if first_tint == second_art.modulate:
+		return _fail("successive pencil gates did not use varied palette colors")
 	for _frame in 13:
 		game._simulate_frame(0.1)
 	if game.score != 1:

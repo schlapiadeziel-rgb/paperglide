@@ -15,6 +15,10 @@ const BASE_SCROLL_SPEED := 285.0
 const BASE_SPAWN_INTERVAL := 1.75
 const MAX_DIFFICULTY_LEVEL := 8
 const DIFFICULTY_STEP_SECONDS := 8.0
+const PENCIL_PALETTE: Array[Color] = [
+	Color("#e5a092"), Color("#e8c66f"), Color("#8dbfaf"),
+	Color("#91b7d9"), Color("#b09acf"), Color("#abc884"),
+]
 
 var state := "ready" # ready, playing, over
 var score := 0
@@ -30,6 +34,7 @@ var difficulty_level := 0
 var run_elapsed := 0.0
 var _idle_time := 0.0
 var _obstacles: Array[Dictionary] = []
+var _obstacle_palette_index := 0
 var _plane: Sprite2D
 var _plane_shadow: Polygon2D
 var _overlay: PanelContainer
@@ -118,6 +123,7 @@ func start_run() -> void:
 	player_velocity = 0.0
 	run_elapsed = 0.0
 	difficulty_level = 0
+	_obstacle_palette_index = 0
 	_apply_difficulty()
 	spawn_timer = 0.55
 	state = "playing"
@@ -201,6 +207,8 @@ func _spawn_obstacle(x: float, gap_center: float) -> void:
 	gate.z_index = 2
 	var art := Sprite2D.new()
 	art.texture = PIPE_TEXTURE
+	art.modulate = PENCIL_PALETTE[_obstacle_palette_index % PENCIL_PALETTE.size()]
+	_obstacle_palette_index += 1
 	art.scale = Vector2(0.55, 0.38)
 	# The pencil tube is centered in its transparent canvas; the tiny optical
 	# correction keeps its visual axis on the collision column.
@@ -272,13 +280,20 @@ func _build_hud() -> void:
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(root)
 
-	var eyebrow := _new_label("紙頁 · 01", 18, Color("#465c6d"))
+	var eyebrow := _new_label("紙頁 · 01", 18, Color("#3f7b82"))
 	eyebrow.position = Vector2(38.0, 24.0)
 	eyebrow.size = Vector2(220.0, 36.0)
 	eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 	root.add_child(eyebrow)
+	for index in PENCIL_PALETTE.size():
+		var color_stroke := ColorRect.new()
+		color_stroke.position = Vector2(40.0 + float(index) * 20.0, 61.0)
+		color_stroke.size = Vector2(14.0, 3.0)
+		color_stroke.color = PENCIL_PALETTE[index]
+		color_stroke.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		root.add_child(color_stroke)
 
-	_score_label = _new_label("0", 58, Color("#344450"))
+	_score_label = _new_label("0", 58, Color("#d87362"))
 	_score_label.position = Vector2(500.0, 18.0)
 	_score_label.size = Vector2(280.0, 78.0)
 	root.add_child(_score_label)
@@ -288,13 +303,13 @@ func _build_hud() -> void:
 	score_caption.size = Vector2(280.0, 30.0)
 	root.add_child(score_caption)
 
-	_difficulty_label = _new_label("節奏 1", 17, Color("#496d86"))
+	_difficulty_label = _new_label("節奏 1", 17, Color("#806ca0"))
 	_difficulty_label.position = Vector2(1000.0, 24.0)
 	_difficulty_label.size = Vector2(240.0, 36.0)
 	_difficulty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	root.add_child(_difficulty_label)
 
-	var instruction := _new_label("輕點 / 空格：向上飛", 16, Color("#496274"))
+	var instruction := _new_label("輕點 / 空格：向上飛", 16, Color("#417f8b"))
 	instruction.position = Vector2(0.0, 666.0)
 	instruction.size = Vector2(1280.0, 32.0)
 	root.add_child(instruction)
@@ -306,7 +321,7 @@ func _build_hud() -> void:
 	_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var panel_style := StyleBoxFlat.new()
 	panel_style.bg_color = Color(0.99, 0.975, 0.92, 0.94)
-	panel_style.border_color = Color("#9aafbc")
+	panel_style.border_color = Color("#d59a7d")
 	panel_style.set_border_width_all(2)
 	panel_style.set_corner_radius_all(18)
 	panel_style.shadow_color = Color(0.18, 0.24, 0.28, 0.16)
@@ -330,9 +345,9 @@ func _build_hud() -> void:
 	_message_label = _new_label("轻点一下，让折叠纸飞机向上跃起。", 17, Color("#526879"))
 	_message_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	stack.add_child(_message_label)
-	_best_label = _new_label("最佳纪录  0", 16, Color("#6888a0"))
+	_best_label = _new_label("最佳纪录  0", 16, Color("#6c8f67"))
 	stack.add_child(_best_label)
-	_hint_label = _new_label("点击 / 空格 开始", 18, Color("#3f7193"))
+	_hint_label = _new_label("点击 / 空格 开始", 18, Color("#c96f5e"))
 	stack.add_child(_hint_label)
 
 
