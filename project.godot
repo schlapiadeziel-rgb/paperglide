@@ -19,7 +19,7 @@ boot_splash/bg_color=Color(0.96, 0.94, 0.88, 1)
 
 
 config/name="纸上飞行"
-config/version="1.1.0"
+config/version="1.2.0"
 config/icon="res://assets/share/favicon.png"
 run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")

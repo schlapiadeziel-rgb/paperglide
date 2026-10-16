@@ -106,12 +106,38 @@ func _run() -> void:
 	var second_art := second_gate.get_child(0) as Sprite2D
 	if first_tint == second_art.modulate:
 		return _fail("successive pencil gates did not use varied palette colors")
+	if not bool(game._obstacles[0].get("has_star", false)) or bool(game._obstacles[1].get("has_star", true)):
+		return _fail("star stickers were not placed on alternating gates")
 	for _frame in 13:
 		game._simulate_frame(0.1)
 	if game.score != 1:
 		return _fail("passing a pipe gate did not add exactly one point (score=%d)" % game.score)
 	if audio != null and audio.get_play_count(&"gate_pass") < 1:
 		return _fail("passing a pipe gate produced no registered sound cue")
+
+	game._clear_obstacles()
+	game._obstacle_palette_index = 0
+	game._gate_spawn_count = 0
+	game.stickers_collected = 0
+	game.sticker_streak = 0
+	game.run_elapsed = 0.0
+	game.player_velocity = 0.0
+	for pickup_index in 3:
+		if pickup_index > 0:
+			game._spawn_obstacle(game.PLAYER_X + 400.0, 360.0)
+		game._spawn_obstacle(game.PLAYER_X + 50.0, 360.0)
+		var reward_gate: Dictionary = game._obstacles.back()
+		var star := reward_gate.get("star") as Node2D
+		if not bool(reward_gate.get("has_star", false)) or not is_instance_valid(star):
+			return _fail("an alternating pencil gate had no collectible star")
+		game.player_y = 360.0 + float(reward_gate.get("pickup_offset", 0.0))
+		game._simulate_frame(0.01)
+		if game.stickers_collected != pickup_index + 1 or game.sticker_streak != pickup_index + 1:
+			return _fail("flying through a star did not add to the sticker chain")
+	if game._reward_label.text != "三连星章！":
+		return _fail("third consecutive star did not trigger the star badge")
+	if game.score != 1:
+		return _fail("star pickups changed the primary obstacle score")
 
 	game._clear_obstacles()
 	game.player_y = 360.0
@@ -135,8 +161,10 @@ func _run() -> void:
 	game._unhandled_input(touch)
 	if game.state != "playing" or game.score != 0:
 		return _fail("touch after game over did not restart the run")
+	if game.stickers_collected != 0 or game.sticker_streak != 0:
+		return _fail("replay did not reset the sticker count and chain")
 
-	print("[SMOKE_PASS] paper flyer: touch, click, gravity, flap, scoring, SFX, timed difficulty ramp, collision and replay verified")
+	print("[SMOKE_PASS] paper flyer: flight, obstacle score, alternating star pickups, three-star badge, streak reset, SFX, difficulty and replay verified")
 	_restore_saved_record()
 	# The Dummy output clock is independent from simulated physics delta. Let the
 	# final short one-shots drain so the native test process releases MP3 streams.
