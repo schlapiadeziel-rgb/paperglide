@@ -2,6 +2,8 @@ extends Node
 ## Android-only, non-blocking checker for newer APK releases on the public project repository.
 
 signal update_available(version: String, release_url: String)
+signal check_finished(found_update: bool, version: String, release_url: String)
+signal check_failed(message: String)
 
 const RELEASES_API_URL := "https://api.github.com/repos/schlapiadeziel-rgb/paperglide/releases?per_page=10"
 const RELEASE_PAGE_PREFIX := "https://github.com/schlapiadeziel-rgb/paperglide/releases/"
@@ -24,6 +26,7 @@ func check_for_update() -> void:
 	if error != OK:
 		_request.queue_free()
 		_request = null
+		check_failed.emit("无法连接 GitHub，请稍后重试。")
 
 
 func _on_request_completed(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
@@ -32,14 +35,21 @@ func _on_request_completed(result: int, response_code: int, _headers: PackedStri
 	if is_instance_valid(completed_request):
 		completed_request.queue_free()
 	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
+		check_failed.emit("更新检查失败，请检查网络后重试。")
 		return
 	var parsed: Variant = JSON.parse_string(body.get_string_from_utf8())
 	if not (parsed is Array):
+		check_failed.emit("GitHub 返回的版本信息暂不可用。")
 		return
 	var current_version := str(ProjectSettings.get_setting("application/config/version", "1.1.0"))
 	var update := find_newer_release(parsed as Array, current_version)
 	if not update.is_empty():
-		update_available.emit(String(update["version"]), String(update["url"]))
+		var newer_version := String(update["version"])
+		var release_url := String(update["url"])
+		update_available.emit(newer_version, release_url)
+		check_finished.emit(true, newer_version, release_url)
+	else:
+		check_finished.emit(false, current_version, "")
 
 
 func find_newer_release(releases: Array, current_version: String) -> Dictionary:

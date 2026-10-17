@@ -19,7 +19,7 @@ boot_splash/bg_color=Color(0.96, 0.94, 0.88, 1)
 
 
 config/name="纸上飞行"
-config/version="1.2.2"
+config/version="1.3.0"
 config/icon="res://assets/share/favicon-512.png"
 run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
@@ -34,6 +34,7 @@ ViewportPolicy="*res://scripts/viewport_policy.gd"
 GameAudio="*res://scripts/game_audio.gd"
 Segments="*res://scripts/segments.gd"
 TuningStore="*res://scripts/tuning_store.gd"
+FlightPreferences="*res://scripts/flight_preferences.gd"
 
 [display]
 

@@ -11,6 +11,7 @@ const PLAYER_HALF_WIDTH := 42.0
 const PLAYER_HALF_HEIGHT := 23.0
 const PIPE_HALF_WIDTH := 72.0
 const GAP_HEIGHT := 244.0
+const SHIELD_INVULNERABILITY_SECONDS := 0.85
 const PICKUP_RADIUS := 18.0
 const PICKUP_BOB_PIXELS := 5.0
 const BASE_SCROLL_SPEED := 285.0
@@ -31,6 +32,7 @@ var gravity := 1180.0
 var flap_impulse := -405.0
 var scroll_speed := BASE_SCROLL_SPEED
 var spawn_interval := BASE_SPAWN_INTERVAL
+var active_gap_height := GAP_HEIGHT
 var spawn_timer := 0.6
 var difficulty_level := 0
 var run_elapsed := 0.0
@@ -40,9 +42,12 @@ var _obstacle_palette_index := 0
 var _gate_spawn_count := 0
 var stickers_collected := 0
 var sticker_streak := 0
+var shield_charges := 0
+var shield_invulnerability_time := 0.0
 var _reward_timer := 0.0
 var _plane: Sprite2D
 var _plane_shadow: Polygon2D
+var _shield_ring: Line2D
 var _overlay: PanelContainer
 var _title_label: Label
 var _message_label: Label
@@ -51,6 +56,7 @@ var _score_label: Label
 var _best_label: Label
 var _difficulty_label: Label
 var _sticker_label: Label
+var _shield_label: Label
 var _reward_label: Label
 
 
@@ -77,12 +83,25 @@ func _ready() -> void:
 	_plane_shadow.position = Vector2(PLAYER_X + 18.0, player_y + 45.0)
 	_plane_shadow.z_index = 4
 	add_child(_plane_shadow)
+	_shield_ring = Line2D.new()
+	_shield_ring.name = "PaperShieldRing"
+	var ring_points := PackedVector2Array()
+	for point in 25:
+		var angle := TAU * float(point) / 24.0
+		ring_points.append(Vector2(cos(angle) * 54.0, sin(angle) * 36.0))
+	_shield_ring.points = ring_points
+	_shield_ring.width = 3.0
+	_shield_ring.default_color = Color("#74bda5")
+	_shield_ring.z_index = 8
+	_shield_ring.visible = false
+	add_child(_shield_ring)
 
 	_plane = Sprite2D.new()
 	_plane.name = "FoldedPaperPlane"
 	_plane.texture = PLANE_TEXTURE
 	_plane.position = Vector2(PLAYER_X, player_y)
 	_plane.scale = Vector2(0.06, 0.06)
+	_plane.modulate = FlightPreferences.get_plane_skin_color()
 	_plane.z_index = 10
 	add_child(_plane)
 	_build_hud()
@@ -139,6 +158,8 @@ func start_run() -> void:
 	_gate_spawn_count = 0
 	stickers_collected = 0
 	sticker_streak = 0
+	shield_charges = 0
+	shield_invulnerability_time = 0.0
 	_reward_timer = 0.0
 	if is_instance_valid(_reward_label):
 		_reward_label.visible = false
@@ -164,6 +185,7 @@ func _simulate_frame(delta: float) -> void:
 	if state != "playing" or delta <= 0.0:
 		return
 	var step := minf(delta, 0.12)
+	shield_invulnerability_time = maxf(0.0, shield_invulnerability_time - step)
 	run_elapsed += step
 	var next_level := mini(int(run_elapsed / DIFFICULTY_STEP_SECONDS), MAX_DIFFICULTY_LEVEL)
 	if next_level != difficulty_level:
@@ -175,13 +197,18 @@ func _simulate_frame(delta: float) -> void:
 	spawn_timer -= step
 	if spawn_timer <= 0.0:
 		spawn_timer = spawn_interval
-		var center_margin := GAP_HEIGHT * 0.5 + 42.0
+		var center_margin := active_gap_height * 0.5 + 42.0
 		_spawn_obstacle(VIEW_SIZE.x + 120.0, randf_range(center_margin, VIEW_SIZE.y - center_margin))
 
 	if player_y - PLAYER_HALF_HEIGHT < 26.0 or player_y + PLAYER_HALF_HEIGHT > VIEW_SIZE.y - 24.0:
-		_end_run()
+		if _try_absorb_hit():
+			player_y = clampf(player_y, PLAYER_HALF_HEIGHT + 26.0, VIEW_SIZE.y - 24.0 - PLAYER_HALF_HEIGHT)
+			player_velocity = 0.0
+		else:
+			_end_run()
 		_sync_plane()
-		return
+		if state != "playing":
+			return
 
 	for i in range(_obstacles.size() - 1, -1, -1):
 		var obstacle: Dictionary = _obstacles[i]
@@ -192,8 +219,8 @@ func _simulate_frame(delta: float) -> void:
 			node.position.x = x
 			var gap_center := float(obstacle["gap_center"])
 			var overlaps_x := absf(x - PLAYER_X) < PIPE_HALF_WIDTH + PLAYER_HALF_WIDTH
-			var safely_in_gap := player_y - PLAYER_HALF_HEIGHT > gap_center - GAP_HEIGHT * 0.5 and player_y + PLAYER_HALF_HEIGHT < gap_center + GAP_HEIGHT * 0.5
-			if overlaps_x and not safely_in_gap:
+			var safely_in_gap := player_y - PLAYER_HALF_HEIGHT > gap_center - active_gap_height * 0.5 and player_y + PLAYER_HALF_HEIGHT < gap_center + active_gap_height * 0.5
+			if overlaps_x and not safely_in_gap and not _try_absorb_hit():
 				_end_run()
 				break
 			_update_pickup(obstacle, x, gap_center, step)
@@ -215,10 +242,15 @@ func _simulate_frame(delta: float) -> void:
 
 func _apply_difficulty() -> void:
 	# A gentle timed ramp keeps the first gates readable, then tightens the rhythm.
-	scroll_speed = BASE_SCROLL_SPEED + float(difficulty_level) * 18.0
-	spawn_interval = maxf(1.39, BASE_SPAWN_INTERVAL - float(difficulty_level) * 0.045)
+	var profile: Dictionary = FlightPreferences.get_difficulty_profile()
+	active_gap_height = float(profile.get("gap_height", GAP_HEIGHT))
+	var base_speed := float(profile.get("base_speed", BASE_SCROLL_SPEED))
+	var base_interval := float(profile.get("base_interval", BASE_SPAWN_INTERVAL))
+	var minimum_interval := float(profile.get("min_interval", 1.39))
+	scroll_speed = base_speed + float(difficulty_level) * 18.0
+	spawn_interval = maxf(minimum_interval, base_interval - float(difficulty_level) * 0.045)
 	if is_instance_valid(_difficulty_label):
-		_difficulty_label.text = "节奏 %d" % (difficulty_level + 1)
+		_difficulty_label.text = "%s · 节奏 %d" % [FlightPreferences.get_difficulty_name(), difficulty_level + 1]
 
 
 func _spawn_obstacle(x: float, gap_center: float) -> void:
@@ -282,7 +314,16 @@ func _collect_star(obstacle: Dictionary, star: Node2D) -> void:
 	stickers_collected += 1
 	sticker_streak += 1
 	_reward_timer = 1.35
-	_reward_label.text = "三连星章！" if sticker_streak % 3 == 0 else "收下星星贴纸 +1"
+	if sticker_streak % 3 == 0:
+		_reward_label.text = "三连星章！"
+		if FlightPreferences.is_star_shield_enabled():
+			if shield_charges == 0:
+				shield_charges = 1
+				_reward_label.text = "三连星章！获得纸盾"
+			else:
+				_reward_label.text = "三连星章！纸盾已满"
+	else:
+		_reward_label.text = "收下星星贴纸 +1"
 	_sync_hud()
 
 
@@ -335,6 +376,19 @@ func _end_run() -> void:
 	_sync_hud()
 
 
+func _try_absorb_hit() -> bool:
+	if shield_invulnerability_time > 0.0:
+		return true
+	if shield_charges <= 0 or not FlightPreferences.is_star_shield_enabled():
+		return false
+	shield_charges = 0
+	shield_invulnerability_time = SHIELD_INVULNERABILITY_SECONDS
+	_reward_timer = 1.2
+	_reward_label.text = "纸盾挡住了撞击！"
+	_sync_hud()
+	return true
+
+
 func _play_sound(cue: StringName) -> void:
 	var audio := get_node_or_null("/root/GameAudio")
 	if is_instance_valid(audio) and audio.has_method("play"):
@@ -363,6 +417,11 @@ func _sync_plane() -> void:
 	if is_instance_valid(_plane):
 		_plane.position = Vector2(PLAYER_X, player_y)
 		_plane.rotation = clampf(player_velocity / 1200.0, -0.34, 0.5)
+	if is_instance_valid(_shield_ring):
+		_shield_ring.position = Vector2(PLAYER_X, player_y)
+		_shield_ring.visible = shield_charges > 0 or shield_invulnerability_time > 0.0
+		var alpha := 0.76 if shield_charges > 0 else 0.46 + sin(_idle_time * 18.0) * 0.18
+		_shield_ring.default_color = Color(0.34, 0.68, 0.57, alpha)
 	if is_instance_valid(_plane_shadow):
 		_plane_shadow.position = Vector2(PLAYER_X + 18.0, player_y + 45.0)
 		_plane_shadow.color.a = clampf(0.20 - absf(player_y - 360.0) * 0.00025, 0.08, 0.20)
@@ -406,6 +465,11 @@ func _build_hud() -> void:
 	_sticker_label.size = Vector2(215.0, 36.0)
 	_sticker_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	root.add_child(_sticker_label)
+	_shield_label = _new_label("纸盾 0", 15, Color("#47827f"))
+	_shield_label.position = Vector2(770.0, 55.0)
+	_shield_label.size = Vector2(215.0, 28.0)
+	_shield_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	root.add_child(_shield_label)
 	_reward_label = _new_label("", 20, Color("#b97750"))
 	_reward_label.position = Vector2(440.0, 116.0)
 	_reward_label.size = Vector2(400.0, 36.0)
@@ -476,8 +540,9 @@ func _sync_hud() -> void:
 		return
 	_score_label.text = str(score)
 	_best_label.text = "最佳纪录  %d" % best_score
-	_difficulty_label.text = "节奏 %d" % (difficulty_level + 1)
+	_difficulty_label.text = "%s · 节奏 %d" % [FlightPreferences.get_difficulty_name(), difficulty_level + 1]
 	_sticker_label.text = "贴纸 %d  ·  连击 %d" % [stickers_collected, sticker_streak]
+	_shield_label.text = "纸盾护航中" if shield_invulnerability_time > 0.0 else "纸盾 %d" % shield_charges
 	_reward_label.visible = state == "playing" and _reward_timer > 0.0
 	_overlay.visible = state != "playing"
 	_score_label.visible = state != "ready"

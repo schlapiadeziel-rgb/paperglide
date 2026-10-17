@@ -4,6 +4,9 @@ extends SceneTree
 var _failed := false
 var _saved_record_snapshot := PackedByteArray()
 var _had_saved_record := false
+var _saved_preferences_snapshot := PackedByteArray()
+var _had_saved_preferences := false
+var _snapshots_ready := false
 
 
 func _initialize() -> void:
@@ -18,12 +21,29 @@ func _frames(count: int) -> void:
 
 func _run() -> void:
 	root.size = Vector2i(1280, 720)
+	var snapshot_ok := true
 	_had_saved_record = FileAccess.file_exists("user://paper_flight.cfg")
 	if _had_saved_record:
 		var record_file := FileAccess.open("user://paper_flight.cfg", FileAccess.READ)
 		if record_file != null:
 			_saved_record_snapshot = record_file.get_buffer(record_file.get_length())
+		else:
+			snapshot_ok = false
+	_had_saved_preferences = FileAccess.file_exists("user://paper_flight_settings.cfg")
+	if _had_saved_preferences:
+		var preference_file := FileAccess.open("user://paper_flight_settings.cfg", FileAccess.READ)
+		if preference_file != null:
+			_saved_preferences_snapshot = preference_file.get_buffer(preference_file.get_length())
+		else:
+			snapshot_ok = false
+	_snapshots_ready = snapshot_ok
 	await _frames(2)
+	var preferences := root.get_node_or_null("FlightPreferences")
+	if preferences == null:
+		return _fail("player preference store autoload is missing")
+	preferences.set_difficulty_index(1)
+	preferences.set_plane_skin_index(0)
+	preferences.set_star_shield_enabled(true)
 	var title_scene := load("res://scenes/title_screen.tscn") as PackedScene
 	var game_scene := load("res://scenes/game.tscn") as PackedScene
 	if title_scene == null or game_scene == null:
@@ -35,18 +55,38 @@ func _run() -> void:
 	var mock_releases: Array = [
 		{"tag_name": "v1.0.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.0.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
 		{"tag_name": "v1.1.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.1.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
+		{"tag_name": "v1.3.1-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.3.1-android-debug", "assets": [{"name": "paperglide-android-v1.3.1.apk"}]},
 	]
 	var update: Dictionary = checker.find_newer_release(mock_releases, "1.0.0")
-	if String(update.get("version", "")) != "1.1.0":
+	if String(update.get("version", "")) != "1.3.1":
 		return _fail("update checker did not find the newer APK release")
-	if not checker.find_newer_release(mock_releases, "1.1.0").is_empty():
+	if not checker.find_newer_release(mock_releases, "1.3.1").is_empty():
 		return _fail("update checker offered an equal or older release")
+	var update_results: Array = []
+	checker.check_finished.connect(func(found: bool, version: String, url: String): update_results.append([found, version, url]))
+	checker._on_request_completed(HTTPRequest.RESULT_SUCCESS, 200, PackedStringArray(), JSON.stringify(mock_releases).to_utf8_buffer())
+	if update_results.is_empty() or not bool(update_results[0][0]) or String(update_results[0][1]) != "1.3.1":
+		return _fail("manual update check did not report the newer APK release")
 	checker.free()
 	var title := title_scene.instantiate()
 	root.add_child(title)
 	await _frames(2)
 	if not title.has_method("start_game"):
 		return _fail("title screen has no start action")
+	if not title.has_method("open_settings"):
+		return _fail("title screen has no settings action")
+	title.open_settings()
+	if not is_instance_valid(title._settings_overlay):
+		return _fail("settings overlay did not open")
+	for control_name in ["DifficultySelect", "PlaneSkinSelect", "SoundToggle", "SfxVolume", "ShieldRewardToggle", "CheckUpdatesButton"]:
+		if title._settings_overlay.find_child(control_name, true, false) == null:
+			return _fail("settings control is missing: %s" % control_name)
+	var settings_touch := InputEventScreenTouch.new()
+	settings_touch.pressed = true
+	title._gui_input(settings_touch)
+	if bool(title.get("_started")):
+		return _fail("touch outside a settings action started the game behind the modal")
+	title._close_settings()
 	title.queue_free()
 	await _frames(1)
 
@@ -54,6 +94,8 @@ func _run() -> void:
 	root.add_child(game)
 	await process_frame
 	game.set_physics_process(false)
+	if game._plane.modulate != preferences.get_plane_skin_color():
+		return _fail("selected paper-plane color was not applied in gameplay")
 	if game.state != "ready":
 		return _fail("game did not start in the ready state")
 	var touch := InputEventScreenTouch.new()
@@ -134,16 +176,38 @@ func _run() -> void:
 		game._simulate_frame(0.01)
 		if game.stickers_collected != pickup_index + 1 or game.sticker_streak != pickup_index + 1:
 			return _fail("flying through a star did not add to the sticker chain")
-	if game._reward_label.text != "三连星章！":
-		return _fail("third consecutive star did not trigger the star badge")
+	if game._reward_label.text != "三连星章！获得纸盾":
+		return _fail("third consecutive star did not trigger the shield badge")
+	if game.shield_charges != 1:
+		return _fail("three consecutive stars did not grant one paper shield")
 	if game.score != 1:
 		return _fail("star pickups changed the primary obstacle score")
+	game._clear_obstacles()
+	game.player_y = 500.0
+	game.player_velocity = 0.0
+	game._spawn_obstacle(game.PLAYER_X, 180.0)
+	game._simulate_frame(0.01)
+	if game.state != "playing" or game.shield_charges != 0 or game.shield_invulnerability_time <= 0.0:
+		return _fail("paper shield did not absorb one pipe collision")
 
 	game._clear_obstacles()
 	game.player_y = 360.0
 	game.player_velocity = 0.0
 	game.run_elapsed = 0.0
 	game.difficulty_level = 0
+	game._apply_difficulty()
+	var normal_gap: float = game.active_gap_height
+	var normal_speed: float = game.scroll_speed
+	preferences.set_difficulty_index(0)
+	game._apply_difficulty()
+	var easy_speed: float = game.scroll_speed
+	if game.active_gap_height <= normal_gap or easy_speed >= normal_speed:
+		return _fail("easy difficulty did not widen the gap and reduce base speed")
+	preferences.set_difficulty_index(2)
+	game._apply_difficulty()
+	if game.active_gap_height >= normal_gap or game.scroll_speed <= normal_speed:
+		return _fail("challenge difficulty did not narrow the gap and raise base speed")
+	preferences.set_difficulty_index(1)
 	game._apply_difficulty()
 	game.spawn_timer = 999.0
 	for _frame in 70:
@@ -152,6 +216,8 @@ func _run() -> void:
 		return _fail("survival time did not raise speed and tighten obstacle rhythm")
 
 	game.player_y = 500.0
+	game.shield_charges = 0
+	game.shield_invulnerability_time = 0.0
 	game._spawn_obstacle(game.PLAYER_X, 180.0)
 	game._simulate_frame(0.01)
 	if game.state != "over":
@@ -161,11 +227,12 @@ func _run() -> void:
 	game._unhandled_input(touch)
 	if game.state != "playing" or game.score != 0:
 		return _fail("touch after game over did not restart the run")
-	if game.stickers_collected != 0 or game.sticker_streak != 0:
-		return _fail("replay did not reset the sticker count and chain")
+	if game.stickers_collected != 0 or game.sticker_streak != 0 or game.shield_charges != 0:
+		return _fail("replay did not reset stickers, chain and shield")
 
-	print("[SMOKE_PASS] paper flyer: flight, obstacle score, alternating star pickups, three-star badge, streak reset, SFX, difficulty and replay verified")
+	print("[SMOKE_PASS] paper flyer: settings, manual update result, flight, score, difficulty, plane skin, star shield, SFX and replay verified")
 	_restore_saved_record()
+	_restore_saved_preferences()
 	# The Dummy output clock is independent from simulated physics delta. Let the
 	# final short one-shots drain so the native test process releases MP3 streams.
 	await create_timer(0.8).timeout
@@ -177,12 +244,25 @@ func _run() -> void:
 
 
 func _restore_saved_record() -> void:
+	if not _snapshots_ready:
+		return
 	if _had_saved_record:
 		var record_file := FileAccess.open("user://paper_flight.cfg", FileAccess.WRITE)
 		if record_file != null:
-			record_file.store_buffer(_saved_record_snapshot)
+				record_file.store_buffer(_saved_record_snapshot)
+		else:
+			DirAccess.remove_absolute(ProjectSettings.globalize_path("user://paper_flight.cfg"))
+
+
+func _restore_saved_preferences() -> void:
+	if not _snapshots_ready:
+		return
+	if _had_saved_preferences:
+		var preference_file := FileAccess.open("user://paper_flight_settings.cfg", FileAccess.WRITE)
+		if preference_file != null:
+			preference_file.store_buffer(_saved_preferences_snapshot)
 	else:
-		DirAccess.remove_absolute(ProjectSettings.globalize_path("user://paper_flight.cfg"))
+		DirAccess.remove_absolute(ProjectSettings.globalize_path("user://paper_flight_settings.cfg"))
 
 
 func _fail(message: String) -> void:
@@ -191,4 +271,6 @@ func _fail(message: String) -> void:
 	_failed = true
 	push_error("[SMOKE_FAIL] " + message)
 	print("[SMOKE_FAIL] " + message)
+	_restore_saved_record()
+	_restore_saved_preferences()
 	quit(1)
