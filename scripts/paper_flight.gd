@@ -1,7 +1,8 @@
 extends Node2D
 ## A single-tap paper-plane flyer set on a ruled notebook page.
 
-const BACKGROUND_TEXTURE: Texture2D = preload("res://assets/world/notebook_background.png")
+const PAGE_BACKGROUND_SCRIPT: Script = preload("res://scripts/notebook_page_background.gd")
+const FLIGHT_TRAIL_SCRIPT: Script = preload("res://scripts/flight_trail.gd")
 const PLANE_TEXTURE: Texture2D = preload("res://assets/player/paper_plane.png")
 const PIPE_TEXTURE: Texture2D = preload("res://assets/hazards/pencil_pipes.png")
 const SAVE_PATH := "user://paper_flight.cfg"
@@ -47,6 +48,7 @@ var shield_invulnerability_time := 0.0
 var _reward_timer := 0.0
 var _plane: Sprite2D
 var _plane_shadow: Polygon2D
+var _flight_trail: Node2D
 var _shield_ring: Line2D
 var _overlay: PanelContainer
 var _title_label: Label
@@ -64,13 +66,14 @@ func _ready() -> void:
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	_load_best()
 	_configure_audio()
-	var backdrop := Sprite2D.new()
-	backdrop.name = "NotebookPage"
-	backdrop.texture = BACKGROUND_TEXTURE
-	backdrop.position = VIEW_SIZE * 0.5
-	backdrop.scale = VIEW_SIZE / Vector2(BACKGROUND_TEXTURE.get_width(), BACKGROUND_TEXTURE.get_height())
+	var backdrop := PAGE_BACKGROUND_SCRIPT.new() as Node2D
+	backdrop.name = "NotebookPageTheme"
 	backdrop.z_index = -100
 	add_child(backdrop)
+	_flight_trail = FLIGHT_TRAIL_SCRIPT.new() as Node2D
+	_flight_trail.name = "DoodleFlightTrail"
+	_flight_trail.z_index = 1
+	add_child(_flight_trail)
 
 	_plane_shadow = Polygon2D.new()
 	_plane_shadow.name = "SoftPaperShadow"
@@ -149,6 +152,8 @@ func handle_primary_action() -> void:
 
 func start_run() -> void:
 	_clear_obstacles()
+	if is_instance_valid(_flight_trail):
+		_flight_trail.call("reset")
 	score = 0
 	player_y = 360.0
 	player_velocity = 0.0
@@ -233,10 +238,12 @@ func _simulate_frame(delta: float) -> void:
 				_play_sound(&"gate_pass")
 				_sync_hud()
 			_obstacles[i] = obstacle
-		if x < -PIPE_HALF_WIDTH - 100.0:
-			if is_instance_valid(node):
-				node.queue_free()
-			_obstacles.remove_at(i)
+			if x < -PIPE_HALF_WIDTH - 100.0:
+				if is_instance_valid(node):
+					node.queue_free()
+				_obstacles.remove_at(i)
+	if is_instance_valid(_flight_trail):
+		_flight_trail.call("advance", scroll_speed * step, Vector2(PLAYER_X, player_y), state == "playing")
 	_sync_plane()
 
 
@@ -370,6 +377,8 @@ func _end_run() -> void:
 	if state != "playing":
 		return
 	state = "over"
+	if is_instance_valid(_flight_trail):
+		_flight_trail.call("clear")
 	best_score = maxi(best_score, score)
 	_save_best()
 	_play_sound(&"paper_bump")

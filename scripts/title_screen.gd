@@ -1,7 +1,7 @@
 extends Control
 ## Chinese title screen and player-facing settings for the notebook-paper flyer.
 
-const BACKGROUND_TEXTURE: Texture2D = preload("res://assets/world/notebook_background.png")
+const PAGE_BACKGROUND_SCRIPT: Script = preload("res://scripts/notebook_page_background.gd")
 const PLANE_TEXTURE: Texture2D = preload("res://assets/player/paper_plane.png")
 const GAME_SCENE := "res://scenes/game.tscn"
 const UPDATE_CHECKER_SCRIPT: Script = preload("res://scripts/update_checker.gd")
@@ -20,6 +20,7 @@ var _update_overlay: Control
 var _settings_overlay: Control
 var _settings_status_label: Label
 var _update_checker
+var _page_background: Node2D
 
 
 func _ready() -> void:
@@ -27,6 +28,10 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	_configure_audio()
+	_page_background = PAGE_BACKGROUND_SCRIPT.new() as Node2D
+	_page_background.name = "NotebookPageTheme"
+	_page_background.z_index = -100
+	add_child(_page_background)
 	var config := ConfigFile.new()
 	if config.load("user://paper_flight.cfg") == OK:
 		_best = maxi(0, int(config.get_value("flight", "best", 0)))
@@ -69,8 +74,6 @@ func _ready() -> void:
 
 
 func _draw() -> void:
-	var rect := Rect2(Vector2.ZERO, size)
-	draw_texture_rect(BACKGROUND_TEXTURE, rect, false)
 	# Soft paper wash on the copy side keeps the title legible without hiding the page.
 	draw_rect(Rect2(42.0, 78.0, 590.0, 540.0), Color(0.99, 0.975, 0.92, 0.46), true)
 	var font := get_theme_default_font()
@@ -153,8 +156,8 @@ func open_settings() -> void:
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_settings_overlay.add_child(shade)
 	var panel := PanelContainer.new()
-	panel.position = Vector2(330.0, 52.0)
-	panel.size = Vector2(620.0, 616.0)
+	panel.position = Vector2(300.0, 38.0)
+	panel.size = Vector2(680.0, 644.0)
 	panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	var panel_style := StyleBoxFlat.new()
 	panel_style.bg_color = Color("#fff8e9")
@@ -170,7 +173,7 @@ func open_settings() -> void:
 	for edge in ["left", "right"]:
 		margin.add_theme_constant_override("margin_" + edge, 28)
 	for edge in ["top", "bottom"]:
-		margin.add_theme_constant_override("margin_" + edge, 20)
+		margin.add_theme_constant_override("margin_" + edge, 16)
 	panel.add_child(margin)
 	var stack := VBoxContainer.new()
 	stack.add_theme_constant_override("separation", 7)
@@ -191,8 +194,8 @@ func open_settings() -> void:
 	close_button.pressed.connect(_close_settings)
 	heading_row.add_child(close_button)
 	var subtitle := Label.new()
-	subtitle.text = "选项会保存在这台设备上。三连收集星星可获得一次纸盾护航。"
-	subtitle.custom_minimum_size = Vector2(0.0, 28.0)
+	subtitle.text = "轨迹与页面主题只改变外观，不影响碰撞或分数。设置保存在本机；三连星纸盾可抵挡一次撞击。"
+	subtitle.custom_minimum_size = Vector2(0.0, 42.0)
 	subtitle.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	subtitle.add_theme_font_size_override("font_size", 15)
 	subtitle.add_theme_color_override("font_color", Color("#667b88"))
@@ -209,6 +212,18 @@ func open_settings() -> void:
 		queue_redraw()
 	)
 	_add_settings_row(stack, "纸飞机涂装", skin_option)
+	var trail_option := _make_option_button(FlightPreferences.TRAIL_STYLE_NAMES, FlightPreferences.get_trail_style_index())
+	trail_option.name = "TrailStyleSelect"
+	trail_option.item_selected.connect(FlightPreferences.set_trail_style_index)
+	_add_settings_row(stack, "飞行轨迹涂鸦", trail_option)
+	var theme_option := _make_option_button(FlightPreferences.PAGE_THEME_NAMES, FlightPreferences.get_page_theme_index())
+	theme_option.name = "NotebookThemeSelect"
+	theme_option.item_selected.connect(func(index: int):
+		FlightPreferences.set_page_theme_index(index)
+		if is_instance_valid(_page_background):
+			_page_background.call("refresh")
+	)
+	_add_settings_row(stack, "笔记本页面", theme_option)
 
 	var audio = get_node_or_null("/root/GameAudio")
 	var sound_toggle := CheckButton.new()
@@ -263,7 +278,7 @@ func open_settings() -> void:
 	_settings_status_label.add_theme_color_override("font_color", Color("#5b7078"))
 	update_row.add_child(_settings_status_label)
 
-	var version := String(ProjectSettings.get_setting("application/config/version", "1.3.0"))
+	var version := String(ProjectSettings.get_setting("application/config/version", "1.4.0"))
 	var version_label := Label.new()
 	version_label.text = "当前版本  v%s" % version
 	version_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT

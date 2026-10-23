@@ -11583,8 +11583,7 @@
       "license": {},
       "origin": "unknown",
       "referenceEvidence": [
-        "scripts/paper_flight.gd",
-        "scripts/title_screen.gd"
+        "scripts/notebook_page_background.gd"
       ],
       "regions": [],
       "sha256": "sha256:543062694983234fb36e3023542b396124343fc08d59597362037aa8703e3cca",
@@ -11594,8 +11593,7 @@
       "status": "present",
       "transformations": [],
       "useEvidence": [
-        "scripts/paper_flight.gd",
-        "scripts/title_screen.gd"
+        "scripts/notebook_page_background.gd"
       ],
       "used": true,
       "usedBy": []
@@ -11664,9 +11662,9 @@
         ]
       }
     ],
-    "pckSha256": "sha256:478348ef937a1a2571810bf68df707bbb6bbddb7dd7467d224325e19d6992560",
+    "pckSha256": "sha256:15f2eb41f6aa914203ebc7d704c795236799b96fb01ced570ad6b9ff190b1630",
     "profile": "release",
-    "sourceFingerprint": "sha256:fe7b1791c5ddb11b56222f13ccae550383fe69185a2dd6a6eba1508ae94506a7"
+    "sourceFingerprint": "sha256:d56a35bf9b6b19760546ca9217d149e3f644b2a0efe4ae3554596387eae2f2cb"
   },
   "procedures": {},
   "summary": {

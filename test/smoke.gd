@@ -44,6 +44,8 @@ func _run() -> void:
 	preferences.set_difficulty_index(1)
 	preferences.set_plane_skin_index(0)
 	preferences.set_star_shield_enabled(true)
+	preferences.set_trail_style_index(1)
+	preferences.set_page_theme_index(0)
 	var title_scene := load("res://scenes/title_screen.tscn") as PackedScene
 	var game_scene := load("res://scenes/game.tscn") as PackedScene
 	if title_scene == null or game_scene == null:
@@ -55,17 +57,17 @@ func _run() -> void:
 	var mock_releases: Array = [
 		{"tag_name": "v1.0.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.0.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
 		{"tag_name": "v1.1.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.1.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
-		{"tag_name": "v1.3.1-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.3.1-android-debug", "assets": [{"name": "paperglide-android-v1.3.1.apk"}]},
+		{"tag_name": "v1.4.1-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.4.1-android-debug", "assets": [{"name": "paperglide-android-v1.4.1.apk"}]},
 	]
 	var update: Dictionary = checker.find_newer_release(mock_releases, "1.0.0")
-	if String(update.get("version", "")) != "1.3.1":
+	if String(update.get("version", "")) != "1.4.1":
 		return _fail("update checker did not find the newer APK release")
-	if not checker.find_newer_release(mock_releases, "1.3.1").is_empty():
+	if not checker.find_newer_release(mock_releases, "1.4.1").is_empty():
 		return _fail("update checker offered an equal or older release")
 	var update_results: Array = []
 	checker.check_finished.connect(func(found: bool, version: String, url: String): update_results.append([found, version, url]))
 	checker._on_request_completed(HTTPRequest.RESULT_SUCCESS, 200, PackedStringArray(), JSON.stringify(mock_releases).to_utf8_buffer())
-	if update_results.is_empty() or not bool(update_results[0][0]) or String(update_results[0][1]) != "1.3.1":
+	if update_results.is_empty() or not bool(update_results[0][0]) or String(update_results[0][1]) != "1.4.1":
 		return _fail("manual update check did not report the newer APK release")
 	checker.free()
 	var title := title_scene.instantiate()
@@ -78,9 +80,21 @@ func _run() -> void:
 	title.open_settings()
 	if not is_instance_valid(title._settings_overlay):
 		return _fail("settings overlay did not open")
-	for control_name in ["DifficultySelect", "PlaneSkinSelect", "SoundToggle", "SfxVolume", "ShieldRewardToggle", "CheckUpdatesButton"]:
+	var title_background := title.find_child("NotebookPageTheme", true, false)
+	if title_background == null or not title_background.has_method("refresh"):
+		return _fail("title screen notebook page theme renderer is missing")
+	for control_name in ["DifficultySelect", "PlaneSkinSelect", "TrailStyleSelect", "NotebookThemeSelect", "SoundToggle", "SfxVolume", "ShieldRewardToggle", "CheckUpdatesButton"]:
 		if title._settings_overlay.find_child(control_name, true, false) == null:
 			return _fail("settings control is missing: %s" % control_name)
+	preferences.set_trail_style_index(3)
+	preferences.set_page_theme_index(2)
+	var saved_preferences := ConfigFile.new()
+	if saved_preferences.load("user://paper_flight_settings.cfg") != OK:
+		return _fail("new visual settings were not saved locally")
+	if int(saved_preferences.get_value("preferences", "trail_style", -1)) != 3 or int(saved_preferences.get_value("preferences", "page_theme", -1)) != 2:
+		return _fail("trail style or page theme did not persist")
+	preferences.set_trail_style_index(1)
+	preferences.set_page_theme_index(0)
 	var settings_touch := InputEventScreenTouch.new()
 	settings_touch.pressed = true
 	title._gui_input(settings_touch)
@@ -123,6 +137,14 @@ func _run() -> void:
 	game._simulate_frame(0.08)
 	if game.player_y <= 360.0:
 		return _fail("gravity did not pull the plane down between taps")
+	if int(game._flight_trail.call("get_sample_count")) < 1:
+		return _fail("enabled doodle trail did not record the flight path")
+	preferences.set_trail_style_index(0)
+	game._flight_trail.call("advance", 20.0, Vector2(game.PLAYER_X, game.player_y), true)
+	if int(game._flight_trail.call("get_sample_count")) != 0:
+		return _fail("turning off the doodle trail did not clear it")
+	preferences.set_trail_style_index(1)
+	game._flight_trail.call("reset")
 	game.player_y = 360.0
 	game.flap()
 	var lifted_velocity: float = game.player_velocity

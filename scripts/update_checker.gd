@@ -41,7 +41,7 @@ func _on_request_completed(result: int, response_code: int, _headers: PackedStri
 	if not (parsed is Array):
 		check_failed.emit("GitHub 返回的版本信息暂不可用。")
 		return
-	var current_version := str(ProjectSettings.get_setting("application/config/version", "1.1.0"))
+	var current_version := str(ProjectSettings.get_setting("application/config/version", "1.4.0"))
 	var update := find_newer_release(parsed as Array, current_version)
 	if not update.is_empty():
 		var newer_version := String(update["version"])
