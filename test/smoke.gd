@@ -57,17 +57,17 @@ func _run() -> void:
 	var mock_releases: Array = [
 		{"tag_name": "v1.0.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.0.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
 		{"tag_name": "v1.1.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.1.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
-		{"tag_name": "v1.4.1-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.4.1-android-debug", "assets": [{"name": "paperglide-android-v1.4.1.apk"}]},
+		{"tag_name": "v1.5.1-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.5.1-android-debug", "assets": [{"name": "paperglide-android-v1.5.1.apk"}]},
 	]
 	var update: Dictionary = checker.find_newer_release(mock_releases, "1.0.0")
-	if String(update.get("version", "")) != "1.4.1":
+	if String(update.get("version", "")) != "1.5.1":
 		return _fail("update checker did not find the newer APK release")
-	if not checker.find_newer_release(mock_releases, "1.4.1").is_empty():
+	if not checker.find_newer_release(mock_releases, "1.5.1").is_empty():
 		return _fail("update checker offered an equal or older release")
 	var update_results: Array = []
 	checker.check_finished.connect(func(found: bool, version: String, url: String): update_results.append([found, version, url]))
 	checker._on_request_completed(HTTPRequest.RESULT_SUCCESS, 200, PackedStringArray(), JSON.stringify(mock_releases).to_utf8_buffer())
-	if update_results.is_empty() or not bool(update_results[0][0]) or String(update_results[0][1]) != "1.4.1":
+	if update_results.is_empty() or not bool(update_results[0][0]) or String(update_results[0][1]) != "1.5.1":
 		return _fail("manual update check did not report the newer APK release")
 	checker.free()
 	var title := title_scene.instantiate()
@@ -119,6 +119,41 @@ func _run() -> void:
 	game._unhandled_input(touch)
 	if game.state != "playing":
 		return _fail("touch did not start the flight")
+	var pause_button := game.find_child("PauseButton", true, false) as Button
+	var pause_overlay := game.find_child("PauseOverlay", true, false) as Control
+	var resume_button := game.find_child("ResumeButton", true, false) as Button
+	var pause_restart_button := game.find_child("RestartButton", true, false) as Button
+	if pause_button == null or pause_overlay == null or resume_button == null or pause_restart_button == null:
+		return _fail("in-flight pause controls or modal are missing")
+	var pause_key := InputEventKey.new()
+	pause_key.pressed = true
+	pause_key.keycode = KEY_P
+	game._unhandled_input(pause_key)
+	if game.state != "paused" or not paused or not pause_overlay.visible:
+		return _fail("P shortcut did not pause the flight")
+	var frozen_y: float = game.player_y
+	var frozen_velocity: float = game.player_velocity
+	var frozen_spawn_timer: float = game.spawn_timer
+	var frozen_elapsed: float = game.run_elapsed
+	game._simulate_frame(0.5)
+	if not is_equal_approx(game.player_y, frozen_y) or not is_equal_approx(game.player_velocity, frozen_velocity) or not is_equal_approx(game.spawn_timer, frozen_spawn_timer) or not is_equal_approx(game.run_elapsed, frozen_elapsed):
+		return _fail("flight simulation advanced while paused")
+	var resume_key := InputEventKey.new()
+	resume_key.pressed = true
+	resume_key.keycode = KEY_ESCAPE
+	game._unhandled_input(resume_key)
+	if game.state != "playing" or paused or pause_overlay.visible:
+		return _fail("Escape shortcut did not resume the flight")
+	pause_button.emit_signal("pressed")
+	if game.state != "paused":
+		return _fail("screen pause button did not pause the flight")
+	resume_button.emit_signal("pressed")
+	if game.state != "playing" or paused:
+		return _fail("pause-card resume action did not continue the flight")
+	pause_button.emit_signal("pressed")
+	pause_restart_button.emit_signal("pressed")
+	if game.state != "playing" or paused or game.score != 0:
+		return _fail("pause-card restart did not reset and resume the flight")
 	var click := InputEventMouseButton.new()
 	click.button_index = MOUSE_BUTTON_LEFT
 	click.pressed = true
@@ -252,7 +287,7 @@ func _run() -> void:
 	if game.stickers_collected != 0 or game.sticker_streak != 0 or game.shield_charges != 0:
 		return _fail("replay did not reset stickers, chain and shield")
 
-	print("[SMOKE_PASS] paper flyer: settings, manual update result, flight, score, difficulty, plane skin, star shield, SFX and replay verified")
+	print("[SMOKE_PASS] paper flyer: settings, manual update result, pause/resume, flight, score, difficulty, plane skin, star shield, SFX and replay verified")
 	_restore_saved_record()
 	_restore_saved_preferences()
 	# The Dummy output clock is independent from simulated physics delta. Let the
@@ -271,7 +306,7 @@ func _restore_saved_record() -> void:
 	if _had_saved_record:
 		var record_file := FileAccess.open("user://paper_flight.cfg", FileAccess.WRITE)
 		if record_file != null:
-				record_file.store_buffer(_saved_record_snapshot)
+			record_file.store_buffer(_saved_record_snapshot)
 		else:
 			DirAccess.remove_absolute(ProjectSettings.globalize_path("user://paper_flight.cfg"))
 

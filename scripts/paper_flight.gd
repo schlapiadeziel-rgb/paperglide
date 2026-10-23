@@ -60,9 +60,14 @@ var _difficulty_label: Label
 var _sticker_label: Label
 var _shield_label: Label
 var _reward_label: Label
+var _pause_button: Button
+var _pause_overlay: Control
+var _pause_score_label: Label
 
 
 func _ready() -> void:
+	# Keep the scene root and modal controls responsive while the SceneTree is paused.
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	_load_best()
 	_configure_audio()
@@ -112,6 +117,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	if state == "paused":
+		return
 	_idle_time += delta
 	if _reward_timer > 0.0:
 		_reward_timer = maxf(0.0, _reward_timer - delta)
@@ -129,6 +136,14 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_P, KEY_ESCAPE]:
+		if state == "playing":
+			pause_run()
+		elif state == "paused":
+			resume_run()
+		if state in ["playing", "paused"]:
+			get_viewport().set_input_as_handled()
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		handle_primary_action()
 		get_viewport().set_input_as_handled()
@@ -151,6 +166,7 @@ func handle_primary_action() -> void:
 
 
 func start_run() -> void:
+	get_tree().paused = false
 	_clear_obstacles()
 	if is_instance_valid(_flight_trail):
 		_flight_trail.call("reset")
@@ -176,6 +192,22 @@ func start_run() -> void:
 		audio.begin_game()
 	flap()
 	_sync_hud()
+
+
+func pause_run() -> void:
+	if state != "playing":
+		return
+	state = "paused"
+	get_tree().paused = true
+	_sync_hud()
+
+
+func resume_run() -> void:
+	if state != "paused":
+		return
+	state = "playing"
+	_sync_hud()
+	get_tree().paused = false
 
 
 func flap() -> void:
@@ -490,6 +522,12 @@ func _build_hud() -> void:
 	_difficulty_label.size = Vector2(240.0, 36.0)
 	_difficulty_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	root.add_child(_difficulty_label)
+	_pause_button = _make_pause_action_button("暂停", Color("#668b8c"), Vector2(132.0, 44.0))
+	_pause_button.name = "PauseButton"
+	_pause_button.position = Vector2(1098.0, 68.0)
+	_pause_button.size = Vector2(132.0, 44.0)
+	_pause_button.pressed.connect(pause_run)
+	root.add_child(_pause_button)
 
 	var instruction := _new_label("轻触 / 空格：向上飞", 17, Color("#417f8b"))
 	instruction.position = Vector2(0.0, 666.0)
@@ -531,6 +569,88 @@ func _build_hud() -> void:
 	stack.add_child(_best_label)
 	_hint_label = _new_label("点击 / 空格 开始", 18, Color("#c96f5e"))
 	stack.add_child(_hint_label)
+	_build_pause_overlay(root)
+
+
+func _build_pause_overlay(root: Control) -> void:
+	_pause_overlay = Control.new()
+	_pause_overlay.name = "PauseOverlay"
+	_pause_overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_pause_overlay.mouse_filter = Control.MOUSE_FILTER_STOP
+	_pause_overlay.process_mode = Node.PROCESS_MODE_ALWAYS
+	_pause_overlay.z_index = 40
+	_pause_overlay.visible = false
+	root.add_child(_pause_overlay)
+
+	var shade := ColorRect.new()
+	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	shade.color = Color(0.20, 0.25, 0.29, 0.48)
+	shade.mouse_filter = Control.MOUSE_FILTER_STOP
+	_pause_overlay.add_child(shade)
+
+	var panel := PanelContainer.new()
+	panel.position = Vector2(400.0, 200.0)
+	panel.size = Vector2(480.0, 320.0)
+	var panel_style := StyleBoxFlat.new()
+	panel_style.bg_color = Color("#fff8e9")
+	panel_style.border_color = Color("#d59a7d")
+	panel_style.set_border_width_all(2)
+	panel_style.set_corner_radius_all(18)
+	panel_style.shadow_color = Color(0.18, 0.24, 0.28, 0.28)
+	panel_style.shadow_size = 12
+	panel_style.shadow_offset = Vector2(0.0, 5.0)
+	panel.add_theme_stylebox_override("panel", panel_style)
+	_pause_overlay.add_child(panel)
+
+	var margin := MarginContainer.new()
+	for edge in ["left", "right"]:
+		margin.add_theme_constant_override("margin_" + edge, 24)
+	for edge in ["top", "bottom"]:
+		margin.add_theme_constant_override("margin_" + edge, 18)
+	panel.add_child(margin)
+	var stack := VBoxContainer.new()
+	stack.add_theme_constant_override("separation", 10)
+	margin.add_child(stack)
+	var heading := _new_label("飞行暂停", 30, Color("#354550"))
+	stack.add_child(heading)
+	_pause_score_label = _new_label("本轮得分  0", 21, Color("#d87362"))
+	stack.add_child(_pause_score_label)
+	var note := _new_label("歇口气，纸飞机在等你。", 16, Color("#667b88"))
+	stack.add_child(note)
+	var actions := HBoxContainer.new()
+	actions.alignment = BoxContainer.ALIGNMENT_CENTER
+	actions.add_theme_constant_override("separation", 14)
+	stack.add_child(actions)
+	var resume_button := _make_pause_action_button("继续飞行", Color("#668b8c"))
+	resume_button.name = "ResumeButton"
+	resume_button.pressed.connect(resume_run)
+	actions.add_child(resume_button)
+	var restart_button := _make_pause_action_button("重新开始", Color("#d6816f"))
+	restart_button.name = "RestartButton"
+	restart_button.pressed.connect(start_run)
+	actions.add_child(restart_button)
+
+
+func _make_pause_action_button(text: String, background: Color, minimum_size: Vector2 = Vector2(190.0, 52.0)) -> Button:
+	var button := Button.new()
+	button.text = text
+	button.custom_minimum_size = minimum_size
+	button.add_theme_font_size_override("font_size", 18)
+	button.add_theme_color_override("font_color", Color("#fffaf0"))
+	button.add_theme_color_override("font_hover_color", Color("#fffaf0"))
+	button.add_theme_color_override("font_pressed_color", Color("#fffaf0"))
+	var normal := StyleBoxFlat.new()
+	normal.bg_color = background
+	normal.set_corner_radius_all(12)
+	var hover := normal.duplicate() as StyleBoxFlat
+	hover.bg_color = background.darkened(0.12)
+	var pressed := normal.duplicate() as StyleBoxFlat
+	pressed.bg_color = background.darkened(0.24)
+	button.add_theme_stylebox_override("normal", normal)
+	button.add_theme_stylebox_override("hover", hover)
+	button.add_theme_stylebox_override("pressed", pressed)
+	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	return button
 
 
 func _new_label(text: String, size: int, color: Color) -> Label:
@@ -553,7 +673,10 @@ func _sync_hud() -> void:
 	_sticker_label.text = "贴纸 %d  ·  连击 %d" % [stickers_collected, sticker_streak]
 	_shield_label.text = "纸盾护航中" if shield_invulnerability_time > 0.0 else "纸盾 %d" % shield_charges
 	_reward_label.visible = state == "playing" and _reward_timer > 0.0
-	_overlay.visible = state != "playing"
+	_overlay.visible = state in ["ready", "over"]
+	_pause_button.visible = state == "playing"
+	_pause_overlay.visible = state == "paused"
+	_pause_score_label.text = "本轮得分  %d" % score
 	_score_label.visible = state != "ready"
 	if state == "ready":
 		_title_label.text = "准备好起飞了吗？"
