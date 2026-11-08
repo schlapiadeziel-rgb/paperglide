@@ -1,6 +1,20 @@
 extends SceneTree
 ## Bounded smoke test for the one-touch paper-plane loop and requested advanced features.
 
+class MockLeaderboard:
+	extends Node
+	var submit_calls: Array = []
+	var submit_result: Dictionary = {}
+	var board_result: Dictionary = {}
+
+	func submit_run(run_id: String, score: int, duration_ms: int) -> Dictionary:
+		submit_calls.append([run_id, score, duration_ms])
+		return submit_result
+
+	func read_board(_limit: int = 20) -> Dictionary:
+		return board_result
+
+
 var _failed := false
 var _saved_record_snapshot := PackedByteArray()
 var _had_saved_record := false
@@ -57,19 +71,27 @@ func _run() -> void:
 	var mock_releases: Array = [
 		{"tag_name": "v1.0.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.0.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
 		{"tag_name": "v1.1.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.1.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
-		{"tag_name": "v1.5.1-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.5.1-android-debug", "assets": [{"name": "paperglide-android-v1.5.1.apk"}]},
+		{"tag_name": "v1.6.1-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.6.1-android-debug", "assets": [{"name": "paperglide-android-v1.6.1.apk"}]},
 	]
 	var update: Dictionary = checker.find_newer_release(mock_releases, "1.0.0")
-	if String(update.get("version", "")) != "1.5.1":
+	if String(update.get("version", "")) != "1.6.1":
 		return _fail("update checker did not find the newer APK release")
-	if not checker.find_newer_release(mock_releases, "1.5.1").is_empty():
+	if not checker.find_newer_release(mock_releases, "1.6.1").is_empty():
 		return _fail("update checker offered an equal or older release")
 	var update_results: Array = []
 	checker.check_finished.connect(func(found: bool, version: String, url: String): update_results.append([found, version, url]))
 	checker._on_request_completed(HTTPRequest.RESULT_SUCCESS, 200, PackedStringArray(), JSON.stringify(mock_releases).to_utf8_buffer())
-	if update_results.is_empty() or not bool(update_results[0][0]) or String(update_results[0][1]) != "1.5.1":
+	if update_results.is_empty() or not bool(update_results[0][0]) or String(update_results[0][1]) != "1.6.1":
 		return _fail("manual update check did not report the newer APK release")
 	checker.free()
+	var leaderboard_script := load("res://scripts/online_leaderboard.gd") as Script
+	if leaderboard_script == null:
+		return _fail("online leaderboard adapter script failed to load")
+	var native_probe = leaderboard_script.new()
+	native_probe.native_game_origin = "https://paperglide-hvglp97k.manus.game"
+	if native_probe._derive_api_root() != "https://paperglide-hvglp97k.manus.game/api/leaderboards/v1":
+		return _fail("native leaderboard origin did not derive its API root")
+	native_probe.free()
 	var title := title_scene.instantiate()
 	root.add_child(title)
 	await _frames(2)
@@ -77,6 +99,27 @@ func _run() -> void:
 		return _fail("title screen has no start action")
 	if not title.has_method("open_settings"):
 		return _fail("title screen has no settings action")
+	if title.find_child("LeaderboardButton", true, false) == null or not title.has_method("open_leaderboard"):
+		return _fail("title screen leaderboard entry is missing")
+	if not String(title._leaderboard_client.get("_api_root")).is_empty():
+		return _fail("native smoke test must not contact a managed leaderboard endpoint")
+	title.open_leaderboard()
+	await _frames(2)
+	if not is_instance_valid(title._leaderboard_overlay) or title._leaderboard_rows == null:
+		return _fail("leaderboard modal or score list did not open")
+	if not title._leaderboard_status_label.text.contains("尚未连接线上榜单"):
+		return _fail("unconfigured local preview did not explain leaderboard availability")
+	var modal_start_key := InputEventKey.new()
+	modal_start_key.pressed = true
+	modal_start_key.keycode = KEY_SPACE
+	title._unhandled_input(modal_start_key)
+	var board_touch := InputEventScreenTouch.new()
+	board_touch.pressed = true
+	title._gui_input(board_touch)
+	if bool(title.get("_started")):
+		return _fail("keyboard or touch started the game behind the leaderboard modal")
+	title._close_leaderboard()
+	await _frames(1)
 	title.open_settings()
 	if not is_instance_valid(title._settings_overlay):
 		return _fail("settings overlay did not open")
@@ -286,8 +329,35 @@ func _run() -> void:
 		return _fail("touch after game over did not restart the run")
 	if game.stickers_collected != 0 or game.sticker_streak != 0 or game.shield_charges != 0:
 		return _fail("replay did not reset stickers, chain and shield")
+	if not String(game._online_leaderboard.get("_api_root")).is_empty() or not game._ranked_run_id.is_empty():
+		return _fail("offline play unexpectedly opened an online ranked run")
+	var mock_leaderboard := MockLeaderboard.new()
+	game.add_child(mock_leaderboard)
+	game._online_leaderboard = mock_leaderboard
+	game.state = "over"
+	game.score = 12
+	game.run_elapsed = 9.75
+	game._ranked_run_id = "mock-ticket-1"
+	game._ranked_status = ""
+	game._ranked_retry_available = false
+	mock_leaderboard.submit_result = {"ok": false, "status": 503, "error": "leaderboard_busy"}
+	game._submit_ranked_result_async(game._ranked_run_generation)
+	await _frames(1)
+	if not game._ranked_retry_available or mock_leaderboard.submit_calls.size() != 1:
+		return _fail("temporary leaderboard failure did not expose a retry")
+	var retry_button := game.find_child("LeaderboardRetryButton", true, false) as Button
+	if retry_button == null or not retry_button.visible:
+		return _fail("leaderboard retry button was not shown after a temporary failure")
+	mock_leaderboard.submit_result = {"ok": true, "data": {"runId": "mock-ticket-1", "score": 12, "accepted": true, "trust": "client_reported"}}
+	mock_leaderboard.board_result = {"ok": true, "data": {"entries": [], "myRank": {"rank": 7, "score": 12}}}
+	retry_button.emit_signal("pressed")
+	await _frames(1)
+	if mock_leaderboard.submit_calls.size() != 2 or mock_leaderboard.submit_calls[0] != mock_leaderboard.submit_calls[1]:
+		return _fail("leaderboard retry changed its original ticket, score or duration")
+	if game._ranked_retry_available or not game._ranked_status.contains("#7"):
+		return _fail("accepted leaderboard retry did not display the returned personal rank")
 
-	print("[SMOKE_PASS] paper flyer: settings, manual update result, pause/resume, flight, score, difficulty, plane skin, star shield, SFX and replay verified")
+	print("[SMOKE_PASS] paper flyer: settings, online leaderboard offline/retry flow, manual update result, pause/resume, flight, score, difficulty, plane skin, star shield, SFX and replay verified")
 	_restore_saved_record()
 	_restore_saved_preferences()
 	# The Dummy output clock is independent from simulated physics delta. Let the

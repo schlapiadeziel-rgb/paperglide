@@ -3,6 +3,7 @@ extends Node2D
 
 const PAGE_BACKGROUND_SCRIPT: Script = preload("res://scripts/notebook_page_background.gd")
 const FLIGHT_TRAIL_SCRIPT: Script = preload("res://scripts/flight_trail.gd")
+const ONLINE_LEADERBOARD_SCRIPT: Script = preload("res://scripts/online_leaderboard.gd")
 const PLANE_TEXTURE: Texture2D = preload("res://assets/player/paper_plane.png")
 const PIPE_TEXTURE: Texture2D = preload("res://assets/hazards/pencil_pipes.png")
 const SAVE_PATH := "user://paper_flight.cfg"
@@ -63,6 +64,18 @@ var _reward_label: Label
 var _pause_button: Button
 var _pause_overlay: Control
 var _pause_score_label: Label
+var _online_leaderboard
+var _ranked_run_generation := 0
+var _ranked_setup_in_progress := false
+var _ranked_submit_in_progress := false
+var _ranked_run_id := ""
+var _pending_ranked_run_id := ""
+var _pending_ranked_score := 0
+var _pending_ranked_duration_ms := 0
+var _ranked_retry_available := false
+var _ranked_status := ""
+var _ranked_status_label: Label
+var _ranked_retry_button: Button
 
 
 func _ready() -> void:
@@ -70,6 +83,9 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	_load_best()
+	_online_leaderboard = ONLINE_LEADERBOARD_SCRIPT.new()
+	_online_leaderboard.name = "OnlineLeaderboardClient"
+	add_child(_online_leaderboard)
 	_configure_audio()
 	var backdrop := PAGE_BACKGROUND_SCRIPT.new() as Node2D
 	backdrop.name = "NotebookPageTheme"
@@ -167,6 +183,13 @@ func handle_primary_action() -> void:
 
 func start_run() -> void:
 	get_tree().paused = false
+	_ranked_run_generation += 1
+	_ranked_run_id = ""
+	_pending_ranked_run_id = ""
+	_pending_ranked_score = 0
+	_pending_ranked_duration_ms = 0
+	_ranked_retry_available = false
+	_ranked_status = ""
 	_clear_obstacles()
 	if is_instance_valid(_flight_trail):
 		_flight_trail.call("reset")
@@ -191,7 +214,129 @@ func start_run() -> void:
 	if is_instance_valid(audio) and not bool(audio.get("enabled")):
 		audio.begin_game()
 	flap()
+	_prepare_ranked_run_async(_ranked_run_generation)
 	_sync_hud()
+
+
+func _prepare_ranked_run_async(generation: int) -> void:
+	if _ranked_setup_in_progress or not is_instance_valid(_online_leaderboard):
+		return
+	_ranked_setup_in_progress = true
+	var guest_result: Dictionary = await _online_leaderboard.ensure_guest(_new_guest_display_name())
+	if not is_inside_tree():
+		return
+	if not guest_result.get("ok", false):
+		_ranked_setup_in_progress = false
+		_ranked_status = "本局未进入在线榜单：" + _ranked_error_text(guest_result)
+		_sync_hud()
+		return
+	if generation != _ranked_run_generation:
+		generation = _ranked_run_generation
+	if state not in ["playing", "paused"]:
+		_ranked_setup_in_progress = false
+		_ranked_status = "本局结束时未能及时登记在线榜单。离线成绩已保留。"
+		_sync_hud()
+		return
+	var run_result: Dictionary = await _online_leaderboard.begin_run()
+	_ranked_setup_in_progress = false
+	if not is_inside_tree():
+		return
+	if generation != _ranked_run_generation:
+		if state in ["playing", "paused"]:
+			_prepare_ranked_run_async(_ranked_run_generation)
+		return
+	if not run_result.get("ok", false):
+		_ranked_status = "本局未进入在线榜单：" + _ranked_error_text(run_result)
+		_sync_hud()
+		return
+	var run_data: Dictionary = run_result.get("data", {})
+	_ranked_run_id = str(run_data.get("runId", ""))
+	if _ranked_run_id.is_empty():
+		_ranked_status = "本局未进入在线榜单：服务未返回有效凭证。"
+		_sync_hud()
+		return
+	if state == "over":
+		_submit_ranked_result_async(_ranked_run_generation)
+	else:
+		_sync_hud()
+
+
+func _submit_ranked_result_async(generation: int) -> void:
+	if _ranked_submit_in_progress or _ranked_run_id.is_empty():
+		return
+	_pending_ranked_run_id = _ranked_run_id
+	_pending_ranked_score = score
+	_pending_ranked_duration_ms = clampi(int(run_elapsed * 1000.0), 0, 1800000)
+	_send_ranked_submission_async(generation)
+
+
+func _retry_ranked_submission() -> void:
+	if _ranked_submit_in_progress or not _ranked_retry_available or _pending_ranked_run_id.is_empty():
+		return
+	_send_ranked_submission_async(_ranked_run_generation)
+
+
+func _send_ranked_submission_async(generation: int) -> void:
+	_ranked_submit_in_progress = true
+	_ranked_retry_available = false
+	_ranked_status = "正在提交本局成绩……"
+	_sync_hud()
+	var result: Dictionary = await _online_leaderboard.submit_run(
+		_pending_ranked_run_id,
+		_pending_ranked_score,
+		_pending_ranked_duration_ms
+	)
+	_ranked_submit_in_progress = false
+	if not is_inside_tree() or generation != _ranked_run_generation:
+		return
+	if result.get("ok", false):
+		_ranked_status = "成绩已收录，正在刷新排行榜……"
+		_sync_hud()
+		var board_result: Dictionary = await _online_leaderboard.read_board(20)
+		if not is_inside_tree() or generation != _ranked_run_generation:
+			return
+		if board_result.get("ok", false):
+			var board_data: Dictionary = board_result.get("data", {})
+			var personal_rank: Variant = board_data.get("myRank", null)
+			if personal_rank is Dictionary:
+				_ranked_status = "成绩已收录，当前个人名次 #%d。" % int(personal_rank.get("rank", 0))
+			else:
+				_ranked_status = "成绩已收录，排行榜已刷新。"
+		else:
+			_ranked_status = "成绩已收录；排行榜暂时无法刷新。"
+		_ranked_retry_available = false
+	else:
+		var status_code := int(result.get("status", 0))
+		var error_code := str(result.get("error", ""))
+		_ranked_retry_available = status_code == 429 or status_code >= 500 or (status_code == 0 and error_code == "online_leaderboard_unavailable")
+		_ranked_status = "提交未完成：%s%s" % [
+			_ranked_error_text(result),
+			"（可重试）" if _ranked_retry_available else "",
+		]
+	_sync_hud()
+
+
+func _new_guest_display_name() -> String:
+	return "纸飞机-%04d" % (randi() % 10000)
+
+
+func _ranked_error_text(result: Dictionary) -> String:
+	var error_code := str(result.get("error", "online_leaderboard_unavailable"))
+	match error_code:
+		"online_leaderboard_not_configured":
+			return "当前平台尚未配置线上服务地址"
+		"online_leaderboard_unavailable":
+			return "网络暂时不可用"
+		"leaderboard_read_only":
+			return "当前历史版本仅可查看"
+		"guest_session_required", "guest_session_expired":
+			return "访客身份已失效，请重新打开排行榜创建新访客"
+		"client_upgrade_required", "run_rules_changed":
+			return "排行榜规则已更新，请刷新游戏后再试"
+		"leaderboard_busy", "rate_limited":
+			return "服务器繁忙，请稍后重试"
+		_:
+			return "服务返回：%s" % error_code
 
 
 func pause_run() -> void:
@@ -414,7 +559,15 @@ func _end_run() -> void:
 	best_score = maxi(best_score, score)
 	_save_best()
 	_play_sound(&"paper_bump")
+	if not _ranked_run_id.is_empty():
+		_ranked_status = "正在提交本局成绩……"
+	elif _ranked_setup_in_progress:
+		_ranked_status = "在线登记仍在进行；离线成绩已保存。"
+	elif _ranked_status.is_empty():
+		_ranked_status = "本局未进入在线榜单；离线成绩已保存。"
 	_sync_hud()
+	if not _ranked_run_id.is_empty():
+		_submit_ranked_result_async(_ranked_run_generation)
 
 
 func _try_absorb_hit() -> bool:
@@ -536,8 +689,8 @@ func _build_hud() -> void:
 
 	_overlay = PanelContainer.new()
 	_overlay.name = "FlightNote"
-	_overlay.position = Vector2(370.0, 236.0)
-	_overlay.size = Vector2(540.0, 250.0)
+	_overlay.position = Vector2(370.0, 205.0)
+	_overlay.size = Vector2(540.0, 310.0)
 	_overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var panel_style := StyleBoxFlat.new()
 	panel_style.bg_color = Color(0.99, 0.975, 0.92, 0.94)
@@ -569,6 +722,15 @@ func _build_hud() -> void:
 	stack.add_child(_best_label)
 	_hint_label = _new_label("点击 / 空格 开始", 18, Color("#c96f5e"))
 	stack.add_child(_hint_label)
+	_ranked_status_label = _new_label("", 14, Color("#47827f"))
+	_ranked_status_label.custom_minimum_size = Vector2(0.0, 28.0)
+	_ranked_status_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	stack.add_child(_ranked_status_label)
+	_ranked_retry_button = _make_pause_action_button("重试线上提交", Color("#668b8c"), Vector2(176.0, 40.0))
+	_ranked_retry_button.name = "LeaderboardRetryButton"
+	_ranked_retry_button.visible = false
+	_ranked_retry_button.pressed.connect(_retry_ranked_submission)
+	stack.add_child(_ranked_retry_button)
 	_build_pause_overlay(root)
 
 
@@ -677,6 +839,12 @@ func _sync_hud() -> void:
 	_pause_button.visible = state == "playing"
 	_pause_overlay.visible = state == "paused"
 	_pause_score_label.text = "本轮得分  %d" % score
+	if is_instance_valid(_ranked_status_label):
+		_ranked_status_label.text = _ranked_status
+		_ranked_status_label.visible = state == "over" and not _ranked_status.is_empty()
+	if is_instance_valid(_ranked_retry_button):
+		_ranked_retry_button.visible = state == "over" and _ranked_retry_available
+		_ranked_retry_button.disabled = _ranked_submit_in_progress
 	_score_label.visible = state != "ready"
 	if state == "ready":
 		_title_label.text = "准备好起飞了吗？"
