@@ -11,17 +11,26 @@ extends Node
 var _token: String = ""
 var _api_root: String = ""
 var _identity_file: String = ""
-var _upgrade_required: bool = false
+var _guest_expired := false
+var _upgrade_required := false
 
 func _ready() -> void:
 	_api_root = _derive_api_root()
 	if OS.has_feature("web"):
 		read_only = read_only or bool(JavaScriptBridge.eval("window.__MANUS_GAME_HISTORY__?.readOnly === true", true))
-	# Origin-specific storage avoids sharing a test guest identity with production.
-	_identity_file = "user://leaderboard_%s.cfg" % _api_root.sha256_text().substr(0, 16)
+	if not read_only and not _api_root.is_empty():
+		# API-root-specific storage avoids sharing a test guest identity with production.
+		_identity_file = "user://leaderboard_%s.cfg" % _api_root.sha256_text().substr(0, 16)
+		_load_identity()
+
+
+func _load_identity() -> void:
 	var saved := ConfigFile.new()
 	if saved.load(_identity_file) == OK:
 		_token = str(saved.get_value("guest", "token", ""))
+		_guest_expired = bool(saved.get_value("guest", "expired", false))
+		if _guest_expired:
+			_token = ""
 
 func _derive_api_root() -> String:
 	if OS.has_feature("web"):
@@ -40,10 +49,12 @@ func _derive_api_root() -> String:
 	return ""
 
 func ensure_guest(display_name: String) -> Dictionary:
-	if not _token.is_empty():
-		return {"ok": true}
 	if read_only:
 		return {"ok": false, "error": "leaderboard_read_only"}
+	if _guest_expired:
+		return {"ok": false, "status": 410, "error": "guest_session_expired"}
+	if not _token.is_empty():
+		return {"ok": true}
 	var result := await _request("/guests", HTTPClient.METHOD_POST, {"displayName": display_name})
 	if result.get("ok", false):
 		_token = str(result.get("data", {}).get("token", ""))
@@ -54,7 +65,14 @@ func ensure_guest(display_name: String) -> Dictionary:
 	return result
 
 func read_board(limit: int = 20) -> Dictionary:
-	return await _request("/boards/%s?limit=%d" % [board_id.uri_encode(), clampi(limit, 1, 100)], HTTPClient.METHOD_GET)
+	var path := "/boards/%s?limit=%d" % [board_id.uri_encode(), clampi(limit, 1, 100)]
+	var result: Dictionary = await _request(path, HTTPClient.METHOD_GET)
+	if not result.get("ok", false) and int(result.get("status", 0)) == 401 and result.get("error") == "guest_session_expired":
+		# The public board remains readable without a guest token; retry this GET only.
+		result = await _request(path, HTTPClient.METHOD_GET)
+	if _guest_expired:
+		result["guestExpired"] = true
+	return result
 
 func begin_run(release_sha: String = "") -> Dictionary:
 	if read_only:
@@ -74,8 +92,17 @@ func submit_run(run_id: String, score: int, duration_ms: int) -> Dictionary:
 
 func forget_guest() -> void:
 	_token = ""
+	_guest_expired = false
 	if FileAccess.file_exists(_identity_file):
-		DirAccess.remove_absolute(_identity_file)
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(_identity_file))
+
+
+func _mark_guest_expired() -> void:
+	_token = ""
+	_guest_expired = true
+	var saved := ConfigFile.new()
+	saved.set_value("guest", "expired", true)
+	saved.save(_identity_file)
 
 func _request(path: String, method: HTTPClient.Method, payload: Dictionary = {}) -> Dictionary:
 	# An incompatible loaded client must not keep creating or submitting ranked runs.
@@ -106,8 +133,11 @@ func _request(path: String, method: HTTPClient.Method, payload: Dictionary = {})
 	var parsed: Variant = JSON.parse_string(reply[3].get_string_from_utf8())
 	if not parsed is Dictionary:
 		return {"ok": false, "error": "invalid_server_response"}
-	if status == 401:
-		forget_guest()
+	if status == 401 and not _token.is_empty():
+		if parsed.get("error") == "guest_session_expired":
+			_mark_guest_expired()
+		else:
+			forget_guest()
 	if status == 426 and parsed.get("error") == "client_upgrade_required":
 		_upgrade_required = true
 	if status < 200 or status >= 300:

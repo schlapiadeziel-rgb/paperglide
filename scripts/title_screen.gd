@@ -437,31 +437,30 @@ func _refresh_leaderboard(create_new_guest: bool = false) -> void:
 		_leaderboard_client.forget_guest()
 		_leaderboard_guest_expired = false
 	var read_only: bool = bool(_leaderboard_client.get("read_only"))
+	var guest_issue := ""
 	if not read_only:
 		if _leaderboard_guest_expired:
-			_leaderboard_loading = false
-			_leaderboard_refresh_button.disabled = false
-			_leaderboard_new_guest_button.visible = true
-			_leaderboard_status_label.text = "访客身份已过期。新建访客会失去旧身份关联；旧分数仍保留在公开榜单。"
-			return
-		var guest_result: Dictionary = await _leaderboard_client.ensure_guest(_new_guest_display_name())
-		if not is_inside_tree() or not is_instance_valid(_leaderboard_overlay):
-			return
-		if not guest_result.get("ok", false):
-			_leaderboard_loading = false
-			_leaderboard_refresh_button.disabled = false
-			_leaderboard_status_label.text = _leaderboard_error_text(guest_result)
-			_leaderboard_rank_label.text = "离线飞行与本机最佳纪录仍可使用。"
-			return
+			guest_issue = "访客身份已过期"
+		else:
+			var guest_result: Dictionary = await _leaderboard_client.ensure_guest(_new_guest_display_name())
+			if not is_inside_tree() or not is_instance_valid(_leaderboard_overlay):
+				return
+			if not guest_result.get("ok", false):
+				guest_issue = _leaderboard_error_text(guest_result)
+				_leaderboard_guest_expired = guest_result.get("error") == "guest_session_expired" or bool(guest_result.get("guestExpired", false))
 	var board_result: Dictionary = await _leaderboard_client.read_board(20)
 	if not is_inside_tree() or not is_instance_valid(_leaderboard_overlay):
 		return
+	if bool(board_result.get("guestExpired", false)):
+		_leaderboard_guest_expired = true
 	_leaderboard_loading = false
 	_leaderboard_refresh_button.disabled = false
 	if not board_result.get("ok", false):
 		var error_code := str(board_result.get("error", ""))
-		_leaderboard_guest_expired = error_code == "guest_session_expired"
-		_leaderboard_status_label.text = _leaderboard_error_text(board_result)
+		_leaderboard_guest_expired = _leaderboard_guest_expired or error_code == "guest_session_expired"
+		_leaderboard_status_label.text = "排行榜暂时无法读取：%s" % _leaderboard_error_text(board_result)
+		if not guest_issue.is_empty():
+			_leaderboard_status_label.text += "；访客身份：%s" % guest_issue
 		_leaderboard_rank_label.text = "线上失败不会影响离线游戏或本机最佳分。"
 		_leaderboard_new_guest_button.visible = _leaderboard_guest_expired and not read_only
 		return
@@ -495,9 +494,17 @@ func _refresh_leaderboard(create_new_guest: bool = false) -> void:
 		]
 	elif read_only:
 		_leaderboard_rank_label.text = "历史版本只读；榜单仅供浏览。"
+	elif _leaderboard_guest_expired or not guest_issue.is_empty():
+		_leaderboard_rank_label.text = "个人名次暂不可用；离线飞行与本机最佳纪录仍可使用。"
 	else:
 		_leaderboard_rank_label.text = "个人最好：尚未登榜"
-	_leaderboard_status_label.text = "已读取 %d 条记录 · 在线榜单为客户端报告成绩" % entries.size()
+	_leaderboard_new_guest_button.visible = _leaderboard_guest_expired and not read_only
+	if _leaderboard_guest_expired:
+		_leaderboard_status_label.text = "已读取 %d 条公开记录；访客身份已过期，新建访客后可查看新的个人名次。" % entries.size()
+	elif not guest_issue.is_empty():
+		_leaderboard_status_label.text = "已读取 %d 条公开记录；访客连接暂不可用：%s。" % [entries.size(), guest_issue]
+	else:
+		_leaderboard_status_label.text = "已读取 %d 条记录 · 在线榜单为客户端报告成绩" % entries.size()
 
 
 func _create_new_guest() -> void:

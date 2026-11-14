@@ -3,9 +3,20 @@ extends SceneTree
 
 class MockLeaderboard:
 	extends Node
+	var read_only := false
+	var guest_result: Dictionary = {"ok": true}
+	var guest_calls := 0
+	var forget_guest_calls := 0
 	var submit_calls: Array = []
 	var submit_result: Dictionary = {}
 	var board_result: Dictionary = {}
+
+	func ensure_guest(_display_name: String) -> Dictionary:
+		guest_calls += 1
+		return guest_result
+
+	func forget_guest() -> void:
+		forget_guest_calls += 1
 
 	func submit_run(run_id: String, score: int, duration_ms: int) -> Dictionary:
 		submit_calls.append([run_id, score, duration_ms])
@@ -15,12 +26,27 @@ class MockLeaderboard:
 		return board_result
 
 
+class MockBoardRetryClient:
+	extends "res://scripts/online_leaderboard.gd"
+	var request_count := 0
+	var request_tokens: Array[String] = []
+
+	func _request(_path: String, _method: HTTPClient.Method, _payload: Dictionary = {}) -> Dictionary:
+		request_count += 1
+		request_tokens.append(_token)
+		if request_count == 1:
+			_mark_guest_expired()
+			return {"ok": false, "status": 401, "error": "guest_session_expired"}
+		return {"ok": true, "data": {"entries": [], "myRank": null}}
+
+
 var _failed := false
 var _saved_record_snapshot := PackedByteArray()
 var _had_saved_record := false
 var _saved_preferences_snapshot := PackedByteArray()
 var _had_saved_preferences := false
 var _snapshots_ready := false
+var _smoke_identity_file := ""
 
 
 func _initialize() -> void:
@@ -71,27 +97,61 @@ func _run() -> void:
 	var mock_releases: Array = [
 		{"tag_name": "v1.0.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.0.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
 		{"tag_name": "v1.1.0-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.1.0-android-debug", "assets": [{"name": "paperglide-android-debug.apk"}]},
-		{"tag_name": "v1.6.1-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.6.1-android-debug", "assets": [{"name": "paperglide-android-v1.6.1.apk"}]},
+		{"tag_name": "v1.6.2-android-debug", "draft": false, "html_url": "https://github.com/schlapiadeziel-rgb/paperglide/releases/tag/v1.6.2-android-debug", "assets": [{"name": "paperglide-android-v1.6.2.apk"}]},
 	]
 	var update: Dictionary = checker.find_newer_release(mock_releases, "1.0.0")
-	if String(update.get("version", "")) != "1.6.1":
+	if String(update.get("version", "")) != "1.6.2":
 		return _fail("update checker did not find the newer APK release")
-	if not checker.find_newer_release(mock_releases, "1.6.1").is_empty():
+	if not checker.find_newer_release(mock_releases, "1.6.2").is_empty():
 		return _fail("update checker offered an equal or older release")
 	var update_results: Array = []
 	checker.check_finished.connect(func(found: bool, version: String, url: String): update_results.append([found, version, url]))
 	checker._on_request_completed(HTTPRequest.RESULT_SUCCESS, 200, PackedStringArray(), JSON.stringify(mock_releases).to_utf8_buffer())
-	if update_results.is_empty() or not bool(update_results[0][0]) or String(update_results[0][1]) != "1.6.1":
+	if update_results.is_empty() or not bool(update_results[0][0]) or String(update_results[0][1]) != "1.6.2":
 		return _fail("manual update check did not report the newer APK release")
 	checker.free()
 	var leaderboard_script := load("res://scripts/online_leaderboard.gd") as Script
 	if leaderboard_script == null:
 		return _fail("online leaderboard adapter script failed to load")
 	var native_probe = leaderboard_script.new()
-	native_probe.native_game_origin = "https://paperglide-hvglp97k.manus.game"
-	if native_probe._derive_api_root() != "https://paperglide-hvglp97k.manus.game/api/leaderboards/v1":
+	native_probe.native_game_origin = "https://paperflight-smoke.invalid"
+	if native_probe._derive_api_root() != "https://paperflight-smoke.invalid/api/leaderboards/v1":
 		return _fail("native leaderboard origin did not derive its API root")
+	root.add_child(native_probe)
+	await _frames(1)
+	var expected_identity_file := "user://leaderboard_%s.cfg" % String(native_probe.get("_api_root")).sha256_text().substr(0, 16)
+	if native_probe.get("_identity_file") != expected_identity_file:
+		return _fail("native leaderboard did not initialize origin-specific guest storage")
+	root.remove_child(native_probe)
 	native_probe.free()
+	_smoke_identity_file = "user://paperflight_smoke_identity_%d.cfg" % Time.get_ticks_usec()
+	var identity_probe = leaderboard_script.new()
+	identity_probe._identity_file = _smoke_identity_file
+	identity_probe._token = "expired-smoke-token"
+	identity_probe._mark_guest_expired()
+	var reloaded_identity = leaderboard_script.new()
+	reloaded_identity._identity_file = _smoke_identity_file
+	reloaded_identity._load_identity()
+	var expired_guest_result: Dictionary = await reloaded_identity.ensure_guest("烟雾测试访客")
+	if not bool(reloaded_identity.get("_guest_expired")) or not String(reloaded_identity.get("_token")).is_empty():
+		return _fail("expired guest state did not persist without retaining its token")
+	if expired_guest_result.get("error") != "guest_session_expired":
+		return _fail("expired guest state silently created a replacement identity")
+	reloaded_identity.forget_guest()
+	if FileAccess.file_exists(_smoke_identity_file):
+		return _fail("explicit guest reset did not remove the local identity file")
+	identity_probe.free()
+	reloaded_identity.free()
+	var retry_probe := MockBoardRetryClient.new()
+	retry_probe._identity_file = _smoke_identity_file
+	retry_probe._token = "expired-smoke-token"
+	var public_retry_result: Dictionary = await retry_probe.read_board(20)
+	if retry_probe.request_count != 2 or retry_probe.request_tokens.size() != 2 or retry_probe.request_tokens[0] != "expired-smoke-token" or retry_probe.request_tokens[1] != "":
+		return _fail("expired leaderboard token was not retried as an anonymous public read")
+	if not public_retry_result.get("ok", false) or not public_retry_result.get("guestExpired", false):
+		return _fail("anonymous public retry did not retain the expired-identity state")
+	retry_probe.forget_guest()
+	retry_probe.free()
 	var title := title_scene.instantiate()
 	root.add_child(title)
 	await _frames(2)
@@ -118,6 +178,53 @@ func _run() -> void:
 	title._gui_input(board_touch)
 	if bool(title.get("_started")):
 		return _fail("keyboard or touch started the game behind the leaderboard modal")
+	title._close_leaderboard()
+	await _frames(1)
+	var offline_client: Node = title._leaderboard_client
+	title.remove_child(offline_client)
+	offline_client.queue_free()
+	var leaderboard_mock := MockLeaderboard.new()
+	leaderboard_mock.guest_result = {"ok": false, "status": 410, "error": "guest_session_expired"}
+	leaderboard_mock.board_result = {
+		"ok": true,
+		"guestExpired": true,
+		"data": {"entries": [{"rank": 1, "displayName": "纸飞机访客", "score": 12}], "myRank": null},
+	}
+	title.add_child(leaderboard_mock)
+	title._leaderboard_client = leaderboard_mock
+	title.open_leaderboard()
+	await _frames(2)
+	if leaderboard_mock.guest_calls != 1 or title._leaderboard_rows.get_child_count() != 1:
+		return _fail("expired guest blocked anonymous access to the public leaderboard")
+	var public_row := title._leaderboard_rows.get_child(0) as Label
+	if public_row == null or not public_row.text.contains("纸飞机访客"):
+		return _fail("anonymous public leaderboard row was not displayed")
+	if not title._leaderboard_status_label.text.contains("公开记录") or not title._leaderboard_rank_label.text.contains("暂不可用"):
+		return _fail("expired guest state did not clearly separate public scores from personal rank")
+	if not title._leaderboard_new_guest_button.visible:
+		return _fail("expired guest did not offer an explicit new identity action")
+	leaderboard_mock.guest_result = {"ok": true}
+	leaderboard_mock.board_result = {
+		"ok": true,
+		"data": {"entries": [{"rank": 1, "displayName": "纸飞机访客", "score": 12}], "myRank": {"rank": 1, "score": 12}},
+	}
+	title._leaderboard_new_guest_button.emit_signal("pressed")
+	await _frames(2)
+	if leaderboard_mock.forget_guest_calls != 1 or not title._leaderboard_rank_label.text.contains("第 1 名"):
+		return _fail("explicit new guest action did not restore the personal-rank flow")
+	title._close_leaderboard()
+	await _frames(1)
+	leaderboard_mock.guest_result = {"ok": false, "status": 503, "error": "leaderboard_busy"}
+	leaderboard_mock.board_result = {
+		"ok": true,
+		"data": {"entries": [{"rank": 1, "displayName": "纸飞机访客", "score": 12}], "myRank": null},
+	}
+	title.open_leaderboard()
+	await _frames(2)
+	if leaderboard_mock.guest_calls != 3 or title._leaderboard_rows.get_child_count() != 1:
+		return _fail("guest creation failure blocked public leaderboard browsing")
+	if not title._leaderboard_status_label.text.contains("访客连接暂不可用") or title._leaderboard_new_guest_button.visible:
+		return _fail("guest creation failure status or recovery action was misleading")
 	title._close_leaderboard()
 	await _frames(1)
 	title.open_settings()
@@ -357,9 +464,10 @@ func _run() -> void:
 	if game._ranked_retry_available or not game._ranked_status.contains("#7"):
 		return _fail("accepted leaderboard retry did not display the returned personal rank")
 
-	print("[SMOKE_PASS] paper flyer: settings, online leaderboard offline/retry flow, manual update result, pause/resume, flight, score, difficulty, plane skin, star shield, SFX and replay verified")
+	print("[SMOKE_PASS] paper flyer: settings, online leaderboard expiry/public fallback/retry flow, manual update result, pause/resume, flight, score, difficulty, plane skin, star shield, SFX and replay verified")
 	_restore_saved_record()
 	_restore_saved_preferences()
+	_cleanup_smoke_identity()
 	# The Dummy output clock is independent from simulated physics delta. Let the
 	# final short one-shots drain so the native test process releases MP3 streams.
 	await create_timer(0.8).timeout
@@ -388,8 +496,13 @@ func _restore_saved_preferences() -> void:
 		var preference_file := FileAccess.open("user://paper_flight_settings.cfg", FileAccess.WRITE)
 		if preference_file != null:
 			preference_file.store_buffer(_saved_preferences_snapshot)
-	else:
-		DirAccess.remove_absolute(ProjectSettings.globalize_path("user://paper_flight_settings.cfg"))
+		else:
+			DirAccess.remove_absolute(ProjectSettings.globalize_path("user://paper_flight_settings.cfg"))
+
+
+func _cleanup_smoke_identity() -> void:
+	if not _smoke_identity_file.is_empty() and FileAccess.file_exists(_smoke_identity_file):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(_smoke_identity_file))
 
 
 func _fail(message: String) -> void:
@@ -400,4 +513,5 @@ func _fail(message: String) -> void:
 	print("[SMOKE_FAIL] " + message)
 	_restore_saved_record()
 	_restore_saved_preferences()
+	_cleanup_smoke_identity()
 	quit(1)
